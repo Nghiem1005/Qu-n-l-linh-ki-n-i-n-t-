@@ -1,4 +1,4 @@
-package DBMS.controller.web;
+package DBMS.controller.admin;
 
 import java.io.IOException;
 
