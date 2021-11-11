@@ -1,11 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ include file="/common/taglib.jsp"%>
-<div class="clearfix">
-</div>
-<!-- BEGIN CONTAINER -->
-<div class="container">
-	<div class="page-container">
+<div class="page-container">
 		<!-- BEGIN SIDEBAR -->
 		<div class="page-sidebar-wrapper">
 			<!-- DOC: Set data-auto-scroll="false" to disable the sidebar from auto scrolling/focusing -->
@@ -1638,15 +1634,3 @@
 		<!--Cooming Soon...-->
 		<!-- END QUICK SIDEBAR -->
 	</div>
-	<!-- END CONTAINER -->
-	<!-- BEGIN FOOTER -->
-	<div class="page-footer">
-		<div class="page-footer-inner">
-			 2014 &copy; Metronic by keenthemes.
-		</div>
-		<div class="scroll-to-top">
-			<i class="icon-arrow-up"></i>
-		</div>
-	</div>
-	<!-- END FOOTER -->
-</div>
