@@ -1,8 +1,8 @@
 package DBMS.dao;
 
-public class NSXDao {
+public class AccountDao {
 
-	public NSXDao() {
+	public AccountDao() {
 		// TODO Auto-generated constructor stub
 	}
 
