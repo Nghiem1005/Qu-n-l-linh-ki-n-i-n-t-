@@ -18,7 +18,7 @@ public class HomeController extends HttpServlet{
 		resp.setContentType("text/html");
 		resp.setCharacterEncoding("UTF-8");
 		req.setCharacterEncoding("UTF-8");
-		RequestDispatcher rq = req.getRequestDispatcher("/views/admin/home.jsp");
+		RequestDispatcher rq = req.getRequestDispatcher("/views/admin/add-user.jsp");
 		rq.forward(req, resp);
 	}
 }

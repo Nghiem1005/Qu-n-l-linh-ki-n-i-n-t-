@@ -76,7 +76,10 @@
 	<!-- END HEADER -->
 	<div class="clearfix"></div>
 	<div class="container">
-		<dec:body />
+		<div class="page-container">
+			<%@ include file="/common/admin/sidebar.jsp"%>
+			<dec:body />
+		</div>
 		<!-- BEGIN FOOTER -->
 		<%@ include file="/common/admin/footer.jsp"%>
 		<!-- END FOOTER -->
