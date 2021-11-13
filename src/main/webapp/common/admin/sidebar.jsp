@@ -26,6 +26,12 @@
 			<li><a href="javascript:;"> <i class="icon-social-dropbox"></i>
 					<span class="title">Sản phẩm</span> <span class="arrow "></span>
 			</a></li>
+			<li><a href="javascript:;"> <i class="icon-list"></i>
+					<span class="title">Loại</span> <span class="arrow "></span>
+			</a></li>
+			<li><a href="javascript:;"> <i class="icon-pointer"></i>
+					<span class="title">Nhà sản xuất</span> <span class="arrow "></span>
+			</a></li>
 			<li><a href="javascript:;"> <i class="icon-notebook"></i> <span
 					class="title">Đơn Hàng</span> <span class="arrow "></span>
 			</a></li>
