@@ -2,7 +2,6 @@
 	pageEncoding="UTF-8"%>
 <%@ include file="/common/taglib.jsp"%>
 
-
 <div class="page-content-wrapper">
 	<div class="page-content">
 		<!-- BEGIN SAMPLE PORTLET CONFIGURATION MODAL FORM-->
@@ -122,10 +121,9 @@
 		<!-- BEGIN PAGE HEADER-->
 		<div class="page-bar">
 			<ul class="page-breadcrumb">
-				<li><i class="fa fa-home"></i> <a href="index.html">Trang chủ</a> <i
-					class="fa fa-angle-right"></i></li>
-				<li><a href="#">Sản phẩm</a> <i class="fa fa-angle-right"></i>
-				</li>
+				<li><i class="fa fa-home"></i> <a href="index.html">Trang
+						chủ</a> <i class="fa fa-angle-right"></i></li>
+				<li><a href="#">Loại linh kiện</a></li>
 			</ul>
 			<div class="page-toolbar">
 				<div id="dashboard-report-range"
@@ -144,89 +142,69 @@
 		<!-- END PAGE HEADER-->
 		<!-- BEGIN PAGE CONTENT-->
 		<div class="row">
-				<div class="col-md-12">
-					<!-- BEGIN EXAMPLE TABLE PORTLET-->
-					<div class="portlet box blue">
-						<div class="portlet-title">
-							<div class="caption">
-								<i class="fa fa-edit"></i>Thông tin
-							</div>
-							<div class="tools">
-								<a href="javascript:;" class="collapse"> </a> <a
-									href="#portlet-config" data-toggle="modal" class="config">
-								</a> <a href="javascript:;" class="reload"> </a> <a
-									href="javascript:;" class="remove"> </a>
-							</div>
+			<div class="col-md-12">
+				<!-- BEGIN EXAMPLE TABLE PORTLET-->
+				<div class="portlet box red">
+					<div class="portlet-title">
+						<div class="caption">Thông tin</div>
+						<div class="tools">
+							<a href="javascript:;" class="collapse"> </a> <a
+								href="#portlet-config" data-toggle="modal" class="config"> </a>
+							<a href="javascript:;" class="reload"> </a> <a
+								href="javascript:;" class="remove"> </a>
 						</div>
-						<div class="portlet-body">
-							<div class="table-toolbar">
-								<div class="row">
-									<div class="col-md-6">
-										<div class="btn-group">
-											<button class="btn green">
-												<a href="${pageContext.request.contextPath }/admin/product/add"
-													style="color: white; text-decoration: none;"> Thêm </a>
-												<i class="fa fa-plus"></i>
-											</button>
-										</div>
+					</div>
+					<div class="portlet-body">
+						<div class="table-toolbar">
+							<div class="row">
+								<div class="col-md-6">
+									<div class="btn-group">
+										<button id="sample_editable_1_new" class="btn blue">
+											<a href="admin_seller_add.html"
+												style="color: aliceblue; text-decoration: none;">Thêm <i
+												class="fa fa-plus"></i></a>
+										</button>
 									</div>
-									<div class="col-md-6">
-										<div class="btn-group pull-right">
-											<button class="btn dropdown-toggle" data-toggle="dropdown">
-												Tools <i class="fa fa-angle-down"></i>
-											</button>
-											<ul class="dropdown-menu pull-right">
-												<li><a href="#"> Print </a></li>
-												<li><a href="#"> Save as PDF </a></li>
-												<li><a href="#"> Export to Excel </a></li>
-											</ul>
-										</div>
+								</div>
+								<div class="col-md-6">
+									<div class="btn-group pull-right">
+										<button class="btn dropdown-toggle" data-toggle="dropdown">
+											Tools <i class="fa fa-angle-down"></i>
+										</button>
+										<ul class="dropdown-menu pull-right">
+											<li><a href="#"> Print </a></li>
+											<li><a href="#"> Save as PDF </a></li>
+											<li><a href="#"> Export to Excel </a></li>
+										</ul>
 									</div>
 								</div>
 							</div>
-							<table class="table table-striped table-hover table-bordered"
-								id="sample_editable_1">
-								<thead>
-									<tr>
-										<th>Mã sản phẩm</th>
-										<th>Tên sản phẩm</th>
-										<th>Mô tả</th>
-										<th>Đơn Giá</th>
-										<th>Hình Ảnh</th>
-										<th>Mã loại</th>
-										<th>Mã NSX</th>
-										<th>Số lượng</th>
-										<th>Edit</th>
-										<th>Delete</th>
-									</tr>
-								</thead>
-								<tbody>
-									<c:forEach items="${listproduct }" var="a">
-										<tr>
-											<td>${a.productID }</td>
-											<td>${a.productName }</td>
-											<td>${a.description }</td>
-											<td>${a.price }</td>
-											<td><img src="${a.imagelink }" alt="Girl in a jacket"
-												width="80" height="80"></td>
-											<td>${a.categoryID }</td>
-											<td>${a.sellerID }</td>
-											<td>${a.amount }</td>
-											<!-- <td class="center">power user</td> -->
-											<td><a href="${pageContext.request.contextPath }/admin/product/edit?id=${a.productID }">
-													Edit </a></td>
-											<td><a href="${pageContext.request.contextPath }/admin/product/delete?id=${a.productID }">
-													Delete </a></td>
-										</tr>
-									</c:forEach>
-								</tbody>
-							</table>
 						</div>
+						<table class="table table-striped table-hover table-bordered"
+							id="sample_editable_1">
+							<thead>
+								<tr>
+									<th>Mã loại</th>
+									<th>Tên loại</th>
+									<th>Details</th>
+									<th>Delete</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>alex</td>
+									<td>Alex Nilson</td>
+									<td><a class="edit"
+										href="admin_seller_detail_and_edit.html"> Details </a></td>
+									<td><a class="delete" href="javascript:;"> Delete </a></td>
+								</tr>
+							</tbody>
+						</table>
 					</div>
-					<!-- END EXAMPLE TABLE PORTLET-->
 				</div>
+				<!-- END EXAMPLE TABLE PORTLET-->
 			</div>
+		</div>
 		<!-- END PAGE CONTENT-->
 	</div>
 </div>
-

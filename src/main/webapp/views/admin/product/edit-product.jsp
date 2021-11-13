@@ -1,8 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ include file="/common/taglib.jsp"%>
-
-
 <div class="page-content-wrapper">
 	<div class="page-content">
 		<!-- BEGIN SAMPLE PORTLET CONFIGURATION MODAL FORM-->
@@ -126,6 +124,7 @@
 					class="fa fa-angle-right"></i></li>
 				<li><a href="#">Sản phẩm</a> <i class="fa fa-angle-right"></i>
 				</li>
+				<li><a href="#">Chỉnh sửa</a></li>
 			</ul>
 			<div class="page-toolbar">
 				<div id="dashboard-report-range"
@@ -144,89 +143,136 @@
 		<!-- END PAGE HEADER-->
 		<!-- BEGIN PAGE CONTENT-->
 		<div class="row">
-				<div class="col-md-12">
-					<!-- BEGIN EXAMPLE TABLE PORTLET-->
-					<div class="portlet box blue">
-						<div class="portlet-title">
-							<div class="caption">
-								<i class="fa fa-edit"></i>Thông tin
-							</div>
-							<div class="tools">
-								<a href="javascript:;" class="collapse"> </a> <a
-									href="#portlet-config" data-toggle="modal" class="config">
-								</a> <a href="javascript:;" class="reload"> </a> <a
-									href="javascript:;" class="remove"> </a>
-							</div>
-						</div>
-						<div class="portlet-body">
-							<div class="table-toolbar">
-								<div class="row">
-									<div class="col-md-6">
-										<div class="btn-group">
-											<button class="btn green">
-												<a href="${pageContext.request.contextPath }/admin/product/add"
-													style="color: white; text-decoration: none;"> Thêm </a>
-												<i class="fa fa-plus"></i>
-											</button>
-										</div>
-									</div>
-									<div class="col-md-6">
-										<div class="btn-group pull-right">
-											<button class="btn dropdown-toggle" data-toggle="dropdown">
-												Tools <i class="fa fa-angle-down"></i>
-											</button>
-											<ul class="dropdown-menu pull-right">
-												<li><a href="#"> Print </a></li>
-												<li><a href="#"> Save as PDF </a></li>
-												<li><a href="#"> Export to Excel </a></li>
-											</ul>
-										</div>
-									</div>
+					<div class="col-md-12">
+						<!-- BEGIN VALIDATION STATES-->
+						<div class="portlet box yellow">
+							<div class="portlet-title">
+								<div class="caption">
+									<i class="fa fa-gift"></i>Sửa thông tin sản phẩm
+								</div>
+								<div class="tools">
+									<a href="javascript:;" class="collapse"> </a> <a
+										href="#portlet-config" data-toggle="modal" class="config">
+									</a> <a href="javascript:;" class="reload"> </a> <a
+										href="javascript:;" class="remove"> </a>
 								</div>
 							</div>
-							<table class="table table-striped table-hover table-bordered"
-								id="sample_editable_1">
-								<thead>
-									<tr>
-										<th>Mã sản phẩm</th>
-										<th>Tên sản phẩm</th>
-										<th>Mô tả</th>
-										<th>Đơn Giá</th>
-										<th>Hình Ảnh</th>
-										<th>Mã loại</th>
-										<th>Mã NSX</th>
-										<th>Số lượng</th>
-										<th>Edit</th>
-										<th>Delete</th>
-									</tr>
-								</thead>
-								<tbody>
-									<c:forEach items="${listproduct }" var="a">
-										<tr>
-											<td>${a.productID }</td>
-											<td>${a.productName }</td>
-											<td>${a.description }</td>
-											<td>${a.price }</td>
-											<td><img src="${a.imagelink }" alt="Girl in a jacket"
-												width="80" height="80"></td>
-											<td>${a.categoryID }</td>
-											<td>${a.sellerID }</td>
-											<td>${a.amount }</td>
-											<!-- <td class="center">power user</td> -->
-											<td><a href="${pageContext.request.contextPath }/admin/product/edit?id=${a.productID }">
-													Edit </a></td>
-											<td><a href="${pageContext.request.contextPath }/admin/product/delete?id=${a.productID }">
-													Delete </a></td>
-										</tr>
-									</c:forEach>
-								</tbody>
-							</table>
+							<div class="portlet-body form">
+								<!-- BEGIN FORM-->
+								<form action="edit" method="post" id="form_sample_2" class="form-horizontal">
+									<div class="form-body">
+										<div class="alert alert-danger ${alertmess != null ? "" : "display-hide" }">
+											<button class="close" data-close="alert"></button>
+											${alertmess }
+										</div>
+										<div class="alert alert-success display-hide">
+											<button class="close" data-close="alert"></button>
+											Your form validation is successful!
+										</div>
+										<div class="form-group">
+											<label class="control-label col-md-3">Mã linh kiện <span
+												class="required"> * </span>
+											</label>
+											<div class="col-md-4">
+												<div class="input-icon right">
+													<i class="fa"></i> <input id="inputID" type="text" class="form-control"
+														name="productid" value="${product.productID }" required readonly/>
+												</div>
+											</div>
+										</div>
+										<div class="form-group">
+											<label class="control-label col-md-3">Tên linh kiện<span
+												class="required"> * </span>
+											</label>
+											<div class="col-md-4">
+												<div class="input-icon right">
+													<i class="fa"></i> <input id="inputName" type="text" class="form-control"
+														name="name" value="${product.productName }" required />
+												</div>
+											</div>
+										</div>
+										<div class="form-group last">
+											<label class="control-label col-md-3">Mô tả <span class="required">
+											* </span>
+											</label>
+											<div class="col-md-9">
+												<textarea id="inputDescription" class="ckeditor form-control" name="description" rows="6" data-error-container="#editor2_error" required >${product.description }</textarea>
+												<div id="editor2_error">
+												</div>
+											</div>
+										</div>
+										<div class="form-group">
+											<label class="control-label col-md-3">Giá <span
+												class="required"> * </span>
+											</label>
+											<div class="col-md-4">
+												<div class="input-icon right">
+													<i class="fa"></i> <input id="inputPrice" type="text" class="form-control"
+														name="price" value="${product.price }" required />
+												</div>
+											</div>
+										</div>
+										<div class="form-group">
+											<label class="control-label col-md-3">Link Ảnh <span
+												class="required"> * </span>
+											</label>
+											<div class="col-md-4">
+												<div class="input-icon right">
+													<i class="fa"></i> <input id="inputLinkanh" type="text" class="form-control"
+														name="linkanh" value="${product.imagelink }" required />
+												</div>
+												<span class="help-block"> e.g: https://canary.contestimg.wish.com/api/webimage/6092b25f8dc7310066eea79c-large.jpg </span>
+											</div>
+										</div>
+										<div class="form-group">
+											<label class="control-label col-md-3">Mã loại <span
+												class="required"> * </span>
+											</label>
+											<div class="col-md-4">
+												<div class="input-icon right">
+													<i class="fa"></i> <input id="inputCategoryid" type="text" class="form-control"
+														name="categoryid" value="${product.categoryID }" required />
+												</div>
+											</div>
+										</div>
+										<div class="form-group">
+											<label class="control-label col-md-3">Mã nhà sản xuất <span
+												class="required"> * </span>
+											</label>
+											<div class="col-md-4">
+												<div class="input-icon right">
+													<i class="fa"></i> <input id="inputSellerid" type="text" class="form-control"
+														name="sellerid" value="${product.sellerID }" required />
+												</div>
+											</div>
+										</div>
+										<div class="form-group">
+											<label class="control-label col-md-3">Số lượng <span
+												class="required"> * </span>
+											</label>
+											<div class="col-md-4">
+												<div class="input-icon right">
+													<i class="fa"></i> <input id="inputAmount" type="text" class="form-control"
+														name="amount" value="${product.amount }" required />
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="form-actions">
+										<div class="row">
+											<div class="col-md-offset-3 col-md-9">
+												<button type="submit" class="btn green">Lưu</button>
+												<button type="button" class="btn default">Thoát</button>
+											</div>
+										</div>
+									</div>
+								</form>
+								<!-- END FORM-->
+							</div>
 						</div>
+						<!-- END VALIDATION STATES-->
 					</div>
-					<!-- END EXAMPLE TABLE PORTLET-->
 				</div>
-			</div>
 		<!-- END PAGE CONTENT-->
 	</div>
 </div>
-
