@@ -18,7 +18,7 @@ public class HomeController extends HttpServlet{
 		resp.setContentType("text/html");
 		resp.setCharacterEncoding("UTF-8");
 		req.setCharacterEncoding("UTF-8");
-		RequestDispatcher rq = req.getRequestDispatcher("/views/admin/Loai/edit-loai.jsp");
+		RequestDispatcher rq = req.getRequestDispatcher("/views/admin/NSX/add-nsx.jsp");
 		rq.forward(req, resp);
 	}
 }

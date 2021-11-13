@@ -181,7 +181,7 @@
 											</div>
 										</div>
 										<div class="form-group">
-											<label class="control-label col-md-3">Tên loạin<span
+											<label class="control-label col-md-3">Tên loại<span
 												class="required"> * </span>
 											</label>
 											<div class="col-md-4">
