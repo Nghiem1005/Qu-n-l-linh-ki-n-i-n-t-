@@ -1,5 +1,12 @@
 eclipse.preferences.version=1
 encoding//src/main/java/DBMS/connection/DBConnect.java=UTF-8
+<<<<<<< HEAD
 encoding//src/main/java/DBMS/dao/AccountDao.java=UTF-8
+=======
+encoding//src/main/java/DBMS/controller/web/DonHangController.java=UTF-8
+encoding//src/main/java/DBMS/controller/web/DonHangDetailController.java=UTF-8
+encoding//src/main/java/DBMS/dao/DonHangDao.java=UTF-8
+>>>>>>> 471810afad7ad30e8705d9280683c4046140bf1d
 encoding//src/main/java/DBMS/dao/NSXDao.java=UTF-8
+encoding//src/main/java/DBMS/dao/NguoiDungDao.java=UTF-8
 encoding//src/main/webapp/views/admin/donhang/chitietdonhang.jsp=UTF-8

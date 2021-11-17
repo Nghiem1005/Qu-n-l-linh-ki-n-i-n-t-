@@ -10,6 +10,7 @@ import DBMS.model.NSXModel;
 import DBMS.connection.DBConnect;
 
 public class NSXDao {
+
 	Connection conn = null;
 	PreparedStatement ps = null;
 	ResultSet rs = null;
@@ -17,6 +18,7 @@ public class NSXDao {
 	public List<NSXModel> getAllNSX() {
 		// Khai báo List để lưu danh sách sản phẩm
 		List<NSXModel> list = new ArrayList<NSXModel>();
+
 		// khai báo chuỗi truy vấn
 		String sql = "select * from NSX";
 		try {
