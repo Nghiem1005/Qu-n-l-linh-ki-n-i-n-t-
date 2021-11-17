@@ -76,7 +76,10 @@
 	<!-- END HEADER -->
 	<div class="clearfix"></div>
 	<div class="container">
-		<dec:body />
+		<div class="page-container">
+			<%@ include file="/common/admin/sidebar.jsp"%>
+			<dec:body />
+		</div>
 		<!-- BEGIN FOOTER -->
 		<%@ include file="/common/admin/footer.jsp"%>
 		<!-- END FOOTER -->
@@ -163,8 +166,14 @@
 		src="<c:url value="/templates/theme/assets/global/plugins/flot/jquery.flot.categories.js"/>"
 		type="text/javascript"></script>
 	<!-- END PAGE LEVEL PLUGINS -->
+	<!-- BEGIN PAGE LEVEL PLUGINS -->
+<script type="text/javascript" src="<c:url value="/templates/theme/assets/global/plugins/select2/select2.min.js"/>"></script>
+<script type="text/javascript" src="<c:url value="/templates/theme/assets/global/plugins/datatables/media/js/jquery.dataTables.min.js"/>"></script>
+<script type="text/javascript" src="<c:url value="/templates/theme/assets/global/plugins/datatables/plugins/bootstrap/dataTables.bootstrap.js"/>"></script>
+<!-- END PAGE LEVEL PLUGINS -->
 	<!-- BEGIN PAGE LEVEL SCRIPTS -->
-
+	<script src="<c:url value="/templates/theme/assets/admin/layout2/scripts/table-editable.js"/>" type="text/javascript"></script>
+	
 	<script
 		src="<c:url value="/templates/theme/assets/admin/pages/scripts/ecommerce-index.js"/>"></script>
 	<script>
@@ -190,6 +199,14 @@
 			EcommerceIndex.init();
 		});
 	</script>
+	<script>
+jQuery(document).ready(function() {       
+   Metronic.init(); // init metronic core components
+Layout.init(); // init current layout
+Demo.init(); // init demo features
+   TableEditable.init();
+});
+</script>
 	<!-- END JAVASCRIPTS -->
 </body>
 <!-- END BODY -->
