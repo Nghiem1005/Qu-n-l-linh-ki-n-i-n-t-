@@ -11,8 +11,6 @@ import DBMS.connection.DBConnect;
 
 public class NSXDao {
 
-	
-		
 	public static void insert(String mansx, String tennsx, String sdt) {
 		Connection conn = null;
 		PreparedStatement ps = null;

@@ -191,14 +191,16 @@
 								</tr>
 							</thead>
 							<tbody>
+								<c:forEach items="${listdonhang}" var="o">
 								<tr>
-									<td>alex</td>
-									<td>Alex Nilson</td>
-									<td>Alex Nilson</td>
+									<td>${o.madonhang}</td>
+									<td>${o.ngaytao}</td>
+									<td>${o.manguoidung}</td>
 									<td><a class="edit"
-										href="admin_seller_detail_and_edit.html"> Details </a></td>
+										href="${pageContext.request.contextPath}/admin/donhang/chitietdonhang"> Details </a></td>
 									<td><a class="delete" href="javascript:;"> Delete </a></td>
 								</tr>
+								</c:forEach>
 							</tbody>
 						</table>
 					</div>
