@@ -202,15 +202,17 @@
 											</tr>
 										</thead>
 										<tbody>
+											<c:forEach items="${listchitietdonhang}" var="o">
 											<tr>
-												<td>alex</td>
-												<td>Alex Nilson</td>
-												<td>3</td>
-												<td>2000000</td>
+												<td>${o.malinhkien}</td>
+												<td>${o.tenlinhkien}</td>
+												<td>${o.soluong}</td>
+												<td>${o.gia}</td>
 												<td><a class="edit"
 													href="admin_seller_detail_and_edit.html"> Details </a></td>
 												<td><a class="delete" href="javascript:;"> Delete </a></td>
 											</tr>
+											</c:forEach>
 										</tbody>
 									</table>
 

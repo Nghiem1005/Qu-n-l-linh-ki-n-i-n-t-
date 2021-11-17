@@ -32,7 +32,7 @@
 			<li><a href="javascript:;"> <i class="icon-pointer"></i>
 					<span class="title">Nhà sản xuất</span> <span class="arrow "></span>
 			</a></li>
-			<li><a href="javascript:;"> <i class="icon-notebook"></i> <span
+			<li><a href="${pageContext.request.contextPath}/admin/donhang"> <i class="icon-notebook"></i> <span
 					class="title">Đơn Hàng</span> <span class="arrow "></span>
 			</a></li>
 			<li><a href="javascript:;"> <i class="icon-basket"></i> <span
