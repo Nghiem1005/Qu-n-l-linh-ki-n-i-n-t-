@@ -122,7 +122,7 @@
 			<ul class="page-breadcrumb">
 				<li><i class="fa fa-home"></i> <a href="index.html">Trang
 						chủ</a> <i class="fa fa-angle-right"></i></li>
-						<li><a href="index.html">Đơn hàng</a> <i
+						<li><a href="index.html">Giỏ hàng</a> <i
 					class="fa fa-angle-right"></i></li>
 				<li><a href="index.html">Thêm</a></li>
 			</ul>
@@ -148,7 +148,7 @@
 				<div class="portlet box blue">
 					<div class="portlet-title">
 						<div class="caption">
-							<i class="fa fa-users"></i> Thêm đơn hàng mới
+							<i class="fa fa-users"></i> Thêm giỏ hàng mới
 						</div>
 						<div class="tools">
 							<a href="" class="collapse"> </a> <a href="#portlet-config"
@@ -171,15 +171,6 @@
 									</div>
 								</div>
 								<div class="form-group">
-									<label for="exampleInputPassword1">Ngày tạo</label>
-									<div class="input-group">
-										<input type="password" class="form-control"
-											id="exampleInputPassword1" placeholder="Password"> <span
-											class="input-group-addon"> <i class="fa fa-calendar"></i>
-										</span>
-									</div>
-								</div>
-								<div class="form-group">
 									<label for="exampleInputPassword1">Mã người dùng</label>
 									<div class="input-group">
 										<input type="password" class="form-control"
@@ -194,7 +185,7 @@
 
 								<div class="form-actions"
 									style="background-color: white; border: none;">
-									<button type="submit" class="btn blue">Thêm đơn hàng</button>
+									<button type="submit" class="btn blue">Thêm giỏ hàng</button>
 
 									<button type="submit" class="btn green-sharp">
 										<a href="#" style="text-decoration: none; color: white;">

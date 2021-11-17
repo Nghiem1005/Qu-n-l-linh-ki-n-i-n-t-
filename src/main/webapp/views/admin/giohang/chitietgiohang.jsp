@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ include file="/common/taglib.jsp"%>
+<%@include file="/common/taglib.jsp"%>
 <div class="page-content-wrapper">
 	<div class="page-content">
 		<!-- BEGIN SAMPLE PORTLET CONFIGURATION MODAL FORM-->
@@ -122,9 +122,8 @@
 			<ul class="page-breadcrumb">
 				<li><i class="fa fa-home"></i> <a href="index.html">Trang
 						chủ</a> <i class="fa fa-angle-right"></i></li>
-						<li><a href="index.html">Đơn hàng</a> <i
-					class="fa fa-angle-right"></i></li>
-				<li><a href="index.html">Thêm</a></li>
+				<li><a href="#">Đơn hàng</a></li>
+				<li><a href="#">Chi tiết</a></li>
 			</ul>
 			<div class="page-toolbar">
 				<div id="dashboard-report-range"
@@ -142,76 +141,85 @@
 		</div>
 		<!-- END PAGE HEADER-->
 		<!-- BEGIN PAGE CONTENT-->
-		<div class="row" style="display: flex; justify-content: center;">
-			<div class="col-md-11">
-				<!-- BEGIN SAMPLE FORM PORTLET-->
-				<div class="portlet box blue">
+		<div class="row">
+			<div class="col-md-12">
+				<!-- BEGIN EXAMPLE TABLE PORTLET-->
+				<div class="portlet box red">
 					<div class="portlet-title">
-						<div class="caption">
-							<i class="fa fa-users"></i> Thêm đơn hàng mới
-						</div>
+						<div class="caption">Thông tin</div>
 						<div class="tools">
-							<a href="" class="collapse"> </a> <a href="#portlet-config"
-								data-toggle="modal" class="config"> </a> <a href=""
-								class="reload"> </a> <a href="" class="remove"> </a>
+							<a href="javascript:;" class="collapse"> </a> <a
+								href="#portlet-config" data-toggle="modal" class="config"> </a>
+							<a href="javascript:;" class="reload"> </a> <a
+								href="javascript:;" class="remove"> </a>
 						</div>
 					</div>
-					<div class="portlet-body form">
-						<form role="form" action="" method="post">
-							<div class="form-body">
+					<div class="portlet-body">
+						<div class="portlet-body form">
+							<form role="form" action="" method="post">
+								<div class="form-body">
 
-								<div class="form-group">
-									<label for="exampleInputPassword1">Mã đơn hàng</label>
-									<div class="input-group">
-										<input type="password" class="form-control"
-											id="exampleInputPassword1" placeholder="Password" readonly>
-										<span class="input-group-addon"> <i
-											class="fa fa-file-o"></i>
-										</span>
+									<div class="form-group">
+										<label for="exampleInputPassword1">Mã đơn hàng</label>
+										<div class="input-group">
+											<input type="password" class="form-control"
+												id="exampleInputPassword1" placeholder="Password" readonly>
+											<span class="input-group-addon"> <i
+												class="fa fa-file-o"></i>
+											</span>
+										</div>
 									</div>
-								</div>
-								<div class="form-group">
-									<label for="exampleInputPassword1">Ngày tạo</label>
-									<div class="input-group">
-										<input type="password" class="form-control"
-											id="exampleInputPassword1" placeholder="Password"> <span
-											class="input-group-addon"> <i class="fa fa-calendar"></i>
-										</span>
+									<div class="form-group">
+										<label for="exampleInputPassword1">Mã người dùng</label>
+										<div class="input-group">
+											<input type="password" class="form-control"
+												id="exampleInputPassword1" placeholder="Password"> <span
+												class="input-group-addon"> <i class="fa fa-user"></i>
+											</span>
+										</div>
 									</div>
+
 								</div>
-								<div class="form-group">
-									<label for="exampleInputPassword1">Mã người dùng</label>
-									<div class="input-group">
-										<input type="password" class="form-control"
-											id="exampleInputPassword1" placeholder="Password"> <span
-											class="input-group-addon"> <i class="fa fa-user"></i>
-										</span>
-									</div>
-								</div>
+						</div>
+						<table class="table table-striped table-hover table-bordered"
+							id="sample_editable_1">
+							<thead>
+								<tr>
+									<th>Mã linh kiện</th>
+									<th>Tên linh kiện</th>
+									<th>Số lượng</th>
+									<th>Thành tiền</th>
+									<th>Details</th>
+									<th>Delete</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>alex</td>
+									<td>Alex Nilson</td>
+									<td>3</td>
+									<td>2000000</td>
+									<td><a class="edit"
+										href="admin_seller_detail_and_edit.html"> Details </a></td>
+									<td><a class="delete" href="javascript:;"> Delete </a></td>
+								</tr>
+							</tbody>
+						</table>
 
+						<div class="form-actions">
+							<button type="submit" class="btn blue">Sửa</button>
+							<button type="submit" class="btn green-sharp">
+								<a
+									href="${pageContext.request.contextPath }/admin/product/delete?id=${a.productID }"
+									style="text-decoration: none; color: white;"> Xóa </a>
+							</button>
+						</div>
 
-
-
-								<div class="form-actions"
-									style="background-color: white; border: none;">
-									<button type="submit" class="btn blue">Thêm đơn hàng</button>
-
-									<button type="submit" class="btn green-sharp">
-										<a href="#" style="text-decoration: none; color: white;">
-											Thêm linh kiện </a>
-									</button>
-									<button type="button" class="btn default">Hủy</button>
-								</div>
-
-							</div>
 						</form>
 					</div>
 				</div>
-				<!-- END SAMPLE FORM PORTLET-->
-				<!-- BEGIN SAMPLE FORM PORTLET-->
-				<!-- END SAMPLE FORM PORTLET-->
+				<!-- END EXAMPLE TABLE PORTLET-->
 			</div>
-
 		</div>
 		<!-- END PAGE CONTENT-->
 	</div>

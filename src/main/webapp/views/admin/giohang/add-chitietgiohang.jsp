@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8"%>
 <%@ include file="/common/taglib.jsp"%>
 <div class="page-content-wrapper">
 	<div class="page-content">
@@ -122,7 +122,9 @@
 			<ul class="page-breadcrumb">
 				<li><i class="fa fa-home"></i> <a href="index.html">Trang
 						chủ</a> <i class="fa fa-angle-right"></i></li>
-						<li><a href="index.html">Đơn hàng</a> <i
+				<li><a href="index.html">Giỏ hàng</a> <i
+					class="fa fa-angle-right"></i></li>
+				<li><a href="index.html">Chi tiết</a> <i
 					class="fa fa-angle-right"></i></li>
 				<li><a href="index.html">Thêm</a></li>
 			</ul>
@@ -145,10 +147,10 @@
 		<div class="row" style="display: flex; justify-content: center;">
 			<div class="col-md-11">
 				<!-- BEGIN SAMPLE FORM PORTLET-->
-				<div class="portlet box blue">
+				<div class="portlet box green-soft">
 					<div class="portlet-title">
 						<div class="caption">
-							<i class="fa fa-users"></i> Thêm đơn hàng mới
+							<i class="fa fa-users"></i> Thêm người dùng mới
 						</div>
 						<div class="tools">
 							<a href="" class="collapse"> </a> <a href="#portlet-config"
@@ -157,53 +159,42 @@
 						</div>
 					</div>
 					<div class="portlet-body form">
-						<form role="form" action="" method="post">
+						<form role="form">
 							<div class="form-body">
 
+
 								<div class="form-group">
-									<label for="exampleInputPassword1">Mã đơn hàng</label>
+									<label>Mã giỏ hàng</label>
 									<div class="input-group">
-										<input type="password" class="form-control"
-											id="exampleInputPassword1" placeholder="Password" readonly>
-										<span class="input-group-addon"> <i
+										<span class="input-group-addon input-circle-left"> <i
 											class="fa fa-file-o"></i>
-										</span>
+										</span> <input type="text" class="form-control input-circle-right"
+											placeholder="Email Address">
 									</div>
 								</div>
 								<div class="form-group">
-									<label for="exampleInputPassword1">Ngày tạo</label>
+									<label>Mã linh kiện</label>
 									<div class="input-group">
-										<input type="password" class="form-control"
-											id="exampleInputPassword1" placeholder="Password"> <span
-											class="input-group-addon"> <i class="fa fa-calendar"></i>
-										</span>
+										<span class="input-group-addon input-circle-left"> <i
+											class="fa fa-cubes"></i>
+										</span> <input type="text" class="form-control input-circle-right"
+											placeholder="Số điện thoại">
 									</div>
 								</div>
 								<div class="form-group">
-									<label for="exampleInputPassword1">Mã người dùng</label>
+									<label>Số lượng</label>
 									<div class="input-group">
-										<input type="password" class="form-control"
-											id="exampleInputPassword1" placeholder="Password"> <span
-											class="input-group-addon"> <i class="fa fa-user"></i>
-										</span>
+										<span class="input-group-addon input-circle-left"> <i
+											class="fa fa-bar-chart"></i>
+										</span> <input type="text" class="form-control input-circle-right"
+											placeholder="Số điện thoại">
 									</div>
 								</div>
 
-
-
-
-								<div class="form-actions"
-									style="background-color: white; border: none;">
-									<button type="submit" class="btn blue">Thêm đơn hàng</button>
-
-									<button type="submit" class="btn green-sharp">
-										<a href="#" style="text-decoration: none; color: white;">
-											Thêm linh kiện </a>
-									</button>
-									<button type="button" class="btn default">Hủy</button>
+								<div class="form-actions">
+									<button type="submit" class="btn blue">Submit</button>
+									<button type="button" class="btn default">Cancel</button>
 								</div>
-
-							</div>
 						</form>
 					</div>
 				</div>
