@@ -148,7 +148,7 @@
 				<div class="portlet box blue">
 					<div class="portlet-title">
 						<div class="caption">
-							<i class="fa fa-users"></i> Thêm người dùng mới
+							<i class="fa fa-users"></i> Thêm đơn hàng mới
 						</div>
 						<div class="tools">
 							<a href="" class="collapse"> </a> <a href="#portlet-config"

@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ include file="/common/taglib.jsp"%>
+<%@include file="/common/taglib.jsp"%>
 <div class="page-content-wrapper">
 	<div class="page-content">
 		<!-- BEGIN SAMPLE PORTLET CONFIGURATION MODAL FORM-->
@@ -122,7 +122,7 @@
 			<ul class="page-breadcrumb">
 				<li><i class="fa fa-home"></i> <a href="index.html">Trang
 						chủ</a> <i class="fa fa-angle-right"></i></li>
-				<li><a href="#">Đơn hàng</a></li>
+				<li><a href="#">Giỏ hàng</a></li>
 			</ul>
 			<div class="page-toolbar">
 				<div id="dashboard-report-range"
@@ -143,7 +143,7 @@
 		<div class="row">
 			<div class="col-md-12">
 				<!-- BEGIN EXAMPLE TABLE PORTLET-->
-				<div class="portlet box yellow-casablanca">
+				<div class="portlet box yellow">
 					<div class="portlet-title">
 						<div class="caption">Thông tin</div>
 						<div class="tools">
@@ -183,24 +183,20 @@
 							id="sample_editable_1">
 							<thead>
 								<tr>
-									<th>Mã đơn hàng</th>
-									<th>Ngày tạo</th>
+									<th>Mã giỏ hàng</th>
 									<th>Mã người dùng</th>
 									<th>Details</th>
 									<th>Delete</th>
 								</tr>
 							</thead>
 							<tbody>
-								<c:forEach items="${listdonhang}" var="o">
 								<tr>
-									<td>${o.madonhang}</td>
-									<td>${o.ngaytao}</td>
-									<td>${o.manguoidung}</td>
+									<td>alex</td>
+									<td>Alex Nilson</td>
 									<td><a class="edit"
-										href="${pageContext.request.contextPath}/admin/donhang/chitietdonhang?iddonhang=${o.madonhang}"> Details </a></td>
+										href="admin_seller_detail_and_edit.html"> Details </a></td>
 									<td><a class="delete" href="javascript:;"> Delete </a></td>
 								</tr>
-								</c:forEach>
 							</tbody>
 						</table>
 					</div>

@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ include file="/common/taglib.jsp"%>
+<%@include file="/common/taglib.jsp"%>
 <div class="page-content-wrapper">
 	<div class="page-content">
 		<!-- BEGIN SAMPLE PORTLET CONFIGURATION MODAL FORM-->
@@ -123,6 +123,7 @@
 				<li><i class="fa fa-home"></i> <a href="index.html">Trang
 						chủ</a> <i class="fa fa-angle-right"></i></li>
 				<li><a href="#">Đơn hàng</a></li>
+				<li><a href="#">Chi tiết</a></li>
 			</ul>
 			<div class="page-toolbar">
 				<div id="dashboard-report-range"
@@ -143,7 +144,7 @@
 		<div class="row">
 			<div class="col-md-12">
 				<!-- BEGIN EXAMPLE TABLE PORTLET-->
-				<div class="portlet box yellow-casablanca">
+				<div class="portlet box red">
 					<div class="portlet-title">
 						<div class="caption">Thông tin</div>
 						<div class="tools">
@@ -154,55 +155,67 @@
 						</div>
 					</div>
 					<div class="portlet-body">
-						<div class="table-toolbar">
-							<div class="row">
-								<div class="col-md-6">
-									<div class="btn-group">
-										<button id="sample_editable_1_new" class="btn blue">
-											<a href="admin_seller_add.html"
-												style="color: aliceblue; text-decoration: none;">Thêm <i
-												class="fa fa-plus"></i></a>
-										</button>
+						<div class="portlet-body form">
+							<form role="form" action="" method="post">
+								<div class="form-body">
+
+									<div class="form-group">
+										<label for="exampleInputPassword1">Mã đơn hàng</label>
+										<div class="input-group">
+											<input type="password" class="form-control"
+												id="exampleInputPassword1" placeholder="Password" readonly>
+											<span class="input-group-addon"> <i
+												class="fa fa-file-o"></i>
+											</span>
+										</div>
 									</div>
-								</div>
-								<div class="col-md-6">
-									<div class="btn-group pull-right">
-										<button class="btn dropdown-toggle" data-toggle="dropdown">
-											Tools <i class="fa fa-angle-down"></i>
-										</button>
-										<ul class="dropdown-menu pull-right">
-											<li><a href="#"> Print </a></li>
-											<li><a href="#"> Save as PDF </a></li>
-											<li><a href="#"> Export to Excel </a></li>
-										</ul>
+									<div class="form-group">
+										<label for="exampleInputPassword1">Mã người dùng</label>
+										<div class="input-group">
+											<input type="password" class="form-control"
+												id="exampleInputPassword1" placeholder="Password"> <span
+												class="input-group-addon"> <i class="fa fa-user"></i>
+											</span>
+										</div>
 									</div>
+
 								</div>
-							</div>
 						</div>
 						<table class="table table-striped table-hover table-bordered"
 							id="sample_editable_1">
 							<thead>
 								<tr>
-									<th>Mã đơn hàng</th>
-									<th>Ngày tạo</th>
-									<th>Mã người dùng</th>
+									<th>Mã linh kiện</th>
+									<th>Tên linh kiện</th>
+									<th>Số lượng</th>
+									<th>Thành tiền</th>
 									<th>Details</th>
 									<th>Delete</th>
 								</tr>
 							</thead>
 							<tbody>
-								<c:forEach items="${listdonhang}" var="o">
 								<tr>
-									<td>${o.madonhang}</td>
-									<td>${o.ngaytao}</td>
-									<td>${o.manguoidung}</td>
+									<td>alex</td>
+									<td>Alex Nilson</td>
+									<td>3</td>
+									<td>2000000</td>
 									<td><a class="edit"
-										href="${pageContext.request.contextPath}/admin/donhang/chitietdonhang?iddonhang=${o.madonhang}"> Details </a></td>
+										href="admin_seller_detail_and_edit.html"> Details </a></td>
 									<td><a class="delete" href="javascript:;"> Delete </a></td>
 								</tr>
-								</c:forEach>
 							</tbody>
 						</table>
+
+						<div class="form-actions">
+							<button type="submit" class="btn blue">Sửa</button>
+							<button type="submit" class="btn green-sharp">
+								<a
+									href="${pageContext.request.contextPath }/admin/product/delete?id=${a.productID }"
+									style="text-decoration: none; color: white;"> Xóa </a>
+							</button>
+						</div>
+
+						</form>
 					</div>
 				</div>
 				<!-- END EXAMPLE TABLE PORTLET-->
