@@ -176,7 +176,7 @@
 											<div class="col-md-4">
 												<div class="input-icon right">
 													<i class="fa"></i> <input id="inputID" type="text" class="form-control"
-														name="productid" required />
+														name="mansx" required />
 												</div>
 											</div>
 										</div>
@@ -187,7 +187,7 @@
 											<div class="col-md-4">
 												<div class="input-icon right">
 													<i class="fa"></i> <input id="inputName" type="text" class="form-control"
-														name="name" required />
+														name="tennsx" required />
 												</div>
 											</div>
 										</div>	
@@ -198,7 +198,7 @@
 											<div class="col-md-4">
 												<div class="input-icon right">
 													<i class="fa"></i> <input id="inputName" type="text" class="form-control"
-														name="name" required />
+														name="sdt" required />
 												</div>
 											</div>
 										</div>									

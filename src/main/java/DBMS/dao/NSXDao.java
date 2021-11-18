@@ -80,7 +80,7 @@ public class NSXDao {
 		}
 	}
 	
-	public void delete(NSXModel nsx) {
+	public void delete(String mansx) {
 
 		// khai báo chuỗi truy vấn
 		String sql3 = "{ call ap_Delete_NSX(?) }";
@@ -90,9 +90,9 @@ public class NSXDao {
 			// Ném câu query qua SQL
 			ps = conn.prepareStatement(sql3);
 			// gán giá trị cho ?
-			ps.setString(1, nsx.getMansx());
+			ps.setString(1, mansx);
 			// chạy câu query và nhận kết quả
-			rs = ps.executeQuery();
+			 ps.executeUpdate();
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -117,4 +117,27 @@ public class NSXDao {
         }
         return null;
     }
+	public NSXModel get(String mansx) {
+		NSXModel nsx = new NSXModel();
+		String sql = "SELECT * FROM NhaSanXuat WHERE MANSX = ?";
+
+		try {
+			conn = new DBConnect().getConnection();
+
+			ps = conn.prepareStatement(sql);
+
+			ps.setString(1, mansx);
+			
+			rs = ps.executeQuery();
+			
+			while(rs.next()) {
+				nsx = new NSXModel(rs.getString(1), rs.getString(2), rs.getString(3));
+			}
+		
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return nsx;
+	}
 }

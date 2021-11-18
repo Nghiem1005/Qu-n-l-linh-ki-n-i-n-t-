@@ -21,11 +21,23 @@ public class InsertNSXController extends HttpServlet{
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
-		List<NSXModel> list =nsxDao.getAllNSX();
 		RequestDispatcher rq = req.getRequestDispatcher("/views/admin/NSX/add-nsx.jsp");
-		
-		req.setAttribute("list", list);
 		rq.forward(req, resp);
+	}
+	@Override
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		resp.setContentType("text/html");
+		resp.setCharacterEncoding("UTF-8");
+		req.setCharacterEncoding("UTF-8");
 		
+		String mansx = req.getParameter("mansx");
+		String tennsx = req.getParameter("tennsx");
+		String sdt = req.getParameter("sdt");
+
+		NSXModel nsx = new NSXModel(mansx, tennsx, sdt);
+		NSXDao nsxDao = new NSXDao();
+		nsxDao.insert(nsx);
+
+		resp.sendRedirect(req.getContextPath() + "/admin/nsx");
 	}
 }

@@ -159,7 +159,7 @@
 							</div>
 							<div class="portlet-body form">
 								<!-- BEGIN FORM-->
-								<form action="edit" method="post" id="form_sample_2" class="form-horizontal">
+								<form action="update" method="post" id="form_sample_2" class="form-horizontal">
 									<div class="form-body">
 										<div class="alert alert-danger ${alertmess != null ? "" : "display-hide" }">
 											<button class="close" data-close="alert"></button>
@@ -172,11 +172,11 @@
 										<div class="form-group">
 											<label class="control-label col-md-3">Mã nhà sản xuất <span
 												class="required"> * </span>
-											</label>
+											</label>	
 											<div class="col-md-4">
 												<div class="input-icon right">
 													<i class="fa"></i> <input id="inputID" type="text" class="form-control"
-														name="productid" value="${product.productID }" required readonly/>
+														name="mansx" value="${nsx.mansx}" required readonly/>
 												</div>
 											</div>
 										</div>
@@ -187,7 +187,7 @@
 											<div class="col-md-4">
 												<div class="input-icon right">
 													<i class="fa"></i> <input id="inputName" type="text" class="form-control"
-														name="name" value="${product.productName }" required />
+														name="tennsx" value="${nsx.tennsx}" required />
 												</div>
 											</div>
 										</div>	
@@ -198,7 +198,7 @@
 											<div class="col-md-4">
 												<div class="input-icon right">
 													<i class="fa"></i> <input id="inputName" type="text" class="form-control"
-														name="name" value="${product.productName }" required />
+														name="sdt" value="${nsx.sdt}" required />
 												</div>
 											</div>
 										</div>									
