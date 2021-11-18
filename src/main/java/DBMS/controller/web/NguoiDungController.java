@@ -28,7 +28,8 @@ public class NguoiDungController extends HttpServlet {
 		List<NguoiDungModel> listnguoidung=nguoidungdao.ShowList();
 		req.setAttribute("listnguoidung", listnguoidung);
 		
-		RequestDispatcher rq=req.getRequestDispatcher("/views/admin/user/list-user.jsp");
+		RequestDispatcher rq = req.getRequestDispatcher("/views/admin/user/list-user.jsp");
+		rq.forward(req, resp);	
 		
 		
 	}
