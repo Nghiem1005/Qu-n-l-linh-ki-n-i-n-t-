@@ -20,7 +20,7 @@
 					class="icon-home"></i> <span class="title">Trang Chủ</span> <span
 					class="selected"></span>
 			</a></li>
-			<li><a href="#"> <i class="icon-users"></i> <span
+			<li><a href="${pageContext.request.contextPath}/admin/nguoidung"> <i class="icon-users"></i> <span
 					class="title">Người Dùng</span> <span class="arrow "></span>
 			</a></li>
 			<li><a href="javascript:;"> <i class="icon-social-dropbox"></i>

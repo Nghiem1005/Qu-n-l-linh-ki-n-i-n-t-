@@ -1,7 +1,9 @@
 package DBMS.controller.web;
 
 import java.io.IOException;
+import java.util.List;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -9,8 +11,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import DBMS.dao.NguoiDungDao;
+import DBMS.model.NguoiDungModel;
 
-@WebServlet(urlPatterns= {"/nguoidung"})
+@WebServlet(urlPatterns= {"/admin/nguoidung"})
 public class NguoiDungController extends HttpServlet {
 
 	private static final long serialVersionUID = -5817451576299844133L;
@@ -22,7 +25,16 @@ public class NguoiDungController extends HttpServlet {
 		resp.setCharacterEncoding("UTF-8");
 		req.setCharacterEncoding("UTF-8");
 		
-		// lay tham so tu JSP
+		List<NguoiDungModel> listnguoidung=nguoidungdao.ShowList();
+		req.setAttribute("listnguoidung", listnguoidung);
 		
+		RequestDispatcher rq=req.getRequestDispatcher("/views/admin/user/list-user.jsp");
+		
+		
+	}
+	@Override
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		
+		super.doPost(req, resp);
 	}
 }

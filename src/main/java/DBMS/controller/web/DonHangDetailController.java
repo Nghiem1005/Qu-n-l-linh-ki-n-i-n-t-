@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import DBMS.dao.DonHangDao;
 import DBMS.dao.DonHangDetailDao;
 import DBMS.model.DonHangDetailModel;
 
@@ -19,11 +20,14 @@ public class DonHangDetailController extends HttpServlet {
 	private static final long serialVersionUID = -8516864251823220492L;
 	// buoc 1 : khoi tao Dao
 	DonHangDetailDao donhangdetaildao= new DonHangDetailDao();
+	DonHangDao donhangdao = new DonHangDao();
 	protected void doGet(javax.servlet.http.HttpServletRequest req, javax.servlet.http.HttpServletResponse resp) throws javax.servlet.ServletException ,java.io.IOException{
 		// thiết lập tiếng việt
 		resp.setContentType("text/html");
 		resp.setCharacterEncoding("UTF-8");
 		req.setCharacterEncoding("UTF-8");
+		
+		
 		
 		List<DonHangDetailModel> listdonhangdetail=donhangdetaildao.ShowList();
 		req.setAttribute("listchitietdonhang", listdonhangdetail);
