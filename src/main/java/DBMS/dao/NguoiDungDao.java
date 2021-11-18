@@ -4,16 +4,21 @@ import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
 
 import DBMS.connection.DBConnect;
+import DBMS.model.DonHangModel;
 import DBMS.model.NguoiDungModel;
 
 public class NguoiDungDao {
-	public static void ShowList() {
+	public List<NguoiDungModel> ShowList() {
 		Connection conn=null;
 		PreparedStatement ps=null;
 		CallableStatement cstm=null;
 		ResultSet rs=null;
+		
+		List<NguoiDungModel> listnguoidung=new ArrayList<NguoiDungModel>();
 		
 		// KHAI BÁO CÂU TRUY VẤN
 		String sql="select * from dsnguoidungdonhang";
@@ -31,6 +36,7 @@ public class NguoiDungDao {
 		} catch (Exception e) {
 			// TODO: handle exception
 		}
+		return listnguoidung;
 	}
 	public static void Insert (String manguoidung,String hoten,String email,String sdt) {
 		Connection conn=null;
@@ -106,6 +112,7 @@ public class NguoiDungDao {
 			// TODO: handle exception
 		}
 	}
+	/*
 	public static void main(String[] args) {
 		ShowList();
 		//System.out.println("Tien hanh them User");
@@ -113,4 +120,5 @@ public class NguoiDungDao {
 		//Update("Nguyen Thi Minh Anh - update", "email.@gmal.com", "03999999999","KH10");
 		//Delete("KH10");
 	}
+	*/
 }
