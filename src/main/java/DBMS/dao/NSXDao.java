@@ -20,7 +20,7 @@ public class NSXDao {
 		List<NSXModel> list = new ArrayList<NSXModel>();
 
 		// khai báo chuỗi truy vấn
-		String sql = "select * from NSX";
+		String sql = "select * from NhaSanXuat";
 		try {
 			// mở kết nối database
 			conn = new DBConnect().getConnection();
