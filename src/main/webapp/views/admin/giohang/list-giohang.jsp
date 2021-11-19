@@ -159,7 +159,7 @@
 								<div class="col-md-6">
 									<div class="btn-group">
 										<button id="sample_editable_1_new" class="btn blue">
-											<a href="admin_seller_add.html"
+											<a href="${pageContext.request.contextPath}/admin/cart-add"
 												style="color: aliceblue; text-decoration: none;">Thêm <i
 												class="fa fa-plus"></i></a>
 										</button>

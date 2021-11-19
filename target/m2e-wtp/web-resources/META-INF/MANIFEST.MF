@@ -1,10 +1,5 @@
 Manifest-Version: 1.0
-<<<<<<< HEAD
 Built-By: nghie
 Build-Jdk: 1.8.0_191
-=======
-Built-By: Admin
-Build-Jdk: 1.8.0_301
->>>>>>> c162a632c1dcf3f610f1e4a9ce6d1494a2e164ed
 Created-By: Maven Integration for Eclipse
 

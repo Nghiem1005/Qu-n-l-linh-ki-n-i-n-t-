@@ -20,8 +20,8 @@ var TableEditable = function () {
             jqTds[1].innerHTML = '<input type="text" class="form-control input-small" value="' + aData[1] + '">';
             jqTds[2].innerHTML = '<input type="text" class="form-control input-small" value="' + aData[2] + '">';
             jqTds[3].innerHTML = '<input type="text" class="form-control input-small" value="' + aData[3] + '">';
-            jqTds[4].innerHTML = '<input class="edit" value="Save" type="submit" style="border:none; background-color: #f9f9f9;color:#5b9bd1">';
-            jqTds[5].innerHTML = '<input class="cancel" value="Cancel" type="submit" style="border:none; background-color: #f9f9f9;color:#5b9bd1">';
+            jqTds[4].innerHTML = '<a class="edit" href="">Save</a>';
+            jqTds[5].innerHTML = '<a class="cancel" href="">Cancel</a>';
         }
 
         function saveRow(oTable, nRow) {

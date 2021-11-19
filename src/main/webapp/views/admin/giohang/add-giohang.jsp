@@ -122,7 +122,7 @@
 			<ul class="page-breadcrumb">
 				<li><i class="fa fa-home"></i> <a href="index.html">Trang
 						chủ</a> <i class="fa fa-angle-right"></i></li>
-						<li><a href="index.html">Giỏ hàng</a> <i
+				<li><a href="index.html">Giỏ hàng</a> <i
 					class="fa fa-angle-right"></i></li>
 				<li><a href="index.html">Thêm</a></li>
 			</ul>
@@ -157,24 +157,28 @@
 						</div>
 					</div>
 					<div class="portlet-body form">
-						<form role="form" action="" method="post">
+						<form role="form" action="cart-add" method="post">
 							<div class="form-body">
-
+								<div class="alert alert-danger ${alertmess != null ? "" : "display-hide" }">
+									<button class="close" data-close="alert"></button>
+									${alertmess }
+								</div>
 								<div class="form-group">
-									<label for="exampleInputPassword1">Mã đơn hàng</label>
+									<label for="exampleInputPassword1">Mã giỏ hàng</label>
 									<div class="input-group">
-										<input type="password" class="form-control"
-											id="exampleInputPassword1" placeholder="Password" readonly>
-										<span class="input-group-addon"> <i
-											class="fa fa-file-o"></i>
+										<input type="text" class="form-control"
+											id="exampleInputPassword1" name="magiohang"
+											placeholder="Mã giỏ dùng"> <span
+											class="input-group-addon"> <i class="fa fa-file-o"></i>
 										</span>
 									</div>
 								</div>
 								<div class="form-group">
 									<label for="exampleInputPassword1">Mã người dùng</label>
 									<div class="input-group">
-										<input type="password" class="form-control"
-											id="exampleInputPassword1" placeholder="Password"> <span
+										<input type="text" class="form-control"
+											id="exampleInputPassword1" name="manguoidung"
+											placeholder="Mã người dùng"> <span
 											class="input-group-addon"> <i class="fa fa-user"></i>
 										</span>
 									</div>
@@ -191,7 +195,10 @@
 										<a href="#" style="text-decoration: none; color: white;">
 											Thêm linh kiện </a>
 									</button>
-									<button type="button" class="btn default">Hủy</button>
+									<button type="button" class="btn default">
+										<a href="${pageContext.request.contextPath}/admin/cart"
+											style="text-decoration: none; color: white;"> Hủy </a>
+									</button>
 								</div>
 
 							</div>
