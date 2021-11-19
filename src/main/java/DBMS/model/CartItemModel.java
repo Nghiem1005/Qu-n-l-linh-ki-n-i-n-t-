@@ -15,6 +15,13 @@ public class CartItemModel {
 		this.soLuong = soLuong;
 		this.gia = gia;
 	}
+	
+	public CartItemModel(String maGioHang, String maLinhKien, int soLuong) {
+		super();
+		this.maGioHang = maGioHang;
+		this.maLinhKien = maLinhKien;
+		this.soLuong = soLuong;
+	}
 	public String getMaGioHang() {
 		return maGioHang;
 	}

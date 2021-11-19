@@ -23,7 +23,7 @@ public class NSXListController extends HttpServlet{
 		NSXDao nsxDao = new NSXDao();
 		
 		List<NSXModel> listnsx = nsxDao.getAllNSX();
-		System.out.println(listnsx);
+		
 		req.setAttribute("listnsx", listnsx);
 		RequestDispatcher rq = req.getRequestDispatcher("/views/admin/NSX/list-nsx.jsp");
 		rq.forward(req, resp);
