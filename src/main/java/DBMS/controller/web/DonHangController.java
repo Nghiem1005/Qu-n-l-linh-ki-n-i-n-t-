@@ -27,9 +27,6 @@ public class DonHangController extends HttpServlet {
 		resp.setCharacterEncoding("UTF-8");
 		req.setCharacterEncoding("UTF-8");
 		
-		// Lấy tham số từ JSP
-		/*String madonhang=req.getParameter("madonhang");
-		String manguoidung= req.getParameter("madonhang");*/
 		
 		
 		// Buoc 2: Sử dụng List để chứa danh sách từ DonHangDao

@@ -45,9 +45,40 @@ public class DonHangDao {
 		}
 		return listdonhang;
 	}
+	public DonHangModel getIdDonHang(String id) {
+		Connection conn=null;
+		PreparedStatement ps=null;
+		CallableStatement cstm=null;
+		ResultSet rs=null;
+		DonHangModel donhangmodel= new DonHangModel();
+		
+		String sql = "select * from LayMaDonHang(?) ";
+		try {
+			conn = new DBConnect().getConnection();
+			
+			
+			ps = conn.prepareStatement(sql);
+			ps.setString(1, id);
+			
+			// THỰC THI CÂU SQL
+			rs = ps.executeQuery();
+			while (rs.next()) {
+				donhangmodel = new DonHangModel(rs.getString(1),rs.getDate(2),rs.getString(3));
+				
+			}
+		
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		return donhangmodel;
+		
+	}
 
-	/*public static void main(String[] args) {
+	public static void main(String[] args) {
 		System.out.println("danh sach don hang hien tai");
-		ShowList();
-	}*/
+		DonHangDao donhangdao = new DonHangDao();
+		DonHangModel donhangmodel = donhangdao.getIdDonHang("DH01");
+		System.out.println(donhangmodel);
+	}
 }
