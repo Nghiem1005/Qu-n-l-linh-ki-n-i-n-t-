@@ -23,6 +23,9 @@
                 <li class="nav-item">
                     <a class="nav-link" href="contact.html">CPU</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="${pageContext.request.contextPath }/login">Đăng nhập</a>
+                </li>
             </ul>
 
             <form class="form-inline my-2 my-lg-0">

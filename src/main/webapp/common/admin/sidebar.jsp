@@ -29,13 +29,13 @@
 			<li><a href="javascript:;"> <i class="icon-list"></i>
 					<span class="title">Loại</span> <span class="arrow "></span>
 			</a></li>
-			<li><a href="javascript:;"> <i class="icon-pointer"></i>
+			<li><a href="${pageContext.request.contextPath}/admin/nsx"> <i class="icon-pointer"></i>
 					<span class="title">Nhà sản xuất</span> <span class="arrow "></span>
 			</a></li>
 			<li><a href="${pageContext.request.contextPath}/admin/donhang"> <i class="icon-notebook"></i> <span
 					class="title">Đơn Hàng</span> <span class="arrow "></span>
 			</a></li>
-			<li><a href="javascript:;"> <i class="icon-basket"></i> <span
+			<li><a href="${pageContext.request.contextPath}/admin/cart"> <i class="icon-basket"></i> <span
 					class="title">Giỏ hàng</span> <span class="arrow "></span>
 			</a></li>
 			<li><a href="login.html"> <i class="icon-logout"></i> <span

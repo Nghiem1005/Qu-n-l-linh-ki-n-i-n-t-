@@ -159,7 +159,7 @@
 								<div class="col-md-6">
 									<div class="btn-group">
 										<button id="sample_editable_1_new" class="btn blue">
-											<a href="admin_seller_add.html"
+											<a href="${pageContext.request.contextPath}/admin/cart-add"
 												style="color: aliceblue; text-decoration: none;">Thêm <i
 												class="fa fa-plus"></i></a>
 										</button>
@@ -185,18 +185,21 @@
 								<tr>
 									<th>Mã giỏ hàng</th>
 									<th>Mã người dùng</th>
-									<th>Details</th>
+									<th>Edit</th>
 									<th>Delete</th>
 								</tr>
 							</thead>
 							<tbody>
-								<tr>
-									<td>alex</td>
-									<td>Alex Nilson</td>
-									<td><a class="edit"
-										href="admin_seller_detail_and_edit.html"> Details </a></td>
-									<td><a class="delete" href="javascript:;"> Delete </a></td>
-								</tr>
+								<c:forEach items="${listcarts }" var="c">
+									<tr>
+										<td>${c.maGioHang }</td>
+										<td>${c.maNguoiDung }</td>
+										<td><a class="edit"
+											href="${pageContext.request.contextPath}/admin/cart-edit?idgiohang=${c.maGioHang}"> Edit </a></td>
+										<td><a class="delete"
+											href="${pageContext.request.contextPath}/admin/cart-delete?magiohang=${c.maGioHang}"> Delete </a></td>
+									</tr>
+								</c:forEach>
 							</tbody>
 						</table>
 					</div>

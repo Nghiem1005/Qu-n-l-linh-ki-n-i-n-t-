@@ -122,7 +122,7 @@
 			<ul class="page-breadcrumb">
 				<li><i class="fa fa-home"></i> <a href="index.html">Trang
 						chủ</a> <i class="fa fa-angle-right"></i></li>
-				<li><a href="#">Đơn hàng</a></li>
+				<li><a href="#">Giỏ hàng</a><i class="fa fa-angle-right"></i></li>
 				<li><a href="#">Chi tiết</a></li>
 			</ul>
 			<div class="page-toolbar">
@@ -156,25 +156,29 @@
 					</div>
 					<div class="portlet-body">
 						<div class="portlet-body form">
-							<form role="form" action="" method="post">
+							<form role="form" action="cart-edit" method="post">
 								<div class="form-body">
-
+									<div class="alert alert-danger ${alertmess != null ? "" : "display-hide" }">
+										<button class="close" data-close="alert"></button>
+										${alertmess }
+									</div>
 									<div class="form-group">
-										<label for="exampleInputPassword1">Mã đơn hàng</label>
+										<label for="exampleInputPassword1">Mã giỏ hàng</label>
 										<div class="input-group">
-											<input type="password" class="form-control"
-												id="exampleInputPassword1" placeholder="Password" readonly>
-											<span class="input-group-addon"> <i
-												class="fa fa-file-o"></i>
+											<input type="text" class="form-control" name="magiohang"
+												value="${cart.maGioHang }" id="exampleInputPassword1"
+												placeholder="" readonly> <span
+												class="input-group-addon"> <i class="fa fa-file-o"></i>
 											</span>
 										</div>
 									</div>
 									<div class="form-group">
 										<label for="exampleInputPassword1">Mã người dùng</label>
 										<div class="input-group">
-											<input type="password" class="form-control"
-												id="exampleInputPassword1" placeholder="Password"> <span
-												class="input-group-addon"> <i class="fa fa-user"></i>
+											<input type="text" class="form-control" name="manguoidung"
+												value="${cart.maNguoiDung }" id="exampleInputPassword1"
+												placeholder=""> <span class="input-group-addon">
+												<i class="fa fa-user"></i>
 											</span>
 										</div>
 									</div>
@@ -186,32 +190,34 @@
 							<thead>
 								<tr>
 									<th>Mã linh kiện</th>
-									<th>Tên linh kiện</th>
 									<th>Số lượng</th>
 									<th>Thành tiền</th>
-									<th>Details</th>
+									<th>Edit</th>
 									<th>Delete</th>
 								</tr>
 							</thead>
 							<tbody>
-								<tr>
-									<td>alex</td>
-									<td>Alex Nilson</td>
-									<td>3</td>
-									<td>2000000</td>
-									<td><a class="edit"
-										href="admin_seller_detail_and_edit.html"> Details </a></td>
-									<td><a class="delete" href="javascript:;"> Delete </a></td>
-								</tr>
+								<c:forEach items="${listcartitem }" var="c">
+									<tr>
+										<td>${c.maLinhKien }</td>
+										<td>${c.soLuong }</td>
+										<td>${c.gia }</td>
+										<td><a class="edit" href="${pageContext.request.contextPath }/admin/cartitem-edit?magiohang=${cart.maGioHang }&malinhkien=${c.maLinhKien }"> Edit </a></td>
+										<td><a class="delete" href="${pageContext.request.contextPath }/admin/cartitem-delete?magiohang=${cart.maGioHang }&malinhkien=${c.maLinhKien }"> Delete </a></td>
+									</tr>
+								</c:forEach>
 							</tbody>
 						</table>
 
 						<div class="form-actions">
-							<button type="submit" class="btn blue">Sửa</button>
+							<button type="submit" class="btn blue">Sửa hóa đơn</button>
 							<button type="submit" class="btn green-sharp">
-								<a
-									href="${pageContext.request.contextPath }/admin/product/delete?id=${a.productID }"
-									style="text-decoration: none; color: white;"> Xóa </a>
+								<a href="${pageContext.request.contextPath }/admin/cart-delete?magiohang=${cart.maGioHang }"
+									style="text-decoration: none; color: white;"> Xóa đơn hàng</a>
+							</button>
+							<button type="submit" class="btn green-jungle">
+								<a href="${pageContext.request.contextPath }/admin/cartitem-add?magiohang=${cart.maGioHang }"
+									style="text-decoration: none; color: white;"> Thêm linh kiện </a>
 							</button>
 						</div>
 

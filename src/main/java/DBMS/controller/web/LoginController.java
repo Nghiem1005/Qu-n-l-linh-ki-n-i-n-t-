@@ -1,26 +1,26 @@
-package DBMS.controller.admin;
+package DBMS.controller.web;
 
 import java.io.IOException;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import DBMS.dao.NSXDao;
-
-@WebServlet(urlPatterns = { "/admin/nsx/delete" })
-public class DeleteNSXController extends HttpServlet{
-	private static final long serialVersionUID = 7922691565541961928L;
-	NSXDao nsxDao = new NSXDao();
+@SuppressWarnings("serial")
+@WebServlet(urlPatterns= {"/login"})
+public class LoginController extends HttpServlet{
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		String mansx = req.getParameter("mansx");
-		
-		nsxDao.delete(mansx);
-		
-		resp.sendRedirect(req.getContextPath() + "/admin/nsx");
+		resp.setContentType("text/html");
+		resp.setCharacterEncoding("UTF-8");
+		req.setCharacterEncoding("UTF-8");
+
+		RequestDispatcher rq = req.getRequestDispatcher("/decorators/login.jsp");
+
+		rq.forward(req, resp);
 	}
 }

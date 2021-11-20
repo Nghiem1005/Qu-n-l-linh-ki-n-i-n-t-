@@ -150,7 +150,7 @@
 				<div class="portlet box green-soft">
 					<div class="portlet-title">
 						<div class="caption">
-							<i class="fa fa-users"></i> Thêm người dùng mới
+							<i class="fa fa-users"></i> Thêm linh kiện mới trong giỏ hàng
 						</div>
 						<div class="tools">
 							<a href="" class="collapse"> </a> <a href="#portlet-config"
@@ -159,17 +159,20 @@
 						</div>
 					</div>
 					<div class="portlet-body form">
-						<form role="form">
+						<form role="form" action="cartitem-add" method="post">
 							<div class="form-body">
 
-
+								<div class="alert alert-danger ${alertmess != null ? "" : "display-hide" }">
+									<button class="close" data-close="alert"></button>
+									${alertmess }
+								</div>
 								<div class="form-group">
 									<label>Mã giỏ hàng</label>
 									<div class="input-group">
 										<span class="input-group-addon input-circle-left"> <i
 											class="fa fa-file-o"></i>
-										</span> <input type="text" class="form-control input-circle-right"
-											placeholder="Email Address">
+										</span> <input type="text" class="form-control input-circle-right" name="magiohang"
+											placeholder="Mã giỏ hàng" value="${magiohang }" readonly>
 									</div>
 								</div>
 								<div class="form-group">
@@ -177,8 +180,8 @@
 									<div class="input-group">
 										<span class="input-group-addon input-circle-left"> <i
 											class="fa fa-cubes"></i>
-										</span> <input type="text" class="form-control input-circle-right"
-											placeholder="Số điện thoại">
+										</span> <input type="text" class="form-control input-circle-right" name="malinhkien"
+											placeholder="Mã linh kiện">
 									</div>
 								</div>
 								<div class="form-group">
@@ -186,8 +189,8 @@
 									<div class="input-group">
 										<span class="input-group-addon input-circle-left"> <i
 											class="fa fa-bar-chart"></i>
-										</span> <input type="text" class="form-control input-circle-right"
-											placeholder="Số điện thoại">
+										</span> <input type="text" class="form-control input-circle-right" name="soluong"
+											placeholder="Số lượng">
 									</div>
 								</div>
 
