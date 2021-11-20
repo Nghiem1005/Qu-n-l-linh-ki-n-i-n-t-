@@ -25,12 +25,12 @@ public class NguoiDungDao {
 		try {
 			conn = new DBConnect().getConnection();
 			
-			cstm=conn.prepareCall(sql);
+			ps = conn.prepareStatement(sql);
 			
-			rs = cstm.executeQuery();
+			rs = ps.executeQuery();
 			
 			while (rs.next()) {
-				System.out.println(new NguoiDungModel(rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4) ));
+				listnguoidung.add(new NguoiDungModel(rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4)));
 			}
 			
 		} catch (Exception e) {
@@ -112,13 +112,18 @@ public class NguoiDungDao {
 			// TODO: handle exception
 		}
 	}
-	/*
-	public static void main(String[] args) {
-		ShowList();
+	
+	/*public static void main(String[] args) {
+		
+		NguoiDungDao nd = new NguoiDungDao();
+		//nd.ShowList();
+		List<NguoiDungModel> listnd = nd.ShowList();
+		System.out.println(listnd);
+		
 		//System.out.println("Tien hanh them User");
 		//Insert("KH10","Nguyen Thi Minh Anh", "minhanh@gmail.com", "03999999999");
 		//Update("Nguyen Thi Minh Anh - update", "email.@gmal.com", "03999999999","KH10");
 		//Delete("KH10");
-	}
-	*/
+	}*/
+	
 }

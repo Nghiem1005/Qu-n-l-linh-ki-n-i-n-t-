@@ -162,7 +162,7 @@
 									<div class="form-group">
 										<label for="exampleInputPassword1">Mã đơn hàng</label>
 										<div class="input-group">
-											<input type="text" class="form-control" value="${listdonhang.madonhang}"
+											<input type="text" class="form-control" value="${listdonhang.madonhang}" name="madonhang"
 												id="exampleInputPassword1"  readonly>
 											<span class="input-group-addon"> <i
 												class="fa fa-file-o"></i>
@@ -172,8 +172,8 @@
 									<div class="form-group">
 										<label for="exampleInputPassword1">Ngày tạo</label>
 										<div class="input-group">
-											<input type="text" class="form-control" value="${listdonhang.ngaytao}"
-												id="exampleInputPassword1"> <span
+											<input type="text" class="form-control" value="${listdonhang.ngaytao}" name="ngaytao"
+												id="exampleInputPassword1" readonly> <span
 												class="input-group-addon"> <i class="fa fa-calendar"></i>
 											</span>
 										</div>
@@ -181,7 +181,7 @@
 									<div class="form-group">
 										<label for="exampleInputPassword1">Mã người dùng</label>
 										<div class="input-group">
-											<input type="text" class="form-control" value="${listdonhang.manguoidung}"
+											<input type="text" class="form-control" value="${listdonhang.manguoidung}" name="manguoidung"
 												id="exampleInputPassword1" > <span
 												class="input-group-addon"> <i class="fa fa-user"></i>
 											</span>
@@ -215,7 +215,10 @@
 									</table>
 
 									<div class="form-actions" style="background-color: white; border: none;">
-										<button type="submit" class="btn blue">Sửa</button>
+										<button type="submit" class="btn blue" >
+											<a href="${pageContext.request.contextPath }/admin/donhang-edit?iddonhang=${listdonhang.madonhang}" style="color: white;">
+													Sửa</a>
+										</button>
 										<button type="submit" class="btn green-sharp">
 											<a
 												href="${pageContext.request.contextPath }/admin/product/delete?id=${a.productID }"

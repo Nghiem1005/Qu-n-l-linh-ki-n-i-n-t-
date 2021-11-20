@@ -159,7 +159,7 @@
 								<div class="col-md-6">
 									<div class="btn-group">
 										<button id="sample_editable_1_new" class="btn blue">
-											<a href="admin_seller_add.html"
+											<a href="${pageContext.request.contextPath }/admin/donhang-add"
 												style="color: aliceblue; text-decoration: none;">Thêm <i
 												class="fa fa-plus"></i></a>
 										</button>
@@ -198,7 +198,11 @@
 									<td>${o.manguoidung}</td>
 									<td><a class="edit"
 										href="${pageContext.request.contextPath}/admin/donhang/chitietdonhang?iddonhang=${o.madonhang}"> Details </a></td>
-									<td><a class="delete" href="javascript:;"> Delete </a></td>
+									<td>
+										<a class="delete" href="${pageContext.request.contextPath}/admin/donhang-delete?madonhang=${o.madonhang}">
+											Delete
+										</a>
+									</td>
 								</tr>
 								</c:forEach>
 							</tbody>

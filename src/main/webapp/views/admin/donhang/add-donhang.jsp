@@ -157,14 +157,19 @@
 						</div>
 					</div>
 					<div class="portlet-body form">
-						<form role="form" action="" method="post">
+						<!-- BEGIN FORM------------------------------------------------------ -->
+						<form role="form" action="donhang-add" method="post">
 							<div class="form-body">
+								<div class="alert alert-danger ${alertmess != null ? "" : "display-hide" }">
+											<button class="close" data-close="alert"></button>
+											${alertmess}
+								</div>
 
 								<div class="form-group">
 									<label for="exampleInputPassword1">Mã đơn hàng</label>
 									<div class="input-group">
-										<input type="password" class="form-control"
-											id="exampleInputPassword1" placeholder="Password" readonly>
+										<input type="text" class="form-control" name="madonhang"
+											id="exampleInputPassword1" placeholder="Nhập mã đơn hàng">
 										<span class="input-group-addon"> <i
 											class="fa fa-file-o"></i>
 										</span>
@@ -173,8 +178,8 @@
 								<div class="form-group">
 									<label for="exampleInputPassword1">Ngày tạo</label>
 									<div class="input-group">
-										<input type="password" class="form-control"
-											id="exampleInputPassword1" placeholder="Password"> <span
+										<input type="text" class="form-control" name="ngaytao"
+											id="exampleInputPassword1" placeholder="Nhập ngày tạo"> <span
 											class="input-group-addon"> <i class="fa fa-calendar"></i>
 										</span>
 									</div>
@@ -182,8 +187,8 @@
 								<div class="form-group">
 									<label for="exampleInputPassword1">Mã người dùng</label>
 									<div class="input-group">
-										<input type="password" class="form-control"
-											id="exampleInputPassword1" placeholder="Password"> <span
+										<input type="text" class="form-control" name="manguoidung"
+											id="exampleInputPassword1" placeholder="Nhập mã người dùng"> <span
 											class="input-group-addon"> <i class="fa fa-user"></i>
 										</span>
 									</div>
@@ -197,10 +202,14 @@
 									<button type="submit" class="btn blue">Thêm đơn hàng</button>
 
 									<button type="submit" class="btn green-sharp">
-										<a href="#" style="text-decoration: none; color: white;">
+										<a href="" style="text-decoration: none; color: white;">
 											Thêm linh kiện </a>
 									</button>
-									<button type="button" class="btn default">Hủy</button>
+									<button type="button" class="btn default">
+										<a href="${pageContext.request.contextPath }/admin/donhang" style="text-decoration: none; color: white;">
+											Hủy </a>
+									</button>
+										
 								</div>
 
 							</div>

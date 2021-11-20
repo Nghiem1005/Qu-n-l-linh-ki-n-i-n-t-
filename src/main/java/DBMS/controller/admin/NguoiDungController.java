@@ -1,4 +1,4 @@
-package DBMS.controller.web;
+package DBMS.controller.admin;
 
 import java.io.IOException;
 import java.util.List;
@@ -29,6 +29,7 @@ public class NguoiDungController extends HttpServlet {
 		req.setAttribute("listnguoidung", listnguoidung);
 		
 		RequestDispatcher rq=req.getRequestDispatcher("/views/admin/user/list-user.jsp");
+		rq.forward(req, resp);
 		
 		
 	}

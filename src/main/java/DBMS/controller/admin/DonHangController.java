@@ -1,4 +1,4 @@
-package DBMS.controller.web;
+package DBMS.controller.admin;
 
 import java.io.IOException;
 import java.util.Date;
@@ -26,6 +26,7 @@ public class DonHangController extends HttpServlet {
 		resp.setContentType("text/html");
 		resp.setCharacterEncoding("UTF-8");
 		req.setCharacterEncoding("UTF-8");
+		
 		
 		
 		
