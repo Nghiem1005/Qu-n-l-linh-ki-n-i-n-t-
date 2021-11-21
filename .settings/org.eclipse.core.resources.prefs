@@ -4,6 +4,14 @@
 eclipse.preferences.version=1
 encoding//src/main/java/DBMS/connection/DBConnect.java=UTF-8
 <<<<<<< HEAD
+encoding//src/main/java/DBMS/controller/admin/DeleteNSXController.java=UTF-8
+encoding//src/main/java/DBMS/controller/admin/InsertNSXController.java=UTF-8
+encoding//src/main/java/DBMS/controller/admin/UpdateNSXController.java=UTF-8
+encoding//src/main/java/DBMS/controller/web/DonHangController.java=UTF-8
+encoding//src/main/java/DBMS/controller/web/DonHangDetailController.java=UTF-8
+encoding//src/main/java/DBMS/dao/AccountDao.java=UTF-8
+=======
+<<<<<<< HEAD
 encoding//src/main/java/DBMS/controller/admin/DonHangAddController.java=UTF-8
 encoding//src/main/java/DBMS/controller/admin/DonHangController.java=UTF-8
 encoding//src/main/java/DBMS/controller/admin/DonHangUpdateController.java=UTF-8
@@ -21,6 +29,7 @@ encoding//src/main/java/DBMS/controller/web/DonHangDetailController.java=UTF-8
 encoding//src/main/java/DBMS/dao/AccountDao.java=UTF-8
 encoding//src/main/java/DBMS/dao/CartDao.java=UTF-8
 >>>>>>> 9845122ce6052492688037e83611d8aeb221381d
+>>>>>>> a9f8c0010777974b3410fd251a8acdf599344c74
 encoding//src/main/java/DBMS/dao/DonHangDao.java=UTF-8
 encoding//src/main/java/DBMS/dao/NSXDao.java=UTF-8
 encoding//src/main/java/DBMS/dao/NguoiDungDao.java=UTF-8

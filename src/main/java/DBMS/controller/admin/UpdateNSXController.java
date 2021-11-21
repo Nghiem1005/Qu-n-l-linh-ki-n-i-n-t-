@@ -15,12 +15,12 @@ import DBMS.model.NSXModel;
 
 @WebServlet(urlPatterns = { "/admin/nsx/update" })
 public class UpdateNSXController extends HttpServlet {
+	NSXDao nsxdao = new NSXDao();
 
 	private static final long serialVersionUID = -3300719613875424518L;
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		NSXDao nsxdao = new NSXDao();
 		NSXModel nsx = new NSXModel();
 
 		String mansx = req.getParameter("mansx");
@@ -42,9 +42,17 @@ public class UpdateNSXController extends HttpServlet {
 		String sdt = req.getParameter("sdt");
 
 		NSXModel nsx = new NSXModel(mansx, tennsx, sdt);
-		NSXDao nsxDao = new NSXDao();
-		nsxDao.update(nsx);
-
-		resp.sendRedirect(req.getContextPath() + "/admin/nsx");
+		String alert = "";
+		if (nsxdao.update(nsx) == 1) {
+			resp.sendRedirect(req.getContextPath() + "/admin/nsx");
+		} else {
+			alert = "Sửa thất bại";
+			req.setAttribute("alertmess", alert);
+			req.setAttribute("nsx", nsx);
+			nsx =nsxdao.get(mansx);
+			
+			req.setAttribute("nsx", nsx);
+			req.getRequestDispatcher("/views/admin/NSX/edit-nsx.jsp").forward(req, resp);
+		}
 	}
 }
