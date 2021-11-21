@@ -17,7 +17,6 @@ import DBMS.model.NguoiDungModel;
 public class NguoiDungController extends HttpServlet {
 
 	private static final long serialVersionUID = -5817451576299844133L;
-	// buoc 1: khoi tao DAO
 	NguoiDungDao nguoidungdao = new NguoiDungDao();
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -28,14 +27,9 @@ public class NguoiDungController extends HttpServlet {
 		List<NguoiDungModel> listnguoidung=nguoidungdao.ShowList();
 		req.setAttribute("listnguoidung", listnguoidung);
 		
-<<<<<<< HEAD:src/main/java/DBMS/controller/admin/NguoiDungController.java
-		RequestDispatcher rq=req.getRequestDispatcher("/views/admin/user/list-user.jsp");
-		rq.forward(req, resp);
-=======
+
 		RequestDispatcher rq = req.getRequestDispatcher("/views/admin/user/list-user.jsp");
 		rq.forward(req, resp);	
->>>>>>> 9845122ce6052492688037e83611d8aeb221381d:src/main/java/DBMS/controller/web/NguoiDungController.java
-		
 		
 	}
 	@Override

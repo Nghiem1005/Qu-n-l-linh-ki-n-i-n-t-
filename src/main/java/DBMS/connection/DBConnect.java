@@ -10,7 +10,7 @@ public class DBConnect {
 	private final String portNumber = "1433";
 	private final String instance = "";
 	private final String userID = "sa";
-	private final String password = "nghiem10052001";
+	private final String password = "amsang2403@";
 
 	
 	public Connection getConnection()throws Exception {

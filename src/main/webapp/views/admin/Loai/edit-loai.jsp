@@ -176,7 +176,7 @@
 											<div class="col-md-4">
 												<div class="input-icon right">
 													<i class="fa"></i> <input id="inputID" type="text" class="form-control"
-														name="productid" value="${product.productID }" required readonly/>
+														name="productid" value="${loai.getMaLoai() }" required readonly/>
 												</div>
 											</div>
 										</div>
@@ -187,7 +187,7 @@
 											<div class="col-md-4">
 												<div class="input-icon right">
 													<i class="fa"></i> <input id="inputName" type="text" class="form-control"
-														name="name" value="${product.productName }" required />
+														name="name" value="${loai.getTenLoai() }" required />
 												</div>
 											</div>
 										</div>										
