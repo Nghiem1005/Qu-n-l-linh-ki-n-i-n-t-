@@ -173,7 +173,7 @@
 <!-- END PAGE LEVEL PLUGINS -->
 	<!-- BEGIN PAGE LEVEL SCRIPTS -->
 	<script src="<c:url value="/templates/theme/assets/admin/layout2/scripts/table-editable.js"/>" type="text/javascript"></script>
-	
+	<script src="<c:url value="/templates/theme/assets/admin/layout2/scripts/form-validation.js"/>"></script>
 	<script
 		src="<c:url value="/templates/theme/assets/admin/pages/scripts/ecommerce-index.js"/>"></script>
 	<script>

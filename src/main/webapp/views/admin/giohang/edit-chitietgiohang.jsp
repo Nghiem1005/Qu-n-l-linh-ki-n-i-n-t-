@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8"%>
 <%@ include file="/common/taglib.jsp"%>
 <div class="page-content-wrapper">
 	<div class="page-content">
@@ -122,7 +122,11 @@
 			<ul class="page-breadcrumb">
 				<li><i class="fa fa-home"></i> <a href="index.html">Trang
 						chủ</a> <i class="fa fa-angle-right"></i></li>
-				<li><a href="#">Đơn hàng</a></li>
+				<li><a href="index.html">Giỏ hàng</a> <i
+					class="fa fa-angle-right"></i></li>
+				<li><a href="index.html">Chi tiết</a> <i
+					class="fa fa-angle-right"></i></li>
+				<li><a href="index.html">Thêm</a></li>
 			</ul>
 			<div class="page-toolbar">
 				<div id="dashboard-report-range"
@@ -140,77 +144,68 @@
 		</div>
 		<!-- END PAGE HEADER-->
 		<!-- BEGIN PAGE CONTENT-->
-		<div class="row">
-			<div class="col-md-12">
-				<!-- BEGIN EXAMPLE TABLE PORTLET-->
-				<div class="portlet box yellow-casablanca">
+		<div class="row" style="display: flex; justify-content: center;">
+			<div class="col-md-11">
+				<!-- BEGIN SAMPLE FORM PORTLET-->
+				<div class="portlet box green-soft">
 					<div class="portlet-title">
-						<div class="caption">Thông tin</div>
+						<div class="caption">
+							<i class="fa fa-users"></i> Sửa linh kiện trong giỏ hàng
+						</div>
 						<div class="tools">
-							<a href="javascript:;" class="collapse"> </a> <a
-								href="#portlet-config" data-toggle="modal" class="config"> </a>
-							<a href="javascript:;" class="reload"> </a> <a
-								href="javascript:;" class="remove"> </a>
+							<a href="" class="collapse"> </a> <a href="#portlet-config"
+								data-toggle="modal" class="config"> </a> <a href=""
+								class="reload"> </a> <a href="" class="remove"> </a>
 						</div>
 					</div>
-					<div class="portlet-body">
-						<div class="table-toolbar">
-							<div class="row">
-								<div class="col-md-6">
-									<div class="btn-group">
-										<button id="sample_editable_1_new" class="btn blue">
-											<a href="${pageContext.request.contextPath }/admin/donhang-add"
-												style="color: aliceblue; text-decoration: none;">Thêm <i
-												class="fa fa-plus"></i></a>
-										</button>
+					<div class="portlet-body form">
+						<form role="form" action="cartitem-edit" method="post">
+							<div class="form-body">
+
+								<div class="alert alert-danger ${alertmess != null ? "" : "display-hide" }">
+									<button class="close" data-close="alert"></button>
+									${alertmess }
+								</div>
+								<div class="form-group">
+									<label>Mã giỏ hàng</label>
+									<div class="input-group">
+										<span class="input-group-addon input-circle-left"> <i
+											class="fa fa-file-o"></i>
+										</span> <input type="text" class="form-control input-circle-right" name="magiohang"
+											placeholder="Mã giỏ hàng" value="${magiohang }" readonly>
 									</div>
 								</div>
-								<div class="col-md-6">
-									<div class="btn-group pull-right">
-										<button class="btn dropdown-toggle" data-toggle="dropdown">
-											Tools <i class="fa fa-angle-down"></i>
-										</button>
-										<ul class="dropdown-menu pull-right">
-											<li><a href="#"> Print </a></li>
-											<li><a href="#"> Save as PDF </a></li>
-											<li><a href="#"> Export to Excel </a></li>
-										</ul>
+								<div class="form-group">
+									<label>Mã linh kiện</label>
+									<div class="input-group">
+										<span class="input-group-addon input-circle-left"> <i
+											class="fa fa-cubes"></i>
+										</span> <input type="text" class="form-control input-circle-right" name="malinhkien"
+											placeholder="Mã linh kiện" value="${malinhkien }" readonly>
 									</div>
 								</div>
-							</div>
-						</div>
-						<table class="table table-striped table-hover table-bordered"
-							id="sample_editable_1">
-							<thead>
-								<tr>
-									<th>Mã đơn hàng</th>
-									<th>Ngày tạo</th>
-									<th>Mã người dùng</th>
-									<th>Details</th>
-									<th>Delete</th>
-								</tr>
-							</thead>
-							<tbody>
-								<c:forEach items="${listdonhang}" var="o">
-								<tr>
-									<td>${o.madonhang}</td>
-									<td>${o.ngaytao}</td>
-									<td>${o.manguoidung}</td>
-									<td><a class="edit"
-										href="${pageContext.request.contextPath}/admin/donhang/chitietdonhang?iddonhang=${o.madonhang}"> Details </a></td>
-									<td>
-										<a class="delete" href="${pageContext.request.contextPath}/admin/donhang-delete?madonhang=${o.madonhang}">
-											Delete
-										</a>
-									</td>
-								</tr>
-								</c:forEach>
-							</tbody>
-						</table>
+								<div class="form-group">
+									<label>Số lượng</label>
+									<div class="input-group">
+										<span class="input-group-addon input-circle-left"> <i
+											class="fa fa-bar-chart"></i>
+										</span> <input type="text" class="form-control input-circle-right" name="soluong"
+											placeholder="Số lượng" value="${soluong }">
+									</div>
+								</div>
+
+								<div class="form-actions">
+									<button type="submit" class="btn blue">Submit</button>
+									<button type="button" class="btn default">Cancel</button>
+								</div>
+						</form>
 					</div>
 				</div>
-				<!-- END EXAMPLE TABLE PORTLET-->
+				<!-- END SAMPLE FORM PORTLET-->
+				<!-- BEGIN SAMPLE FORM PORTLET-->
+				<!-- END SAMPLE FORM PORTLET-->
 			</div>
+
 		</div>
 		<!-- END PAGE CONTENT-->
 	</div>

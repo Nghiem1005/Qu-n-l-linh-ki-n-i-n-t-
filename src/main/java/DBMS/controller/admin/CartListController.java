@@ -10,22 +10,26 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import DBMS.dao.NSXDao;
-import DBMS.model.NSXModel;
+import DBMS.dao.CartDao;
+import DBMS.model.CartModel;
 
-@WebServlet(urlPatterns = { "/admin/nsx" })
-public class NSXListController extends HttpServlet{
-	private static final long serialVersionUID = 9142981453560089594L;
+@SuppressWarnings("serial")
+@WebServlet(urlPatterns = {"/admin/cart"})
+public class CartListController extends HttpServlet{
+	CartDao dao = new CartDao();
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		NSXDao nsxDao = new NSXDao();
+		resp.setContentType("text/html");
+		resp.setCharacterEncoding("UTF-8");
+		req.setCharacterEncoding("UTF-8");
+			
+		List<CartModel> listcart = dao.getAllCart();
 		
-		List<NSXModel> listnsx = nsxDao.getAllNSX();
+		req.setAttribute("listcarts", listcart);
 		
-		req.setAttribute("listnsx", listnsx);
-		RequestDispatcher rq = req.getRequestDispatcher("/views/admin/NSX/list-nsx.jsp");
+		RequestDispatcher rq = req.getRequestDispatcher("/views/admin/giohang/list-giohang.jsp");
 		rq.forward(req, resp);
 	}
 }
