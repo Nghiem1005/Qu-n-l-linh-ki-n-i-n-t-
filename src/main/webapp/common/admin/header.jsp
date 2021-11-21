@@ -230,7 +230,7 @@
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
 						<img alt="" class="img-circle" src="../../assets/admin/layout2/img/avatar3_small.jpg"/>
 						<span class="username username-hide-on-mobile">
-						Nick </span>
+						${sessionScope.userInfo.getTentk()} </span>
 						<i class="fa fa-angle-down"></i>
 						</a>
 						<ul class="dropdown-menu dropdown-menu-default">
@@ -253,7 +253,7 @@
 							<li class="divider">
 							</li>
 							<li>
-								<a href="login.html">
+								<a href="#">
 								<i class="icon-key"></i> Đăng Xuất </a>
 							</li>
 						</ul>

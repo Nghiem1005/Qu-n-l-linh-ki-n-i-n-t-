@@ -16,7 +16,7 @@
 		<ul class="page-sidebar-menu page-sidebar-menu-hover-submenu "
 			data-keep-expanded="false" data-auto-scroll="true"
 			data-slide-speed="200">
-			<li class="start active "><a href="index.html"> <i
+			<li class="start active "><a href="${pageContext.request.contextPath}/admin/home"> <i
 					class="icon-home"></i> <span class="title">Trang Chủ</span> <span
 					class="selected"></span>
 			</a></li>
@@ -38,7 +38,7 @@
 			<li><a href="${pageContext.request.contextPath}/admin/cart"> <i class="icon-basket"></i> <span
 					class="title">Giỏ hàng</span> <span class="arrow "></span>
 			</a></li>
-			<li><a href="login.html"> <i class="icon-logout"></i> <span
+			<li><a href="${pageContext.request.contextPath}/home"> <i class="icon-logout"></i> <span
 					class="title">Đăng Xuất</span> <span class="arrow "></span>
 			</a></li>
 			</ul>
