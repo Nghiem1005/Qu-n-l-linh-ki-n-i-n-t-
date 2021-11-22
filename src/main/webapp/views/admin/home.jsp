@@ -148,7 +148,7 @@
 						<i class="fa fa-briefcase fa-icon-medium"></i>
 					</div>
 					<div class="details">
-						<div class="number">$168,492.54</div>
+						<div class="number">${tongdoanhthu} VND</div>
 						<div class="desc">Tổng danh thu</div>
 					</div>
 					<a class="more" href="#"> Xem chi tiết <i
@@ -162,7 +162,7 @@
 						<i class="fa fa-shopping-cart"></i>
 					</div>
 					<div class="details">
-						<div class="number">1,127,390</div>
+						<div class="number">${tongdonhang}</div>
 						<div class="desc">Tổng đơn hàng</div>
 					</div>
 					<a class="more" href="#"> Xem chi tiết <i
@@ -176,7 +176,7 @@
 						<i class="fa fa-group fa-icon-medium"></i>
 					</div>
 					<div class="details">
-						<div class="number">$670.54</div>
+						<div class="number">${tbdonhang} VND</div>
 						<div class="desc">Giá trị trung bình đơn hàng</div>
 					</div>
 					<a class="more" href="#"> Xem chi tiết <i
@@ -207,9 +207,9 @@
 						<div class="tabbable-line">
 							<ul class="nav nav-tabs">
 								<li class="active"><a href="#overview_1" data-toggle="tab"
-									style="padding: 10px;"> Bán chạy nhất </a></li>
+									style="padding: 10px;"> Linh kiện bán chạy nhất </a></li>
 								<li><a href="#overview_2" data-toggle="tab"
-									style="padding: 10px;"> Xem nhiều nhất </a></li>
+									style="padding: 10px;"> Lọai bán chạy nhất </a></li>
 								<li><a href="#overview_3" data-toggle="tab"
 									style="padding: 10px;"> Khách Hàng </a></li>
 								<li><a href="#overview_4" data-toggle="tab"
@@ -228,58 +228,16 @@
 												</tr>
 											</thead>
 											<tbody>
+											<c:forEach items="${listlinhkienbanchay}" var="lk">
 												<tr>
-													<td><a href="#"> Apple iPhone 4s - 16GB - Black </a></td>
-													<td>$625.50</td>
-													<td>809</td>
+													<td><a href="#"> ${lk.getTenLinhKien() }</a></td>
+													<td>${lk.getGia()} VND</td>
+													<td>${ lk.getSoluong()}</td>
 													<td><a href="#"
 														class="btn default btn-xs green-stripe"> Xem </a></td>
 												</tr>
-												<tr>
-													<td><a href="#"> Samsung Galaxy S III SGH-I747 -
-															16GB </a></td>
-													<td>$915.50</td>
-													<td>6709</td>
-													<td><a href="#"
-														class="btn default btn-xs green-stripe"> Xem </a></td>
-												</tr>
-												<tr>
-													<td><a href="#"> Motorola Droid 4 XT894 - 16GB -
-															Black </a></td>
-													<td>$878.50</td>
-													<td>784</td>
-													<td><a href="#"
-														class="btn default btn-xs green-stripe"> Xem </a></td>
-												</tr>
-												<tr>
-													<td><a href="#"> Regatta Luca 3 in 1 Jacket </a></td>
-													<td>$25.50</td>
-													<td>1245</td>
-													<td><a href="#"
-														class="btn default btn-xs green-stripe"> Xem </a></td>
-												</tr>
-												<tr>
-													<td><a href="#"> Samsung Galaxy Note 3 </a></td>
-													<td>$925.50</td>
-													<td>21245</td>
-													<td><a href="#"
-														class="btn default btn-xs green-stripe"> Xem </a></td>
-												</tr>
-												<tr>
-													<td><a href="#"> Inoval Digital Pen </a></td>
-													<td>$125.50</td>
-													<td>1245</td>
-													<td><a href="#"
-														class="btn default btn-xs green-stripe"> Xem </a></td>
-												</tr>
-												<tr>
-													<td><a href="#"> Metronic - Responsive Admin +
-															Frontend Theme </a></td>
-													<td>$20.00</td>
-													<td>11190</td>
-													<td><a href="#"
-														class="btn default btn-xs green-stripe"> Xem </a></td>
-												</tr>
+												
+												</c:forEach>
 											</tbody>
 										</table>
 									</div>
@@ -289,65 +247,22 @@
 										<table class="table table-striped table-hover table-bordered">
 											<thead>
 												<tr>
-													<th>Tên sản phẩm</th>
+													<th>Tên loại</th>
 													<th>Giá</th>
-													<th>Xem</th>
+													<th>Số lượng</th>
 													<th></th>
 												</tr>
 											</thead>
 											<tbody>
+											<c:forEach items="${listloaibanchay}" var="loai">
 												<tr>
-													<td><a href="#"> Metronic - Responsive Admin +
-															Frontend Theme </a></td>
-													<td>$20.00</td>
-													<td>11190</td>
+													<td><a href="#">${ loai.getTenLoai()}</a></td>
+													<td>${ loai.getTongSoLuong()}</td>
+													<td>${ loai.getTongSoLuong()}</td>
 													<td><a href="#"
 														class="btn default btn-xs green-stripe"> Xem </a></td>
 												</tr>
-												<tr>
-													<td><a href="#"> Regatta Luca 3 in 1 Jacket </a></td>
-													<td>$25.50</td>
-													<td>1245</td>
-													<td><a href="#"
-														class="btn default btn-xs green-stripe"> Xem </a></td>
-												</tr>
-												<tr>
-													<td><a href="#"> Apple iPhone 4s - 16GB - Black </a></td>
-													<td>$625.50</td>
-													<td>809</td>
-													<td><a href="#"
-														class="btn default btn-xs green-stripe"> Xem </a></td>
-												</tr>
-												<tr>
-													<td><a href="#"> Samsung Galaxy S III SGH-I747 -
-															16GB </a></td>
-													<td>$915.50</td>
-													<td>6709</td>
-													<td><a href="#"
-														class="btn default btn-xs green-stripe"> Xem </a></td>
-												</tr>
-												<tr>
-													<td><a href="#"> Motorola Droid 4 XT894 - 16GB -
-															Black </a></td>
-													<td>$878.50</td>
-													<td>784</td>
-													<td><a href="#"
-														class="btn default btn-xs green-stripe"> Xem </a></td>
-												</tr>
-												<tr>
-													<td><a href="#"> Samsung Galaxy Note 3 </a></td>
-													<td>$925.50</td>
-													<td>21245</td>
-													<td><a href="#"
-														class="btn default btn-xs green-stripe"> Xem </a></td>
-												</tr>
-												<tr>
-													<td><a href="#"> Inoval Digital Pen </a></td>
-													<td>$125.50</td>
-													<td>1245</td>
-													<td><a href="#"
-														class="btn default btn-xs green-stripe"> Xem </a></td>
-												</tr>
+												</c:forEach>
 											</tbody>
 										</table>
 									</div>
@@ -364,55 +279,16 @@
 												</tr>
 											</thead>
 											<tbody>
+											<c:forEach items="${listbaocaokh}" var="bckh">
 												<tr>
-													<td><a href="#"> David Wilson </a></td>
-													<td>3</td>
-													<td>$625.50</td>
+													<td><a href="#">${bckh.getHoten() }</a></td>
+													<td>${bckh.getSoLuongDon() }</td>
+													<td>${bckh.getThanhtien() }</td>
 													<td><a href="#"
 														class="btn default btn-xs green-stripe"> Xem </a></td>
 												</tr>
-												<tr>
-													<td><a href="#"> Amanda Nilson </a></td>
-													<td>4</td>
-													<td>$12625.50</td>
-													<td><a href="#"
-														class="btn default btn-xs green-stripe"> Xem </a></td>
-												</tr>
-												<tr>
-													<td><a href="#"> Jhon Doe </a></td>
-													<td>2</td>
-													<td>$125.00</td>
-													<td><a href="#"
-														class="btn default btn-xs green-stripe"> Xem </a></td>
-												</tr>
-												<tr>
-													<td><a href="#"> Bill Chang </a></td>
-													<td>45</td>
-													<td>$12,125.70</td>
-													<td><a href="#"
-														class="btn default btn-xs green-stripe"> Xem </a></td>
-												</tr>
-												<tr>
-													<td><a href="#"> Paul Strong </a></td>
-													<td>1</td>
-													<td>$890.85</td>
-													<td><a href="#"
-														class="btn default btn-xs green-stripe"> Xem </a></td>
-												</tr>
-												<tr>
-													<td><a href="#"> Jane Hilson </a></td>
-													<td>5</td>
-													<td>$239.85</td>
-													<td><a href="#"
-														class="btn default btn-xs green-stripe"> Xem </a></td>
-												</tr>
-												<tr>
-													<td><a href="#"> Patrick Walker </a></td>
-													<td>2</td>
-													<td>$1239.85</td>
-													<td><a href="#"
-														class="btn default btn-xs green-stripe"> Xem </a></td>
-												</tr>
+												</c:forEach>
+											
 											</tbody>
 										</table>
 									</div>
@@ -430,69 +306,18 @@
 												</tr>
 											</thead>
 											<tbody>
+											<c:forEach items="${listbaocaodonhang}" var="bcdh">
 												<tr>
-													<td><a href="#"> David Wilson </a></td>
-													<td>3 Jan, 2013</td>
-													<td>$625.50</td>
+													<td><a href="#">${bcdh.getHoten() }</a></td>
+													<td>${bcdh.getNgaytao() }</td>
+													<td>${bcdh.getSoluong() }</td>
 													<td><span class="label label-sm label-warning">
 															Pending </span></td>
 													<td><a href="#"
 														class="btn default btn-xs green-stripe"> Xem </a></td>
 												</tr>
-												<tr>
-													<td><a href="#"> Amanda Nilson </a></td>
-													<td>13 Feb, 2013</td>
-													<td>$12625.50</td>
-													<td><span class="label label-sm label-warning">
-															Pending </span></td>
-													<td><a href="#"
-														class="btn default btn-xs green-stripe"> Xem </a></td>
-												</tr>
-												<tr>
-													<td><a href="#"> Jhon Doe </a></td>
-													<td>20 Mar, 2013</td>
-													<td>$125.00</td>
-													<td><span class="label label-sm label-success">
-															Success </span></td>
-													<td><a href="#"
-														class="btn default btn-xs green-stripe"> Xem </a></td>
-												</tr>
-												<tr>
-													<td><a href="#"> Bill Chang </a></td>
-													<td>29 May, 2013</td>
-													<td>$12,125.70</td>
-													<td><span class="label label-sm label-info"> In
-															Process </span></td>
-													<td><a href="#"
-														class="btn default btn-xs green-stripe"> Xem </a></td>
-												</tr>
-												<tr>
-													<td><a href="#"> Paul Strong </a></td>
-													<td>1 Jun, 2013</td>
-													<td>$890.85</td>
-													<td><span class="label label-sm label-success">
-															Success </span></td>
-													<td><a href="#"
-														class="btn default btn-xs green-stripe"> Xem </a></td>
-												</tr>
-												<tr>
-													<td><a href="#"> Jane Hilson </a></td>
-													<td>5 Aug, 2013</td>
-													<td>$239.85</td>
-													<td><span class="label label-sm label-danger">
-															Canceled </span></td>
-													<td><a href="#"
-														class="btn default btn-xs green-stripe"> Xem </a></td>
-												</tr>
-												<tr>
-													<td><a href="#"> Patrick Walker </a></td>
-													<td>6 Aug, 2013</td>
-													<td>$1239.85</td>
-													<td><span class="label label-sm label-success">
-															Success </span></td>
-													<td><a href="#"
-														class="btn default btn-xs green-stripe"> Xem </a></td>
-												</tr>
+												</c:forEach>
+												
 											</tbody>
 										</table>
 									</div>
