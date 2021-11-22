@@ -23,7 +23,7 @@
 			<li><a href="${pageContext.request.contextPath}/admin/nguoidung"> <i class="icon-users"></i> <span
 					class="title">Người Dùng</span> <span class="arrow "></span>
 			</a></li>
-			<li><a href="javascript:;"> <i class="icon-social-dropbox"></i>
+			<li><a href="${pageContext.request.contextPath}/admin/sanpham"> <i class="icon-social-dropbox"></i>
 					<span class="title">Sản phẩm</span> <span class="arrow "></span>
 			</a></li>
 			<li><a href="${pageContext.request.contextPath}/admin/loai"> <i class="icon-list"></i>

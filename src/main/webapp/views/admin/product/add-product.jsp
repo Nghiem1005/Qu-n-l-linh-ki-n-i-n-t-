@@ -159,12 +159,14 @@
 							</div>
 							<div class="portlet-body form">
 								<!-- BEGIN FORM-->
-								<form action="add" method="post" id="form_sample_2" class="form-horizontal">
+								<form action="sanpham-add" method="post" id="form_sample_2" class="form-horizontal">
 									<div class="form-body">
+									
 										<div class="alert alert-danger ${alertmess != null ? "" : "display-hide" }">
 											<button class="close" data-close="alert"></button>
 											${alertmess }
 										</div>
+										
 										<div class="alert alert-success display-hide">
 											<button class="close" data-close="alert"></button>
 											Your form validation is successful!
@@ -176,7 +178,7 @@
 											<div class="col-md-4">
 												<div class="input-icon right">
 													<i class="fa"></i> <input id="inputID" type="text" class="form-control"
-														name="productid" required />
+														name="malinhkien" placeholder="Nhập mã linh kiện" required />
 												</div>
 											</div>
 										</div>
@@ -187,7 +189,29 @@
 											<div class="col-md-4">
 												<div class="input-icon right">
 													<i class="fa"></i> <input id="inputName" type="text" class="form-control"
-														name="name" required />
+														name="tenlinhkien" placeholder="Nhập tên linh kiện" required />
+												</div>
+											</div>
+										</div>
+										<div class="form-group">
+											<label class="control-label col-md-3">Số lượng<span
+												class="required"> * </span>
+											</label>
+											<div class="col-md-4">
+												<div class="input-icon right">
+													<i class="fa"></i> <input id="inputID" type="text" class="form-control"
+														name="soluong" placeholder="Nhập số lượng" required />
+												</div>
+											</div>
+										</div>
+										<div class="form-group">
+											<label class="control-label col-md-3">Đơn giá<span
+												class="required"> * </span>
+											</label>
+											<div class="col-md-4">
+												<div class="input-icon right">
+													<i class="fa"></i> <input id="inputID" type="text" class="form-control"
+														name="dongia" placeholder="Nhập Đơn giá" required />
 												</div>
 											</div>
 										</div>
@@ -196,34 +220,23 @@
 											* </span>
 											</label>
 											<div class="col-md-9">
-												<textarea id="inputDescription" class="ckeditor form-control" name="description" rows="6" data-error-container="#editor2_error" required ></textarea>
+												<textarea id="inputDescription" class="ckeditor form-control" name="mota" rows="6" data-error-container="#editor2_error" required ></textarea>
 												<div id="editor2_error">
 												</div>
 											</div>
 										</div>
 										<div class="form-group">
-											<label class="control-label col-md-3">Giá <span
+											<label class="control-label col-md-3">Link hình ảnh <span
 												class="required"> * </span>
 											</label>
 											<div class="col-md-4">
 												<div class="input-icon right">
 													<i class="fa"></i> <input id="inputPrice" type="text" class="form-control"
-														name="price" required />
-												</div>
-											</div>
-										</div>
-										<div class="form-group">
-											<label class="control-label col-md-3">Link Ảnh <span
-												class="required"> * </span>
-											</label>
-											<div class="col-md-4">
-												<div class="input-icon right">
-													<i class="fa"></i> <input id="inputLinkanh" type="text" class="form-control"
 														name="linkanh" required />
 												</div>
-												<span class="help-block"> e.g: https://canary.contestimg.wish.com/api/webimage/6092b25f8dc7310066eea79c-large.jpg </span>
 											</div>
 										</div>
+										
 										<div class="form-group">
 											<label class="control-label col-md-3">Mã loại <span
 												class="required"> * </span>
@@ -231,7 +244,7 @@
 											<div class="col-md-4">
 												<div class="input-icon right">
 													<i class="fa"></i> <input id="inputCategoryid" type="text" class="form-control"
-														name="categoryid" required />
+														name="maloai" placeholder="Nhập mã loại" required />
 												</div>
 											</div>
 										</div>
@@ -242,21 +255,11 @@
 											<div class="col-md-4">
 												<div class="input-icon right">
 													<i class="fa"></i> <input id="inputSellerid" type="text" class="form-control"
-														name="sellerid" required />
+														name="mansx" placeholder="Nhập mã NSX" required />
 												</div>
 											</div>
 										</div>
-										<div class="form-group">
-											<label class="control-label col-md-3">Số lượng <span
-												class="required"> * </span>
-											</label>
-											<div class="col-md-4">
-												<div class="input-icon right">
-													<i class="fa"></i> <input id="inputAmount" type="text" class="form-control"
-														name="amount" required />
-												</div>
-											</div>
-										</div>
+										
 									</div>
 									<div class="form-actions">
 										<div class="row">
