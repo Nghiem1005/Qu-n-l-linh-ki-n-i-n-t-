@@ -12,10 +12,10 @@
         <div class="collapse navbar-collapse justify-content-end" id="navbarsExampleDefault">
             <ul class="navbar-nav m-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="#">Trang chủ <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="${pageContext.request.contextPath}/home">Trang chủ <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="category.html">Sản phẩm</a>
+                    <a class="nav-link" href="${pageContext.request.contextPath}/sanpham">Sản phẩm</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="product.html">Màn hình</a>
