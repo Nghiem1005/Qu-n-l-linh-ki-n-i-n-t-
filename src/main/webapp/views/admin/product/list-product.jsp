@@ -164,8 +164,8 @@
 									<div class="col-md-6">
 										<div class="btn-group">
 											<button class="btn green">
-												<a href="${pageContext.request.contextPath }/admin/product/add"
-													style="color: white; text-decoration: none;"> Thêm </a>
+												<a href="${pageContext.request.contextPath }/admin/sanpham-add"
+													style="color: white; text-decoration: none;"> Thêm sản phẩm </a>
 												<i class="fa fa-plus"></i>
 											</button>
 										</div>
@@ -190,32 +190,33 @@
 									<tr>
 										<th>Mã sản phẩm</th>
 										<th>Tên sản phẩm</th>
-										<th>Mô tả</th>
-										<th>Đơn Giá</th>
-										<th>Hình Ảnh</th>
-										<th>Mã loại</th>
-										<th>Mã NSX</th>
 										<th>Số lượng</th>
+										<th>Đơn giá</th>
+										<th>Mô tả</th>
+										<th>Hình ảnh</th>
+										<th>Mã loại</th>
+										<th>Mã nhà sản xuất</th>
 										<th>Edit</th>
 										<th>Delete</th>
 									</tr>
 								</thead>
 								<tbody>
-									<c:forEach items="${listproduct }" var="a">
+									<c:forEach items="${listsanpham}" var="a">
 										<tr>
-											<td>${a.productID }</td>
-											<td>${a.productName }</td>
-											<td>${a.description }</td>
-											<td>${a.price }</td>
-											<td><img src="${a.imagelink }" alt="Girl in a jacket"
-												width="80" height="80"></td>
-											<td>${a.categoryID }</td>
-											<td>${a.sellerID }</td>
-											<td>${a.amount }</td>
+											<td>${a.maLinhKien }</td>
+											<td>${a.tenLinhKien }</td>
+											<td>${a.soLuong }</td>
+											<td>${a.donGia } VNĐ</td>
+											
+											<td>${a.moTa }</td>
+											<td>  <img src="${a.linkAnh }" alt="Linh Kien May Tinh" width="80" height="80"></td>
+											<!-- <img src="${a.linkAnh }" alt="Linh Kien May Tinh" width="80" height="80"> -->
+											<td>${a.maLoai }</td>
+											<td>${a.maNSX }</td>
 											<!-- <td class="center">power user</td> -->
-											<td><a href="${pageContext.request.contextPath }/admin/product/edit?id=${a.productID }">
+											<td><a href="${pageContext.request.contextPath }/admin/product/edit?id=${a.maLinhKien }">
 													Edit </a></td>
-											<td><a href="${pageContext.request.contextPath }/admin/product/delete?id=${a.productID }">
+											<td><a href="${pageContext.request.contextPath }/admin/product/delete?id=${a.maLinhKien }">
 													Delete </a></td>
 										</tr>
 									</c:forEach>

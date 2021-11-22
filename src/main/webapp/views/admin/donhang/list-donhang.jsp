@@ -197,7 +197,7 @@
 									<td>${o.ngaytao}</td>
 									<td>${o.manguoidung}</td>
 									<td><a class="edit"
-										href="${pageContext.request.contextPath}/admin/donhang/chitietdonhang?iddonhang=${o.madonhang}"> Details </a></td>
+										href="${pageContext.request.contextPath}/admin/donhang-edit?madonhang=${o.madonhang}"> Edit </a></td>
 									<td>
 										<a class="delete" href="${pageContext.request.contextPath}/admin/donhang-delete?madonhang=${o.madonhang}">
 											Delete

@@ -160,7 +160,7 @@
 								<div class="col-md-6">
 									<div class="btn-group">
 										<button id="sample_editable_1_new" class="btn green">
-											<a href="admin_seller_add.html"
+											<a href="${pageContext.request.contextPath }/admin/nguoidung-add"
 												style="color: aliceblue; text-decoration: none;">Thêm
 												<i class="fa fa-plus"></i>
 											</a>
@@ -189,8 +189,8 @@
 									<td>${o.email}</td>
 									<td >${o.sdt}</td>
 									<td><a class="edit"
-										href="admin_seller_detail_and_edit.html"> Sửa </a></td>
-									<td><a class="delete" href="javascript:;"> Xóa </a></td>
+										href="${pageContext.request.contextPath}/admin/nguoidung-edit?manguoidung=${o.manguoidung}"> Sửa </a></td>
+									<td><a class="delete" href="${pageContext.request.contextPath}/admin/nguoidung-delete?manguoidung=${o.manguoidung}"> Xóa </a></td>
 								</tr>
 								</c:forEach>
 							</tbody>

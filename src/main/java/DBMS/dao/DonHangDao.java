@@ -47,7 +47,7 @@ public class DonHangDao {
 		
 		DonHangModel donhangmodel= new DonHangModel();
 		
-		String sql = "select * from LayMaDonHang(?) ";
+		String sql = "select * from ap_get_donhangBymadonhang(?) ";
 		try {
 			conn = new DBConnect().getConnection();
 			
@@ -104,8 +104,7 @@ public class DonHangDao {
 				cstm.setString(1, donhangmodel.getMadonhang());
 				//cstm.setDate(2, (java.sql.Date) donhangmodel.getNgaytao());
 				cstm.setString(2, donhangmodel.getManguoidung());
-				cstm.registerOutParameter(3, java.sql.Types.INTEGER);
-				
+				cstm.registerOutParameter(3, java.sql.Types.INTEGER);	
 				cstm.execute();
 				int ktra= cstm.getInt(3);
 				return ktra;

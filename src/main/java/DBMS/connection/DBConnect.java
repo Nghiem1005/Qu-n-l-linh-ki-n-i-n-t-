@@ -6,11 +6,27 @@ import java.sql.SQLException;
 
 public class DBConnect {
 	private final String serverName = "localhost";
+
 	private final String dbName = "HQT_tuan08";
 	private final String portNumber = "1433";
 	private final String instance = "";
 	private final String userID = "sa";
 	private final String password = "amsang2403@";
+
+//	private final String dbName = "QuanLyLinhKietMayTinh";
+//	private final String portNumber = "1433";
+//	private final String instance = "";
+//	private final String userID = "sa";
+//	private final String password = "123456";
+
+
+
+//	private final String dbName = "HQTCSDL";
+//	private final String portNumber = "1433";
+//	private final String instance = "";
+//	private final String userID = "sa";
+//	private final String password = "huutin392001";
+
 
 	public Connection getConnection()throws Exception {
         String url = "jdbc:sqlserver://"+serverName+":"+portNumber + "\\" + instance +";databaseName="+dbName;

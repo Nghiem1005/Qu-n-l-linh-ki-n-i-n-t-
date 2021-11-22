@@ -207,22 +207,25 @@
 												<td>${o.soluong}</td>
 												<td>${o.gia}</td>
 												<td><a class="edit"
-													href="admin_seller_detail_and_edit.html"> Details </a></td>
-												<td><a class="delete" href="javascript:;"> Delete </a></td>
+													href="${pageContext.request.contextPath }/admin/donhangitem-edit?madonhang=${listdonhang.madonhang}&malinhkien=${o.malinhkien}"> Sửa </a></td>
+												<td><a class="delete" href="${pageContext.request.contextPath }/admin/donhangitem-delete?madonhang=${o.madonhang}&malinhkien=${o.malinhkien}"> Delete </a></td>
 											</tr>
 											</c:forEach>
 										</tbody>
 									</table>
 
 									<div class="form-actions" style="background-color: white; border: none;">
-										<button type="submit" class="btn blue" >
-											<a href="${pageContext.request.contextPath }/admin/donhang-edit?iddonhang=${listdonhang.madonhang}" style="color: white;">
-													Sửa</a>
-										</button>
+										<button type="submit" class="btn blue-sharp"> Sửa đơn hàng</button>
+										
 										<button type="submit" class="btn green-sharp">
 											<a
-												href="${pageContext.request.contextPath }/admin/product/delete?id=${a.productID }"
-												style="text-decoration: none; color: white;"> Xóa </a>
+												href="${pageContext.request.contextPath}/admin/donhang-delete?madonhang=${listdonhang.madonhang}"
+												style="text-decoration: none; color: white;"> Xóa đơn hàng </a>
+										</button>
+										<button type="submit" class="btn green-jungle">
+											<a
+												href="${pageContext.request.contextPath }/admin/donhangitem-add?madonhang=${listdonhang.madonhang}"
+												style="text-decoration: none; color: white;"> Thêm linh	kiện </a>
 										</button>
 									</div>
 
