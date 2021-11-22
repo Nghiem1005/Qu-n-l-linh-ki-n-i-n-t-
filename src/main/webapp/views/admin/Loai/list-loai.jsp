@@ -160,7 +160,7 @@
 								<div class="col-md-6">
 									<div class="btn-group">
 										<button id="sample_editable_1_new" class="btn blue">
-											<a href="admin_seller_add.html"
+											<a href="${pageContext.request.contextPath}/admin/loai/add"
 												style="color: aliceblue; text-decoration: none;">Thêm <i
 												class="fa fa-plus"></i></a>
 										</button>
@@ -191,13 +191,15 @@
 								</tr>
 							</thead>
 							<tbody>
-								<tr>
-									<td>alex</td>
-									<td>Alex Nilson</td>
-									<td><a class="edit"
-										href="admin_seller_detail_and_edit.html"> Details </a></td>
-									<td><a class="delete" href="javascript:;"> Delete </a></td>
-								</tr>
+								<c:forEach items="${listloai}" var="loai">
+									<tr>
+										<td>${loai.getMaLoai() }</td>
+										<td>${loai.getTenLoai()}</td>
+										<td><a class="edit"
+											href="${pageContext.request.contextPath}/admin/loai/edit?id=${loai.getMaLoai()}"> Edit </a></td>
+										<td><a class="delete" href="${pageContext.request.contextPath}/admin/loai/delete?id=${loai.getMaLoai()}"> Delete </a></td>
+									</tr>
+								</c:forEach>
 							</tbody>
 						</table>
 					</div>

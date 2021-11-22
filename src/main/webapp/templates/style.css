@@ -63,3 +63,11 @@ footer a {
     padding-top: 35%; 
     background: url("https://vitinhbaria.com/wp-content/uploads/2020/05/b1.jpg") top center / cover no-repeat;
 }
+
+/* #imgProduct{
+	padding-top: 100%;
+	background-repeat: no-repeat;
+	background-size: contain;
+	background-position: center;
+	background: url("https://vitinhbaria.com/wp-content/uploads/2020/05/b1.jpg"); 
+} */

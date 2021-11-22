@@ -12,7 +12,6 @@ public class DBConnect {
 	private final String userID = "sa";
 	private final String password = "huutin392001";
 
-	
 	public Connection getConnection()throws Exception {
         String url = "jdbc:sqlserver://"+serverName+":"+portNumber + "\\" + instance +";databaseName="+dbName;
         if(instance == null || instance.trim().isEmpty())

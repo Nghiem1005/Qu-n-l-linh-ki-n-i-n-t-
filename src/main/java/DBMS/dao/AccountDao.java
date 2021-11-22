@@ -98,4 +98,23 @@ public class AccountDao {
 			e.printStackTrace();
 		}
 	}
+	public AccountModel checkLogin(String tentk, String matkhau) {
+
+		String sql1 = "{ call checklogin(?,?) }";
+		AccountModel account = null;
+		try {
+			conn = new DBConnect().getConnection();
+			ps = conn.prepareStatement(sql1);
+			ps.setString(1, tentk);
+			ps.setString(2, matkhau);
+			rs = ps.executeQuery();
+			while(rs.next()) {
+				account = new AccountModel(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5));
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return account;
+	}
 }

@@ -22,4 +22,5 @@ encoding//src/main/java/DBMS/dao/DonHangDao.java=UTF-8
 encoding//src/main/java/DBMS/dao/NSXDao.java=UTF-8
 encoding//src/main/java/DBMS/dao/NguoiDungDao.java=UTF-8
 encoding//src/main/java/DBMS/dao/ProductDao.java=UTF-8
+encoding//src/main/java/DBMS/dao/SanPhamDao.java=UTF-8
 encoding//src/main/webapp/views/admin/donhang/chitietdonhang.jsp=UTF-8
