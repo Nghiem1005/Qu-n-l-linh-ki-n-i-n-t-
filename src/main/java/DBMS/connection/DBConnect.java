@@ -6,11 +6,11 @@ import java.sql.SQLException;
 
 public class DBConnect {
 	private final String serverName = "localhost";
-	private final String dbName = "HQT_tuan08";
+	private final String dbName = "HQTCSDL";
 	private final String portNumber = "1433";
 	private final String instance = "";
 	private final String userID = "sa";
-	private final String password = "nghiem10052001";
+	private final String password = "huutin392001";
 
 	
 	public Connection getConnection()throws Exception {
@@ -26,6 +26,6 @@ public class DBConnect {
 		} catch (Exception e) {
 			System.out.println(e);
 			// TODO: handle exception
-		}
+		}	
 	}
 }

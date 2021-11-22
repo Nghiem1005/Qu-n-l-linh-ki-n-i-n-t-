@@ -13,13 +13,13 @@
                 </ol>
                 <div class="carousel-inner">
                     <div class="carousel-item active">
-                        <img class="d-block w-100" src="https://dummyimage.com/855x365/55595c/fff" alt="First slide">
+                        <img class="d-block w-100" src="https://thenewxgear.com/wp-content/uploads/2021/07/an515-55-des-6.jpg" alt="First slide">
                     </div>
                     <div class="carousel-item">
-                        <img class="d-block w-100" src="https://dummyimage.com/855x365/a30ca3/fff" alt="Second slide">
+                        <img class="d-block w-100" src="https://www.acervietnam.com.vn/Data/Sites/1/media/tin-t%E1%BB%A9c-2020/88-mua-laptop-gaming-ch%C3%ADnh-h%C3%A3ng-%E1%BB%9F-%C4%91%C3%A2u-t%E1%BB%91t-nh%E1%BA%A5t/acer--1a.jpg" alt="Second slide">
                     </div>
                     <div class="carousel-item">
-                        <img class="d-block w-100" src="https://dummyimage.com/855x365/1443ff/fff" alt="Third slide">
+                        <img class="d-block w-100" src="https://danghaustore.com/wp-content/uploads/2021/05/an515-55-des-1.jpg" alt="Third slide">
                     </div>
                 </div>
                 <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
