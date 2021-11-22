@@ -11,7 +11,7 @@ import DBMS.connection.DBConnect;
 import DBMS.model.DonHangDetailModel;
 
 public class DonHangDetailDao {
-	public List<DonHangDetailModel> ShowList()
+	public List<DonHangDetailModel> ShowList(String madonhang)
 	{
 		Connection conn=null;
 		PreparedStatement ps=null;
@@ -23,6 +23,7 @@ public class DonHangDetailDao {
 		try {
 			conn= new DBConnect().getConnection();
 			cstm= conn.prepareCall(sql);
+			cstm.setString(1, madonhang);
 			
 			rs = cstm.executeQuery();
 			while(rs.next()) {

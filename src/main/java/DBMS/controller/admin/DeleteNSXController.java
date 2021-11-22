@@ -9,18 +9,30 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import DBMS.dao.NSXDao;
+import DBMS.model.NSXModel;
 
 @WebServlet(urlPatterns = { "/admin/nsx/delete" })
 public class DeleteNSXController extends HttpServlet{
 	private static final long serialVersionUID = 7922691565541961928L;
+	NSXModel nsx= new NSXModel();
 	NSXDao nsxDao = new NSXDao();
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		String mansx = req.getParameter("mansx");
+		NSXModel nsx=nsxDao.get(mansx);
 		
-		nsxDao.delete(mansx);
-		
-		resp.sendRedirect(req.getContextPath() + "/admin/nsx");
+		String alert = "";
+		if (nsxDao.delete(mansx) == 1) {
+			resp.sendRedirect(req.getContextPath() + "/admin/nsx");
+		} else {
+			alert = "Sửa thất bại!";
+			req.setAttribute("alertmess", alert);
+			req.setAttribute("nsx", nsx);
+			nsx =nsxDao.get(mansx);
+			
+			req.setAttribute("nsx", nsx);
+			req.getRequestDispatcher("/views/admin/NSX/list-nsx.jsp").forward(req, resp);
+		}
 	}
 }

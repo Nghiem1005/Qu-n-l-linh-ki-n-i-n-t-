@@ -35,9 +35,13 @@ public class InsertNSXController extends HttpServlet{
 		String sdt = req.getParameter("sdt");
 
 		NSXModel nsx = new NSXModel(mansx, tennsx, sdt);
-		NSXDao nsxDao = new NSXDao();
-		nsxDao.insert(nsx);
-
-		resp.sendRedirect(req.getContextPath() + "/admin/nsx");
+		String alert = "";
+		if (nsxDao.insert(nsx) == 1) {
+			resp.sendRedirect(req.getContextPath() + "/admin/nsx");
+		} else {
+			alert = "Thêm thất bại òi :(";
+			req.setAttribute("alertmess", alert);
+			req.getRequestDispatcher("/views/admin/NSX/add-nsx.jsp").forward(req, resp);
+		}
 	}
 }

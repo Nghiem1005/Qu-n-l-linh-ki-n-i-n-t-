@@ -24,7 +24,27 @@
                     <a class="nav-link" href="contact.html">CPU</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="${pageContext.request.contextPath }/login">Đăng nhập</a>
+                	<c:choose>
+		                <c:when test="${sessionScope.userInfo == null}">
+			                <li class="nav-item"> 
+			                  <a class="nav-link" href="${pageContext.request.contextPath }/login">Đăng nhập</a>
+			                </li>
+		                </c:when>
+		                <c:otherwise>
+		                	<li class="nav-item"> 
+								<a class="nav-link" href="${pageContext.request.contextPath }/profile">${sessionScope.userInfo.getTentk()}</a>
+							</li>
+							<c:if test="${sessionScope.userInfo.getQuyen()== 'admin' }">
+		                		<li class="nav-item"> 
+		                			<a class="nav-link" href="${pageContext.request.contextPath }/admin/home">Quản lý</a>
+		                		</li>
+		                	</c:if>
+		                	<li class="nav-item"> 
+								<a class="nav-link" href="${pageContext.request.contextPath }/logout">Đăng xuất</a>
+		                	</li>
+		                </c:otherwise>
+            		</c:choose>
+                    
                 </li>
             </ul>
 

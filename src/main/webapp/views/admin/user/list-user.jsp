@@ -177,7 +177,7 @@
 									<th>Họ tên</th>
 									<th>Emails</th>
 									<th>Số điện thoại</th>
-									<th>Chi tiết</th>
+									<th>Sửa</th>
 									<th>Xóa</th>
 								</tr>
 							</thead>
@@ -189,8 +189,8 @@
 									<td>${o.email}</td>
 									<td >${o.sdt}</td>
 									<td><a class="edit"
-										href="admin_seller_detail_and_edit.html"> Details </a></td>
-									<td><a class="delete" href="javascript:;"> Delete </a></td>
+										href="admin_seller_detail_and_edit.html"> Sửa </a></td>
+									<td><a class="delete" href="javascript:;"> Xóa </a></td>
 								</tr>
 								</c:forEach>
 							</tbody>
