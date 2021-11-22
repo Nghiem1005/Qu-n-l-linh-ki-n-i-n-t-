@@ -113,9 +113,58 @@ public class SanPhamDao {
 
 		return list;
 	}
+<<<<<<< HEAD
 	/*public static void main(String[] args) {
 		SanPhamDao sanphamdao = new SanPhamDao();
 		List<SanPhamModel> listsanpham = sanphamdao.getAllLinhKien();
 		System.out.println(listsanpham);
 	}*/
+=======
+	public List<SanPhamModel> getTop4Product() {
+		// Khai báo List để lưu danh sách sản phẩm
+		List<SanPhamModel> list = new ArrayList<SanPhamModel>();
+		// khai báo chuỗi truy vấn
+		String sql = "select * from newlinhkien";
+		try {
+			// mở kết nối database
+			conn = new DBConnect().getConnection();
+			// Ném câu query qua SQL
+			ps = conn.prepareStatement(sql);
+			// chạy câu query và nhận kết quả
+			rs = ps.executeQuery();
+			// lấy ResultSet đổ vào list
+			while (rs.next()) {
+				list.add(new SanPhamModel(rs.getString(1), rs.getString(2), rs.getInt(3), rs.getInt(4), rs.getString(5),
+						rs.getString(6), rs.getString(7), rs.getString(8)));
+			}
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+
+		return list;
+	}
+	public List<SanPhamModel> getBest4Product() {
+		// Khai báo List để lưu danh sách sản phẩm
+		List<SanPhamModel> list = new ArrayList<SanPhamModel>();
+		// khai báo chuỗi truy vấn
+		String sql = "select * from bestlinhkien";
+		try {
+			// mở kết nối database
+			conn = new DBConnect().getConnection();
+			// Ném câu query qua SQL
+			ps = conn.prepareStatement(sql);
+			// chạy câu query và nhận kết quả
+			rs = ps.executeQuery();
+			// lấy ResultSet đổ vào list
+			while (rs.next()) {
+				list.add(new SanPhamModel(rs.getString(1), rs.getString(2), rs.getInt(3), rs.getInt(4), rs.getString(5),
+						rs.getString(6), rs.getString(7), rs.getString(8)));
+			}
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+
+		return list;
+	}
+>>>>>>> 71ac8fec580124bfd3ff35c8b52fc43476bc3035
 }

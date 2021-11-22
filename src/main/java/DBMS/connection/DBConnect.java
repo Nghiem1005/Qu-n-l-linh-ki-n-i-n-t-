@@ -6,6 +6,7 @@ import java.sql.SQLException;
 
 public class DBConnect {
 	private final String serverName = "localhost";
+<<<<<<< HEAD
 	private final String dbName = "QuanLyLinhKietMayTinh";
 	private final String portNumber = "1433";
 	private final String instance = "";
@@ -14,8 +15,14 @@ public class DBConnect {
 	private final String password = "123456";
 
 
+=======
+	private final String dbName = "HQTCSDL";
+	private final String portNumber = "1433";
+	private final String instance = "";
+	private final String userID = "sa";
+	private final String password = "huutin392001";
+>>>>>>> 71ac8fec580124bfd3ff35c8b52fc43476bc3035
 
-	
 	public Connection getConnection()throws Exception {
         String url = "jdbc:sqlserver://"+serverName+":"+portNumber + "\\" + instance +";databaseName="+dbName;
         if(instance == null || instance.trim().isEmpty())
@@ -29,6 +36,6 @@ public class DBConnect {
 		} catch (Exception e) {
 			System.out.println(e);
 			// TODO: handle exception
-		}
+		}	
 	}
 }
