@@ -15,6 +15,11 @@ public class DonHangDetailModel {
 		this.soluong = soluong;
 		this.gia = gia;
 	}
+	public DonHangDetailModel(String madonhang,String malinhkien,int soluong) {
+		this.madonhang=madonhang;
+		this.malinhkien=malinhkien;
+		this.soluong=soluong;
+	}
 	public String getMadonhang() {
 		return madonhang;
 	}

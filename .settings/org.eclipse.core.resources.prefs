@@ -1,26 +1,26 @@
 =\=\=\=\=\=\=
 <<<<<<<=HEAD
->>>>>>>=471810afad7ad30e8705d9280683c4046140bf1d
+>>>>>>>=9845122ce6052492688037e83611d8aeb221381d
 eclipse.preferences.version=1
 encoding//src/main/java/DBMS/connection/DBConnect.java=UTF-8
-<<<<<<< HEAD
-encoding//src/main/java/DBMS/controller/admin/DonHangAddController.java=UTF-8
-encoding//src/main/java/DBMS/controller/admin/DonHangController.java=UTF-8
-encoding//src/main/java/DBMS/controller/admin/DonHangUpdateController.java=UTF-8
-encoding//src/main/java/DBMS/controller/web/DonHangDetailController.java=UTF-8
-encoding//src/main/java/DBMS/dao/AccountDao.java=UTF-8
-=======
 encoding//src/main/java/DBMS/controller/admin/CartAddController.java=UTF-8
 encoding//src/main/java/DBMS/controller/admin/CartDeleteController.java=UTF-8
 encoding//src/main/java/DBMS/controller/admin/CartEditController.java=UTF-8
 encoding//src/main/java/DBMS/controller/admin/CartItemAddController.java=UTF-8
 encoding//src/main/java/DBMS/controller/admin/CartItemDeleteController.java=UTF-8
 encoding//src/main/java/DBMS/controller/admin/CartItemEditController.java=UTF-8
+encoding//src/main/java/DBMS/controller/admin/DonHangAddController.java=UTF-8
+encoding//src/main/java/DBMS/controller/admin/DonHangController.java=UTF-8
+encoding//src/main/java/DBMS/controller/admin/DonHangDetailAddController.java=UTF-8
+encoding//src/main/java/DBMS/controller/admin/DonHangDetailEditController.java=UTF-8
+encoding//src/main/java/DBMS/controller/admin/DonHangItemDeleteController.java=UTF-8
+encoding//src/main/java/DBMS/controller/admin/DonHangUpdateController.java=UTF-8
+encoding//src/main/java/DBMS/controller/admin/NguoiDungAddController.java=UTF-8
+encoding//src/main/java/DBMS/controller/admin/NguoiDungEditController.java=UTF-8
 encoding//src/main/java/DBMS/controller/web/DonHangController.java=UTF-8
 encoding//src/main/java/DBMS/controller/web/DonHangDetailController.java=UTF-8
 encoding//src/main/java/DBMS/dao/AccountDao.java=UTF-8
 encoding//src/main/java/DBMS/dao/CartDao.java=UTF-8
->>>>>>> 9845122ce6052492688037e83611d8aeb221381d
 encoding//src/main/java/DBMS/dao/DonHangDao.java=UTF-8
 encoding//src/main/java/DBMS/dao/NSXDao.java=UTF-8
 encoding//src/main/java/DBMS/dao/NguoiDungDao.java=UTF-8

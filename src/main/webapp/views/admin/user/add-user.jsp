@@ -157,14 +157,20 @@
 						</div>
 					</div>
 					<div class="portlet-body form">
-						<form role="form">
+						<!-- XXXXXXXXXXXXXXXXXXXXXXXXXX BEGIN FORM XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXx -->
+						<form role="form" action="nguoidung-add" method="post">
 							<div class="form-body">
-
+							
+								<div class="alert alert-danger ${alertmess != null ? "" : "display-hide" }">
+											<button class="close" data-close="alert"></button>
+											${alertmess}
+								</div>
+								
 								<div class="form-group">
 									<label for="exampleInputPassword1">Mã người dùng</label>
 									<div class="input-group">
-										<input type="password" class="form-control"
-											id="exampleInputPassword1" placeholder="Password"> <span
+										<input type="text" class="form-control" name="manguoidung"
+											id="exampleInputPassword1" placeholder="Mã người dùng"> <span
 											class="input-group-addon"> <i class="fa fa-user"></i>
 										</span>
 									</div>
@@ -172,8 +178,8 @@
 								<div class="form-group">
 									<label for="exampleInputPassword1">Họ tên</label>
 									<div class="input-group">
-										<input type="password" class="form-control"
-											id="exampleInputPassword1" placeholder="Password"> <span
+										<input type="text" class="form-control" name="hoten"
+											id="exampleInputPassword1" placeholder="Họ và tên"> <span
 											class="input-group-addon"> <i class="fa fa-user"></i>
 										</span>
 									</div>
@@ -183,7 +189,7 @@
 									<div class="input-group">
 										<span class="input-group-addon input-circle-left"> <i
 											class="fa fa-envelope"></i>
-										</span> <input type="text" class="form-control input-circle-right"
+										</span> <input type="text" class="form-control input-circle-right" name="email"
 											placeholder="Email Address">
 									</div>
 								</div>
@@ -192,32 +198,15 @@
 									<div class="input-group">
 										<span class="input-group-addon input-circle-left"> <i
 											class="fa fa-phone"></i>
-										</span> <input type="text" class="form-control input-circle-right"
+										</span> <input type="text" class="form-control input-circle-right" name="sdt"
 											placeholder="Số điện thoại">
 									</div>
 								</div>
-								<div class="form-group">
-									<label for="exampleInputPassword1">Tên đăng nhập</label>
-									<div class="input-group">
-										<input type="password" class="form-control"
-											id="exampleInputPassword1" placeholder="Password"> <span
-											class="input-group-addon"> <i class="fa fa-user"></i>
-										</span>
-									</div>
-								</div>
-								<div class="form-group">
-									<label for="exampleInputPassword1">Password</label>
-									<div class="input-group">
-										<input type="password" class="form-control"
-											id="exampleInputPassword1" placeholder="Password"> <span
-											class="input-group-addon"> <i class="fa fa-user"></i>
-										</span>
-									</div>
-								</div>
+								
 							</div>
 							<div class="form-actions">
-								<button type="submit" class="btn blue">Submit</button>
-								<button type="button" class="btn default">Cancel</button>
+								<button type="submit" class="btn blue">Thêm người dùng</button>
+								<button href="${pageContext.request.contextPath }/admin/nguoidung" type="button" class="btn default">Hủy</button>
 							</div>
 						</form>
 					</div>

@@ -59,6 +59,7 @@ public class NSXDao {
 		}
 	}
 	
+	
 	public void update(NSXModel nsx) {
 
 		// khai báo chuỗi truy vấn

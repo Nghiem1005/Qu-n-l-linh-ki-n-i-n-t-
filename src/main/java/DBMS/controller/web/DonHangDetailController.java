@@ -34,7 +34,9 @@ public class DonHangDetailController extends HttpServlet {
 		
 		
 		DonHangModel donhangmodel = donhangdao.getIdDonHang(id);
+		
 		List<DonHangDetailModel> listdonhangdetail=donhangdetaildao.ShowList(id);
+		
 		req.setAttribute("listchitietdonhang", listdonhangdetail);
 		req.setAttribute("listdonhang", donhangmodel);
 		

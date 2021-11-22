@@ -197,7 +197,7 @@
 								</tr>
 							</thead>
 							<tbody>
-								<c:forEach items="${listcartitem }" var="c">
+								<c:forEach items="${listcartitem}" var="c">
 									<tr>
 										<td>${c.maLinhKien }</td>
 										<td>${c.soLuong }</td>

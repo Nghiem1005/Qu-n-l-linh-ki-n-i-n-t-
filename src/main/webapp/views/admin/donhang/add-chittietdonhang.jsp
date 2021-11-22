@@ -150,7 +150,7 @@
 				<div class="portlet box grey-gallery">
 					<div class="portlet-title">
 						<div class="caption">
-							<i class="fa fa-users"></i> Thêm người dùng mới
+							<i class="fa fa-users"></i> Thêm linh kiện mới vào đơn hàng
 						</div>
 						<div class="tools">
 							<a href="" class="collapse"> </a> <a href="#portlet-config"
@@ -159,17 +159,21 @@
 						</div>
 					</div>
 					<div class="portlet-body form">
-						<form role="form">
+					<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxX -->
+						<form role="form" action="donhangitem-add" method="post"> 
 							<div class="form-body">
-
+							<div class="alert alert-danger ${alertmess != null ? "" : "display-hide" }">
+									<button class="close" data-close="alert"></button>
+									${alertmess }
+								</div>
 
 								<div class="form-group">
 									<label>Mã đơn hàng</label>
 									<div class="input-group">
 										<span class="input-group-addon input-circle-left"> <i
 											class="fa fa-file-o"></i>
-										</span> <input type="text" class="form-control input-circle-right"
-											placeholder="Email Address">
+										</span> <input type="text" class="form-control input-circle-right" name="madonhang"
+											placeholder="Mã đơn hàng" value="${madonhang}" readonly>
 									</div>
 								</div>
 								<div class="form-group">
@@ -177,8 +181,8 @@
 									<div class="input-group">
 										<span class="input-group-addon input-circle-left"> <i
 											class="fa fa-cubes"></i>
-										</span> <input type="text" class="form-control input-circle-right"
-											placeholder="Số điện thoại">
+										</span> <input type="text" class="form-control input-circle-right" name="malinhkien"
+											placeholder="Mã linh kiện">
 									</div>
 								</div>
 								<div class="form-group">
@@ -186,8 +190,8 @@
 									<div class="input-group">
 										<span class="input-group-addon input-circle-left"> <i
 											class="fa fa-bar-chart"></i>
-										</span> <input type="text" class="form-control input-circle-right"
-											placeholder="Số điện thoại">
+										</span> <input type="text" class="form-control input-circle-right" name="soluong"
+											placeholder="Số lượng">
 									</div>
 								</div>
 

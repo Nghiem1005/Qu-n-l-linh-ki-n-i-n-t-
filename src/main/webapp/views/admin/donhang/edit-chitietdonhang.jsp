@@ -159,14 +159,18 @@
 						</div>
 					</div>
 					<div class="portlet-body form">
-						<form role="form">
+						<form role="form" action="donhangitem-edit" method="post">
 							<div class="form-body">
-
+								<div class="alert alert-danger ${alertmess != null ? "" : "display-hide" }">
+									<button class="close" data-close="alert"></button>
+									${alertmess }
+								</div>
+								
 								<div class="form-group">
 									<label for="exampleInputPassword1">Mã đơn hàng</label>
 									<div class="input-group">
-										<input type="text" class="form-control"
-											id="exampleInputPassword1" placeholder="Password" readonly>
+										<input type="text" class="form-control" name="madonhang"
+											id="exampleInputPassword1" placeholder="Mã đơn hàng" value="${madonhang}" readonly>
 										<span class="input-group-addon"> <i
 											class="fa fa-file-o"></i>
 										</span>
@@ -175,8 +179,8 @@
 								<div class="form-group">
 									<label for="exampleInputPassword1">Mã linh kiện</label>
 									<div class="input-group">
-										<input type="text" class="form-control"
-											id="exampleInputPassword1" placeholder="Password" readonly>
+										<input type="text" class="form-control" name="malinhkien"
+											id="exampleInputPassword1" placeholder="Mã linh kiện" value="${malinhkien}" readonly>
 										<span class="input-group-addon"> <i class="fa fa-cubes"></i>
 										</span>
 									</div>
@@ -184,8 +188,8 @@
 								<div class="form-group">
 									<label for="exampleInputPassword1">Số lượng</label>
 									<div class="input-group">
-										<input type="text" class="form-control"
-											id="exampleInputPassword1" placeholder="Password"> <span
+										<input type="text" class="form-control" name="soluong"
+											id="exampleInputPassword1" placeholder="Số lượng" value="${soluong}"> <span
 											class="input-group-addon"> <i
 											class="fa fa-bar-chart-o"></i>
 										</span>
