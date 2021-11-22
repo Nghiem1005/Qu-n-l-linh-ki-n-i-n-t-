@@ -37,9 +37,12 @@
 
             <form action="signup" method="post" class="form-signup">
                 <h1 class="h3 mb-3 font-weight-normal" style="text-align: center"> Sign up</h1>
-                <input name="user" type="text" id="user-name" class="form-control" placeholder="User name" required autofocus>
-                <input name="pass" type="password" id="user-pass" class="form-control" placeholder="Password" required autofocus>
-                <input name="repass" type="password" id="user-repeatpass" class="form-control" placeholder="Repeat Password" required autofocus="">
+                <input name="hoten" type="text" id="" class="form-control" placeholder="Họ tên" required autofocus>
+                <input name="sdt" type="text" id="" class="form-control" placeholder="Số điện thoại" required autofocus>
+                <input name="email" type="text" id="" class="form-control" placeholder="Email" required autofocus>
+                <input name="user" type="text" id="" class="form-control" placeholder="Tên tài khoản" required autofocus>
+                <input name="pass" type="password" id="" class="form-control" placeholder="Mật khẩu" required autofocus>
+                <input name="repass" type="password" id="" class="form-control" placeholder="Nhập lại mật khẩu" required autofocus="">
 
                 <button class="btn btn-primary btn-block" type="submit"><i class="fas fa-user-plus"></i> Sign Up</button>
                 <a href="#" id="cancel_signup"><i class="fas fa-angle-left"></i> Back</a>

@@ -1,6 +1,10 @@
 =\=\=\=\=\=\=
 <<<<<<<=HEAD
+<<<<<<< HEAD
 >>>>>>>=9845122ce6052492688037e83611d8aeb221381d
+=======
+>>>>>>>=a9f8c0010777974b3410fd251a8acdf599344c74
+>>>>>>> 86403c876c0202bbe7226eaa5d822dac7ef64d84
 eclipse.preferences.version=1
 encoding//src/main/java/DBMS/connection/DBConnect.java=UTF-8
 encoding//src/main/java/DBMS/controller/admin/CartAddController.java=UTF-8
@@ -9,6 +13,7 @@ encoding//src/main/java/DBMS/controller/admin/CartEditController.java=UTF-8
 encoding//src/main/java/DBMS/controller/admin/CartItemAddController.java=UTF-8
 encoding//src/main/java/DBMS/controller/admin/CartItemDeleteController.java=UTF-8
 encoding//src/main/java/DBMS/controller/admin/CartItemEditController.java=UTF-8
+<<<<<<< HEAD
 encoding//src/main/java/DBMS/controller/admin/DonHangAddController.java=UTF-8
 encoding//src/main/java/DBMS/controller/admin/DonHangController.java=UTF-8
 encoding//src/main/java/DBMS/controller/admin/DonHangDetailAddController.java=UTF-8
@@ -18,6 +23,14 @@ encoding//src/main/java/DBMS/controller/admin/DonHangUpdateController.java=UTF-8
 encoding//src/main/java/DBMS/controller/admin/NguoiDungAddController.java=UTF-8
 encoding//src/main/java/DBMS/controller/admin/NguoiDungEditController.java=UTF-8
 encoding//src/main/java/DBMS/controller/web/DonHangController.java=UTF-8
+=======
+encoding//src/main/java/DBMS/controller/admin/DeleteNSXController.java=UTF-8
+encoding//src/main/java/DBMS/controller/admin/DonHangAddController.java=UTF-8
+encoding//src/main/java/DBMS/controller/admin/DonHangController.java=UTF-8
+encoding//src/main/java/DBMS/controller/admin/DonHangUpdateController.java=UTF-8
+encoding//src/main/java/DBMS/controller/admin/InsertNSXController.java=UTF-8
+encoding//src/main/java/DBMS/controller/admin/UpdateNSXController.java=UTF-8
+>>>>>>> 86403c876c0202bbe7226eaa5d822dac7ef64d84
 encoding//src/main/java/DBMS/controller/web/DonHangDetailController.java=UTF-8
 encoding//src/main/java/DBMS/dao/AccountDao.java=UTF-8
 encoding//src/main/java/DBMS/dao/CartDao.java=UTF-8
