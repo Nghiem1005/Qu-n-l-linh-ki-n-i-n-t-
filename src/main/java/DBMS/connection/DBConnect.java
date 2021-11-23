@@ -2,7 +2,6 @@ package DBMS.connection;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.SQLException;
 
 public class DBConnect {
 	private final String serverName = "localhost";
@@ -10,7 +9,7 @@ public class DBConnect {
 	private final String portNumber = "1433";
 	private final String instance = "";
 	private final String userID = "sa";
-	private final String password = "amsang2403@";
+	private final String password = "nghiem10052001";
 
 	
 	public Connection getConnection()throws Exception {

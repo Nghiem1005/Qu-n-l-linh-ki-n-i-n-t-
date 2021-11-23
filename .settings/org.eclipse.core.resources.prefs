@@ -16,6 +16,7 @@ encoding//src/main/java/DBMS/controller/admin/DonHangUpdateController.java=UTF-8
 encoding//src/main/java/DBMS/controller/admin/InsertNSXController.java=UTF-8
 encoding//src/main/java/DBMS/controller/admin/UpdateNSXController.java=UTF-8
 encoding//src/main/java/DBMS/controller/web/DonHangDetailController.java=UTF-8
+encoding//src/main/java/DBMS/controller/web/LoginController.java=UTF-8
 encoding//src/main/java/DBMS/dao/AccountDao.java=UTF-8
 encoding//src/main/java/DBMS/dao/CartDao.java=UTF-8
 encoding//src/main/java/DBMS/dao/DonHangDao.java=UTF-8
