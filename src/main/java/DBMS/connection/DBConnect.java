@@ -5,13 +5,13 @@ import java.sql.DriverManager;
 
 public class DBConnect {
 	private final String serverName = "localhost";
+
 	private final String dbName = "HQT_tuan08";
 	private final String portNumber = "1433";
 	private final String instance = "";
 	private final String userID = "sa";
 	private final String password = "nghiem10052001";
 
-	
 	public Connection getConnection()throws Exception {
         String url = "jdbc:sqlserver://"+serverName+":"+portNumber + "\\" + instance +";databaseName="+dbName;
         if(instance == null || instance.trim().isEmpty())
@@ -25,6 +25,6 @@ public class DBConnect {
 		} catch (Exception e) {
 			System.out.println(e);
 			// TODO: handle exception
-		}
+		}	
 	}
 }

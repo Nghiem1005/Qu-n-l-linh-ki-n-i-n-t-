@@ -12,11 +12,11 @@ import DBMS.model.DonHangModel;
 import DBMS.model.NguoiDungModel;
 
 public class NguoiDungDao {
+	Connection conn=null;
+	PreparedStatement ps=null;
+	CallableStatement cstm=null;
+	ResultSet rs=null;
 	public List<NguoiDungModel> ShowList() {
-		Connection conn=null;
-		PreparedStatement ps=null;
-		CallableStatement cstm=null;
-		ResultSet rs=null;
 		
 		List<NguoiDungModel> listnguoidung=new ArrayList<NguoiDungModel>();
 		
@@ -38,79 +38,96 @@ public class NguoiDungDao {
 		}
 		return listnguoidung;
 	}
-	public static void Insert (String manguoidung,String hoten,String email,String sdt) {
-		Connection conn=null;
-		PreparedStatement ps=null;
-		CallableStatement cstm=null;
-		ResultSet rs=null;
+	
+	public NguoiDungModel getNguoiDungbyMaNguoiDung(String manguoidung) {
+		NguoiDungModel nguoidungmodel = new NguoiDungModel();
+		String sql="select * from ap_getNguoiDungbyMaNguoiDung(?)";
+		try {
+			conn = new DBConnect().getConnection();
+			
+			ps = conn.prepareStatement(sql);
+			
+			ps.setString(1, manguoidung);
+			rs = ps.executeQuery();
+			
+			while(rs.next()) {
+				nguoidungmodel = new NguoiDungModel(rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4));
+			}
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		return nguoidungmodel;
+	}
+	
+	public int insert (NguoiDungModel nguoidungmodel) {
 		
-		String sql= "{ call adduser(?,?,?,?) }";
+		String sql= "{ call ap_Insert_NguoiDung(?,?,?,?,?) }";
+		
+		try {
+			conn = new DBConnect().getConnection();
+			cstm = conn.prepareCall(sql);
+			
+			cstm.setString(1,nguoidungmodel.getManguoidung());
+			cstm.setString(2, nguoidungmodel.getHoten());
+			cstm.setString(3, nguoidungmodel.getEmail());
+			cstm.setString(4, nguoidungmodel.getSdt());
+			cstm.registerOutParameter(5, java.sql.Types.INTEGER);
+			
+			cstm.execute();
+			int ktra= cstm.getInt(5);
+			return ktra;
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return 0;
+	}
+	
+	public int update(NguoiDungModel nguoidungmodel){
+		
+		
+		String sql= "{ call ap_Update_NguoiDung(?,?,?,?,?) }";
+		
+		try {
+			conn = new DBConnect().getConnection();
+			cstm = conn.prepareCall(sql);
+			
+			cstm.setString(1,nguoidungmodel.getManguoidung());
+			cstm.setString(2, nguoidungmodel.getHoten());
+			cstm.setString(3, nguoidungmodel.getEmail());
+			cstm.setString(4, nguoidungmodel.getSdt());
+			cstm.registerOutParameter(5, java.sql.Types.INTEGER);
+			cstm.execute();
+			
+			int ktra= cstm.getInt(5);
+			return ktra;
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+		return 0;
+	}
+	
+	public int Delete(String manguoidung) {
+		
+		
+		String sql= "{ call ap_Delete_NguoiDung(?,?) }";
 		
 		try {
 			conn = new DBConnect().getConnection();
 			cstm = conn.prepareCall(sql);
 			
 			cstm.setString(1, manguoidung);
-			cstm.setString(2, hoten);
-			cstm.setString(3, email);
-			cstm.setString(4, sdt);
-			
-			rs = cstm.executeQuery();
-			while(rs.next()) {
-				System.out.println(new NguoiDungModel(rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4)));
-			}
+			cstm.registerOutParameter(2, java.sql.Types.INTEGER);
+			cstm.execute();
+			int ktra = cstm.getInt(2);
+			return ktra;
 			
 		} catch (Exception e) {
-			// TODO: handle exception
+			e.printStackTrace();
 		}
-	}
-	
-	public static void Update(String hoten,String email,String sdt,String manguoidung) {
-		Connection conn=null;
-		PreparedStatement ps=null;
-		CallableStatement cstm=null;
-		ResultSet rs=null;
-		
-		String sql= "{ call updateuser(?,?,?,?) }";
-		
-		try {
-			conn = new DBConnect().getConnection();
-			cstm = conn.prepareCall(sql);
-			
-			cstm.setString(1, hoten);
-			cstm.setString(2, email);
-			cstm.setString(3, sdt);
-			cstm.setString(4, manguoidung);
-			
-			rs = cstm.executeQuery();
-			while(rs.next()) {
-				System.out.println(new NguoiDungModel(rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4)));
-			}
-			
-		} catch (Exception e) {
-			// TODO: handle exception
-		}
-	}
-	
-	public static void Delete(String manguoidung) {
-		Connection conn=null;
-		PreparedStatement ps=null;
-		CallableStatement cstm=null;
-		ResultSet rs=null;
-		
-		String sql= "{ call deleteuser(?) }";
-		
-		try {
-			conn = new DBConnect().getConnection();
-			cstm = conn.prepareCall(sql);
-			
-			cstm.setString(1, manguoidung);
-			
-			rs = cstm.executeQuery();
-			
-		} catch (Exception e) {
-			// TODO: handle exception
-		}
+		return 0;
 	}
 	
 	/*public static void main(String[] args) {

@@ -2,6 +2,7 @@ package DBMS.controller.admin;
 
 import java.io.IOException;
 import java.sql.Date;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -12,6 +13,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import DBMS.dao.DonHangDao;
 import DBMS.dao.DonHangDetailDao;
+import DBMS.model.CartItemModel;
+import DBMS.model.DonHangDetailModel;
 import DBMS.model.DonHangModel;
 
 @SuppressWarnings("serial")
@@ -22,13 +25,19 @@ public class DonHangUpdateController extends HttpServlet {
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		/*resp.setContentType("text/html");
+		resp.setContentType("text/html");
 		resp.setCharacterEncoding("UTF-8");
 		req.setCharacterEncoding("UTF-8");
 		
 		String madonhang = req.getParameter("madonhang");
+		
 		DonHangModel donhang = donhangdao.getIdDonHang(madonhang);
-		req.setAttribute("listdonhang", donhang);*/
+		
+		List<DonHangDetailModel> listdonhangdetail=donhangdetaildao.ShowList(madonhang);
+		//System.out.println(listdonhangdetail);
+		
+		req.setAttribute("listchitietdonhang", listdonhangdetail);
+		req.setAttribute("listdonhang", donhang);
 		
 		RequestDispatcher rq= req.getRequestDispatcher("/views/admin/donhang/chitietdonhang.jsp");
 		rq.forward(req, resp);
@@ -42,7 +51,6 @@ public class DonHangUpdateController extends HttpServlet {
 		String madonhang = req.getParameter("madonhang");
 		String ngaytao = req.getParameter("ngaytao");
 		String manguoidung = req.getParameter("manguoidung");
-		
 		Date date1 = Date.valueOf(ngaytao);
 		
 		DonHangModel donhangmodel = new DonHangModel(madonhang,date1,manguoidung);
@@ -54,6 +62,10 @@ public class DonHangUpdateController extends HttpServlet {
 		else {
 			alert="Thất bại";
 			req.setAttribute("alertmess", alert);
+			req.setAttribute("donhang", donhangmodel);
+			List<DonHangDetailModel> listdonhangitem = donhangdetaildao.ShowList(madonhang);
+			
+			req.setAttribute("listchitietdonhang", listdonhangitem);
 			req.getRequestDispatcher("/views/admin/donhang/chitietdonhang.jsp").forward(req, resp);
 		}
 	}

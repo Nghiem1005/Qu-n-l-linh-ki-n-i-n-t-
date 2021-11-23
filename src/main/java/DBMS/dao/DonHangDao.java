@@ -5,12 +5,10 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 import DBMS.connection.DBConnect;
 import DBMS.model.DonHangModel;
-import DBMS.model.NguoiDungModel;
 
 
 public class DonHangDao {
@@ -49,7 +47,7 @@ public class DonHangDao {
 		
 		DonHangModel donhangmodel= new DonHangModel();
 		
-		String sql = "select * from LayMaDonHang(?) ";
+		String sql = "select * from ap_get_donhangBymadonhang(?) ";
 		try {
 			conn = new DBConnect().getConnection();
 			
@@ -106,8 +104,7 @@ public class DonHangDao {
 				cstm.setString(1, donhangmodel.getMadonhang());
 				//cstm.setDate(2, (java.sql.Date) donhangmodel.getNgaytao());
 				cstm.setString(2, donhangmodel.getManguoidung());
-				cstm.registerOutParameter(3, java.sql.Types.INTEGER);
-				
+				cstm.registerOutParameter(3, java.sql.Types.INTEGER);	
 				cstm.execute();
 				int ktra= cstm.getInt(3);
 				return ktra;
@@ -136,18 +133,18 @@ public class DonHangDao {
 		}
 		return 0;
 	}
-/*
-	public static void main(String[] args) {
-		System.out.println("danh sach don hang hien tai");
-		DonHangDao donhangdao = new DonHangDao();
-		
-		//DonHangModel kq = donhangdao.getIdDonHang("DH01");
-		Date date1 = java.sql.Date.valueOf("2021-11-11");
-		//int kq = donhangdao.insert(new DonHangModel("DH13",date1 , "KH01"));
-		//int kq=donhangdao.delete("DH13");
-		//System.out.println(kq);
-		
-		int kq= donhangdao.update(new DonHangModel("DH01",date1, "KH01"));
-		System.out.println(kq);
-	}*/
+	
+
+//	public static void main(String[] args) {
+//		System.out.println("danh sach don hang hien tai");
+//		DonHangDao donhangdao = new DonHangDao();
+//		//DonHangModel kq = donhangdao.getIdDonHang("DH01");
+////		Date date1 = java.sql.Date.valueOf("2021-11-11");
+//		//int kq = donhangdao.insert(new DonHangModel("DH13",date1 , "KH01"));
+//		//int kq=donhangdao.delete("DH13");
+//		//System.out.println(kq);
+//		
+////		int kq= donhangdao.update(new DonHangModel("DH01",date1, "KH01"));
+//		System.out.println(kq);
+//	}
 }

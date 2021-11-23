@@ -38,6 +38,32 @@ public class SanPhamDao {
 		return list;
 
 	}
+	public int insert(SanPhamModel sanphammodel) {
+		String sql="{ call ap_Insert_SanPham(?,?,?,?,?,?,?,?,?) }";
+		try {
+			conn = new DBConnect().getConnection();
+			cstm = conn.prepareCall(sql);
+			
+			cstm.setString(1, sanphammodel.getMaLinhKien());
+			cstm.setString(2, sanphammodel.getTenLinhKien());
+			cstm.setInt(3, sanphammodel.getSoLuong());
+			cstm.setInt(4, sanphammodel.getDonGia());
+			cstm.setString(5, sanphammodel.getMoTa());
+			cstm.setString(6, sanphammodel.getLinkAnh());
+			cstm.setString(7, sanphammodel.getMaLoai());
+			cstm.setString(8, sanphammodel.getMaNSX());
+			cstm.registerOutParameter(9, java.sql.Types.INTEGER);
+			
+			cstm.execute();
+			
+			int ktra=cstm.getInt(9);
+			return ktra;
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return 0;
+	}
 	
 	public int CountAll() {
 		// TODO Auto-generated method stub
@@ -87,4 +113,77 @@ public class SanPhamDao {
 
 		return list;
 	}
+
+	/*public static void main(String[] args) {
+		SanPhamDao sanphamdao = new SanPhamDao();
+		List<SanPhamModel> listsanpham = sanphamdao.getAllLinhKien();
+		System.out.println(listsanpham);
+	}*/
+
+	public List<SanPhamModel> getTop4Product() {
+		// Khai báo List để lưu danh sách sản phẩm
+		List<SanPhamModel> list = new ArrayList<SanPhamModel>();
+		// khai báo chuỗi truy vấn
+		String sql = "select * from newlinhkien";
+		try {
+			// mở kết nối database
+			conn = new DBConnect().getConnection();
+			// Ném câu query qua SQL
+			ps = conn.prepareStatement(sql);
+			// chạy câu query và nhận kết quả
+			rs = ps.executeQuery();
+			// lấy ResultSet đổ vào list
+			while (rs.next()) {
+				list.add(new SanPhamModel(rs.getString(1), rs.getString(2), rs.getInt(3), rs.getInt(4), rs.getString(5),
+						rs.getString(6), rs.getString(7), rs.getString(8)));
+			}
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+
+		return list;
+	}
+	public List<SanPhamModel> getBest4Product() {
+		// Khai báo List để lưu danh sách sản phẩm
+		List<SanPhamModel> list = new ArrayList<SanPhamModel>();
+		// khai báo chuỗi truy vấn
+		String sql = "select * from bestlinhkien";
+		try {
+			// mở kết nối database
+			conn = new DBConnect().getConnection();
+			// Ném câu query qua SQL
+			ps = conn.prepareStatement(sql);
+			// chạy câu query và nhận kết quả
+			rs = ps.executeQuery();
+			// lấy ResultSet đổ vào list
+			while (rs.next()) {
+				list.add(new SanPhamModel(rs.getString(1), rs.getString(2), rs.getInt(3), rs.getInt(4), rs.getString(5),
+						rs.getString(6), rs.getString(7), rs.getString(8)));
+			}
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+
+		return list;
+	}
+	public SanPhamModel getProductById(String id) {
+		SanPhamModel product = new SanPhamModel();
+
+		String sql = "select * from LinhKien where MaLinhKien = ?";
+		try {
+			conn = new DBConnect().getConnection();
+			ps = conn.prepareStatement(sql);
+			ps.setString(1, id);
+			rs = ps.executeQuery();
+			while (rs.next()) {
+				product = new SanPhamModel(rs.getString(1), rs.getString(2), rs.getInt(3), rs.getInt(4), rs.getString(5),
+						rs.getString(6), rs.getString(7), rs.getString(8));
+			}
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+
+		return product;
+	}
+
 }

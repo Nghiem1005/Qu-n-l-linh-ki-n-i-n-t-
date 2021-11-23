@@ -157,25 +157,17 @@
 								<div class="col-md-9">
 									<div class="row">
 										<div class="col-md-8 profile-info">
-											<h1>John Doe</h1>
-											<p>
-												<i class="fa fa-child"></i> Mã người dùng: 01
+											<h1 >${listnguoidung.manguoidung}</h1>
+											<p >
+												<i class="fa fa-child"></i> ${listnguoidung.hoten}
 											</p>
-											<p>
-												<i class="fa fa-mobile"></i> Số điện thoai: 09857483343
+											<p >
+												<i class="fa fa-mobile"></i> ${listnguoidung.email}
 											</p>
-											<p>
-												<i class="fa fa-envelope-o"></i> Email: ngheim@
+											<p >
+												<i class="fa fa-envelope-o"></i> ${listnguoidung.sdt}
 											</p>
-											<p>
-												<i class="fa fa-user"></i> Tài khoản
-											</p>
-											<p>
-												<i class="fa fa-key"></i> Mật khẩu
-											</p>
-											<p>
-												<i class="fa fa-sitemap"></i> Quyền
-											</p>
+											
 										</div>
 									</div>
 									<!--end row-->
@@ -188,7 +180,7 @@
 								<div class="col-md-3">
 									<ul class="ver-inline-menu tabbable margin-bottom-10">
 										<li class="active"><a data-toggle="tab" href="#tab_1-1">
-												<i class="fa fa-cog"></i> Thông tin
+												<i class="fa fa-cog"></i> Thông tin của người dùng
 										</a> <span class="after"> </span></li>
 										<li><a data-toggle="tab" href="#tab_3-3"> <i
 												class="fa fa-lock"></i> Tài khoản
@@ -198,27 +190,34 @@
 								<div class="col-md-9">
 									<div class="tab-content">
 										<div id="tab_1-1" class="tab-pane active">
-											<form role="form" action="#">
+											<form role="form" action="nguoidung-edit" method="post">
+											<!-- XXXXXXXXXXXXXXXXXXXXXXXXXXX begin form  XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXx -->
+											<div class="alert alert-danger ${alertmess != null ? "" : "display-hide" }">
+												<button class="close" data-close="alert"></button>
+													${alertmess}
+											</div>
 												<div class="form-group">
+												
 													<label class="control-label">Mã người dùng</label> <input
-														type="text" placeholder="John" class="form-control"
+														type="text"  class="form-control" value="${listnguoidung.manguoidung}" name="manguoidung"
 														readonly />
 												</div>
 												<div class="form-group">
 													<label class="control-label">Họ tên</label> <input
-														type="text" placeholder="Doe" class="form-control" />
+														type="text" class="form-control" value="${listnguoidung.hoten}" name="hoten"
+														 />
 												</div>
 												<div class="form-group">
 													<label class="control-label">Email</label> <input
-														type="text" placeholder="+1 646 580 DEMO (6284)"
+														type="text" value="${listnguoidung.email}" name="email"
 														class="form-control" />
 												</div>
 												<div class="form-group">
 													<label class="control-label">Số điện thoại</label> <input
-														type="text" placeholder="Design, Web etc."
+														type="text" value="${listnguoidung.sdt}" name="sdt"
 														class="form-control" />
 												</div>
-												<button type="submit" class="btn blue">Gửi</button>
+												<button type="submit" class="btn blue">Lưu</button>
 												<button type="button" class="btn default">Thoát</button>
 											</form>
 										</div>
@@ -237,7 +236,9 @@
 														type="password" class="form-control" />
 												</div>
 												<button type="submit" class="btn blue">Gửi</button>
-												<button type="button" class="btn default">Thoát</button>
+												<button type="button" class="btn default">
+													<a href="${pageContext.request.contextPath }/admin/nguoidung">Thoát</a>
+												</button>
 											</form>
 										</div>
 									</div>

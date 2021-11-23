@@ -54,10 +54,10 @@ public class SanPhamModel {
 	public void setMoTa(String moTa) {
 		this.moTa = moTa;
 	}
-	public String getLinhAnh() {
+	public String getLinkAnh() {
 		return linkAnh;
 	}
-	public void setLinhAnh(String linkAnh) {
+	public void setLinkAnh(String linkAnh) {
 		this.linkAnh = linkAnh;
 	}
 	public String getMaLoai() {
