@@ -113,21 +113,13 @@ public class SanPhamDao {
 
 		return list;
 	}
-<<<<<<< HEAD
 
-=======
-<<<<<<< HEAD
->>>>>>> f68c947c5e41d66d306244e0cb5e6c847994e097
 	/*public static void main(String[] args) {
 		SanPhamDao sanphamdao = new SanPhamDao();
 		List<SanPhamModel> listsanpham = sanphamdao.getAllLinhKien();
 		System.out.println(listsanpham);
 	}*/
-<<<<<<< HEAD
 
-=======
-=======
->>>>>>> f68c947c5e41d66d306244e0cb5e6c847994e097
 	public List<SanPhamModel> getTop4Product() {
 		// Khai báo List để lưu danh sách sản phẩm
 		List<SanPhamModel> list = new ArrayList<SanPhamModel>();
@@ -174,9 +166,24 @@ public class SanPhamDao {
 
 		return list;
 	}
-<<<<<<< HEAD
+	public SanPhamModel getProductById(String id) {
+		SanPhamModel product = new SanPhamModel();
 
-=======
->>>>>>> 71ac8fec580124bfd3ff35c8b52fc43476bc3035
->>>>>>> f68c947c5e41d66d306244e0cb5e6c847994e097
+		String sql = "select * from LinhKien where MaLinhKien = ?";
+		try {
+			conn = new DBConnect().getConnection();
+			ps = conn.prepareStatement(sql);
+			ps.setString(1, id);
+			rs = ps.executeQuery();
+			while (rs.next()) {
+				product = new SanPhamModel(rs.getString(1), rs.getString(2), rs.getInt(3), rs.getInt(4), rs.getString(5),
+						rs.getString(6), rs.getString(7), rs.getString(8));
+			}
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+
+		return product;
+	}
+
 }

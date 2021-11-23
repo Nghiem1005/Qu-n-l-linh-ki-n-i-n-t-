@@ -7,7 +7,7 @@ public class LinhKienBanChayModel {
 	private int gia;
 	private int soluong;
 	private Date ngaytao;
-	public LinhKienBanChayModel(String tenLinhKien, int gia, int soluong, Date ngaytao) {
+	public LinhKienBanChayModel(String tenLinhKien, int soluong, int gia, Date ngaytao) {
 		super();
 		this.tenLinhKien = tenLinhKien;
 		this.gia = gia;

@@ -46,11 +46,11 @@
 				<c:forEach items="${listsp }" var="p">
 					<div class="col-12 col-md-6 col-lg-4">
 						<div class="card">
-							<img class="card-img-top" src="${p.linhAnh }"
+							<img class="card-img-top" src="${p.linkAnh }"
 								alt="Card image cap">
 							<div class="card-body">
 								<h4 class="card-title">
-									<a href="product.html" title="View Product">${p.tenLinhKien }</a>
+									<a href="${pageContext.request.contextPath}/sanpham/chitiet?p=${p.getMaLinhKien()}" title="View Product">${p.tenLinhKien }</a>
 								</h4>
 								<p class="card-text">${p.moTa }</p>
 								<div class="row">
