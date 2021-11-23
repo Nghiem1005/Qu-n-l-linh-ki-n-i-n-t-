@@ -113,13 +113,21 @@ public class SanPhamDao {
 
 		return list;
 	}
+<<<<<<< HEAD
 
+=======
+<<<<<<< HEAD
+>>>>>>> f68c947c5e41d66d306244e0cb5e6c847994e097
 	/*public static void main(String[] args) {
 		SanPhamDao sanphamdao = new SanPhamDao();
 		List<SanPhamModel> listsanpham = sanphamdao.getAllLinhKien();
 		System.out.println(listsanpham);
 	}*/
+<<<<<<< HEAD
 
+=======
+=======
+>>>>>>> f68c947c5e41d66d306244e0cb5e6c847994e097
 	public List<SanPhamModel> getTop4Product() {
 		// Khai báo List để lưu danh sách sản phẩm
 		List<SanPhamModel> list = new ArrayList<SanPhamModel>();
@@ -166,5 +174,9 @@ public class SanPhamDao {
 
 		return list;
 	}
+<<<<<<< HEAD
 
+=======
+>>>>>>> 71ac8fec580124bfd3ff35c8b52fc43476bc3035
+>>>>>>> f68c947c5e41d66d306244e0cb5e6c847994e097
 }
