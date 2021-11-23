@@ -64,6 +64,70 @@ public class SanPhamDao {
 		}
 		return 0;
 	}
+	public int update (SanPhamModel sanphammodel) {
+		String sql="{ call ap_Update_LinhKien(?,?,?,?,?,?,?,?,?) }";
+		try {
+			conn = new DBConnect().getConnection();
+			cstm = conn.prepareCall(sql);
+			
+			cstm.setString(1, sanphammodel.getMaLinhKien());
+			cstm.setString(2, sanphammodel.getTenLinhKien());
+			cstm.setInt(3, sanphammodel.getSoLuong());
+			cstm.setInt(4, sanphammodel.getDonGia());
+			cstm.setString(5, sanphammodel.getMoTa());
+			cstm.setString(6, sanphammodel.getLinkAnh());
+			cstm.setString(7, sanphammodel.getMaLoai());
+			cstm.setString(8, sanphammodel.getMaNSX());
+			cstm.registerOutParameter(9, java.sql.Types.INTEGER);
+			
+			cstm.execute();
+			
+			int ktra=cstm.getInt(9);
+			return ktra;
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return 0;
+	}
+	public int delete (String malinhkien) {
+		String sql="{ call ap_Delete_LinhKien(?,?) }";
+		
+		try {
+			conn = new DBConnect().getConnection();
+			cstm = conn.prepareCall(sql);
+			
+			cstm.setString(1, malinhkien);
+			cstm.registerOutParameter(2, java.sql.Types.INTEGER);
+			
+			cstm.execute();
+			
+			int ktra=cstm.getInt(2);
+			return ktra;
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return 0;
+	}
+	
+	public SanPhamModel getLinhKienbyMaLinhKien (String manlinhkien) {
+		SanPhamModel sanphammodel = new SanPhamModel();
+		String sql="select * from ap_get_LinhKienbyMaLinhKien(?)";
+		try {
+			conn = new DBConnect().getConnection();
+			ps = conn.prepareStatement(sql);
+			ps.setString(1, manlinhkien);
+			rs = ps.executeQuery();
+			
+			while(rs.next()) {
+				sanphammodel = new SanPhamModel(rs.getString(1),rs.getString(2),rs.getInt(3),rs.getInt(4),rs.getString(5),rs.getString(6),rs.getString(7),rs.getString(8));
+				
+			}
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		return sanphammodel;
+	}
 	
 	public int CountAll() {
 		// TODO Auto-generated method stub
@@ -213,6 +277,7 @@ public class SanPhamDao {
 
 		return list;
 	}
+	
 	public SanPhamModel getProductById(String id) {
 		SanPhamModel product = new SanPhamModel();
 
@@ -232,9 +297,7 @@ public class SanPhamDao {
 
 		return product;
 	}
-	public static void main(String[] args) {
-	SanPhamDao sanphamdao = new SanPhamDao();
-	SanPhamModel listsanpham = sanphamdao.getProductById("CH10");
-	System.out.println(listsanpham);
+
 }
-}
+
+

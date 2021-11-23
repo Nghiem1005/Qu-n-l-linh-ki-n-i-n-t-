@@ -21,6 +21,7 @@ encoding//src/main/java/DBMS/controller/admin/NguoiDungAddController.java=UTF-8
 encoding//src/main/java/DBMS/controller/admin/NguoiDungEditController.java=UTF-8
 encoding//src/main/java/DBMS/controller/admin/SanPhamAddController.java=UTF-8
 encoding//src/main/java/DBMS/controller/admin/SanPhamListController.java=UTF-8
+encoding//src/main/java/DBMS/controller/admin/SanPhamUpdateController.java=UTF-8
 encoding//src/main/java/DBMS/controller/admin/UpdateNSXController.java=UTF-8
 encoding//src/main/java/DBMS/controller/web/DonHangController.java=UTF-8
 encoding//src/main/java/DBMS/controller/web/DonHangDetailController.java=UTF-8
