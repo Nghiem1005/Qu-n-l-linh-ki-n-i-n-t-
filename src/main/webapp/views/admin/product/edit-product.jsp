@@ -158,13 +158,15 @@
 								</div>
 							</div>
 							<div class="portlet-body form">
-								<!-- BEGIN FORM-->
-								<form action="edit" method="post" id="form_sample_2" class="form-horizontal">
+								<!-- BEGIN FORM  xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx-->
+								<form action="sanpham-edit" method="post" id="form_sample_2" class="form-horizontal">
 									<div class="form-body">
+									
 										<div class="alert alert-danger ${alertmess != null ? "" : "display-hide" }">
 											<button class="close" data-close="alert"></button>
 											${alertmess }
 										</div>
+										
 										<div class="alert alert-success display-hide">
 											<button class="close" data-close="alert"></button>
 											Your form validation is successful!
@@ -176,7 +178,7 @@
 											<div class="col-md-4">
 												<div class="input-icon right">
 													<i class="fa"></i> <input id="inputID" type="text" class="form-control"
-														name="productid" value="${product.productID }" required readonly/>
+														name="malinhkien" value="${listlinhkien.maLinhKien }" required readonly/>
 												</div>
 											</div>
 										</div>
@@ -187,7 +189,29 @@
 											<div class="col-md-4">
 												<div class="input-icon right">
 													<i class="fa"></i> <input id="inputName" type="text" class="form-control"
-														name="name" value="${product.productName }" required />
+														name="tenlinhkien" value="${listlinhkien.tenLinhKien }" required />
+												</div>
+											</div>
+										</div>
+										<div class="form-group">
+											<label class="control-label col-md-3">Số lượng <span
+												class="required"> * </span>
+											</label>
+											<div class="col-md-4">
+												<div class="input-icon right">
+													<i class="fa"></i> <input id="inputPrice" type="text" class="form-control"
+														name="soluong" value="${listlinhkien.soLuong }" required />
+												</div>
+											</div>
+										</div>
+										<div class="form-group">
+											<label class="control-label col-md-3">Đơn giá <span
+												class="required"> * </span>
+											</label>
+											<div class="col-md-4">
+												<div class="input-icon right">
+													<i class="fa"></i> <input id="inputPrice" type="text" class="form-control"
+														name="dongia" value="${listlinhkien.donGia }" required />
 												</div>
 											</div>
 										</div>
@@ -196,30 +220,20 @@
 											* </span>
 											</label>
 											<div class="col-md-9">
-												<textarea id="inputDescription" class="ckeditor form-control" name="description" rows="6" data-error-container="#editor2_error" required >${product.description }</textarea>
+												<textarea id="inputDescription" class="ckeditor form-control" name="mota" rows="6" data-error-container="#editor2_error" required >${listlinhkien.moTa }</textarea>
 												<div id="editor2_error">
 												</div>
 											</div>
 										</div>
+										
 										<div class="form-group">
-											<label class="control-label col-md-3">Giá <span
-												class="required"> * </span>
-											</label>
-											<div class="col-md-4">
-												<div class="input-icon right">
-													<i class="fa"></i> <input id="inputPrice" type="text" class="form-control"
-														name="price" value="${product.price }" required />
-												</div>
-											</div>
-										</div>
-										<div class="form-group">
-											<label class="control-label col-md-3">Link Ảnh <span
+											<label class="control-label col-md-3">Hình ảnh<span
 												class="required"> * </span>
 											</label>
 											<div class="col-md-4">
 												<div class="input-icon right">
 													<i class="fa"></i> <input id="inputLinkanh" type="text" class="form-control"
-														name="linkanh" value="${product.imagelink }" required />
+														name="linkanh" value="${listlinhkien.linkAnh }" required />
 												</div>
 												<span class="help-block"> e.g: https://canary.contestimg.wish.com/api/webimage/6092b25f8dc7310066eea79c-large.jpg </span>
 											</div>
@@ -231,7 +245,7 @@
 											<div class="col-md-4">
 												<div class="input-icon right">
 													<i class="fa"></i> <input id="inputCategoryid" type="text" class="form-control"
-														name="categoryid" value="${product.categoryID }" required />
+														name="maloai" value="${listlinhkien.maLoai }" required />
 												</div>
 											</div>
 										</div>
@@ -242,27 +256,18 @@
 											<div class="col-md-4">
 												<div class="input-icon right">
 													<i class="fa"></i> <input id="inputSellerid" type="text" class="form-control"
-														name="sellerid" value="${product.sellerID }" required />
+														name="mansx" value="${listlinhkien.maNSX }" required />
 												</div>
 											</div>
 										</div>
-										<div class="form-group">
-											<label class="control-label col-md-3">Số lượng <span
-												class="required"> * </span>
-											</label>
-											<div class="col-md-4">
-												<div class="input-icon right">
-													<i class="fa"></i> <input id="inputAmount" type="text" class="form-control"
-														name="amount" value="${product.amount }" required />
-												</div>
-											</div>
-										</div>
+										
 									</div>
 									<div class="form-actions">
 										<div class="row">
 											<div class="col-md-offset-3 col-md-9">
 												<button type="submit" class="btn green">Lưu</button>
-												<button type="button" class="btn default">Thoát</button>
+												<button type="button" class="btn default" href="${pageContext.request.contextPath }/admin/sanpham"
+												>Thoát</button>
 											</div>
 										</div>
 									</div>

@@ -214,9 +214,9 @@
 											<td>${a.maLoai }</td>
 											<td>${a.maNSX }</td>
 											<!-- <td class="center">power user</td> -->
-											<td><a href="${pageContext.request.contextPath }/admin/product/edit?id=${a.maLinhKien }">
+											<td><a href="${pageContext.request.contextPath }/admin/sanpham-edit?malinhkien=${a.maLinhKien }">
 													Edit </a></td>
-											<td><a href="${pageContext.request.contextPath }/admin/product/delete?id=${a.maLinhKien }">
+											<td><a href="${pageContext.request.contextPath }/admin/sanpham-delete?malinhkien=${a.maLinhKien }">
 													Delete </a></td>
 										</tr>
 									</c:forEach>
