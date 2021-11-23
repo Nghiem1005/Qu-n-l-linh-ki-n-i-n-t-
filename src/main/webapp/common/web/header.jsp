@@ -21,7 +21,7 @@
                     <a class="nav-link" href="${pageContext.request.contextPath}/home">Trang chủ <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="${pageContext.request.contextPath}/sanpham">Sản phẩm</a>
+                    <a class="nav-link" href="${pageContext.request.contextPath}/sanpham?cid=0">Sản phẩm</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="product.html">Màn hình</a>

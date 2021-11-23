@@ -40,6 +40,19 @@
 	<script
 		src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
 		type="text/javascript"></script>
+	<script>
+		
+		function tanggiam (i){
+			if (i == 1){ 
+				var giatri = Number($("#quantity").val()) + 1;
+				document.getElementById('quantity').value = giatri;
+			} else {
+				var giatri = Number($("#quantity").val()) - 1;
+				document.getElementById('quantity').value = giatri;
+			}
+			
+		}
+	</script>
 
 </body>
 </html>

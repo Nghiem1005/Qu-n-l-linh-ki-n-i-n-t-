@@ -38,7 +38,7 @@
 			<li><a href="${pageContext.request.contextPath}/admin/cart"> <i class="icon-basket"></i> <span
 					class="title">Giỏ hàng</span> <span class="arrow "></span>
 			</a></li>
-			<li><a href="${pageContext.request.contextPath}/home"> <i class="icon-logout"></i> <span
+			<li><a href="${pageContext.request.contextPath }/login"> <i class="icon-logout"></i> <span
 					class="title">Đăng Xuất</span> <span class="arrow "></span>
 			</a></li>
 			</ul>
