@@ -230,5 +230,27 @@ public class SanPhamDao {
 
 		return list;
 	}
+<<<<<<< HEAD
+=======
+	public SanPhamModel getProductById(String id) {
+		SanPhamModel product = new SanPhamModel();
+
+		String sql = "select * from LinhKien where MaLinhKien = ?";
+		try {
+			conn = new DBConnect().getConnection();
+			ps = conn.prepareStatement(sql);
+			ps.setString(1, id);
+			rs = ps.executeQuery();
+			while (rs.next()) {
+				product = new SanPhamModel(rs.getString(1), rs.getString(2), rs.getInt(3), rs.getInt(4), rs.getString(5),
+						rs.getString(6), rs.getString(7), rs.getString(8));
+			}
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+
+		return product;
+	}
+>>>>>>> 269d266b9e2e60a1b93dda7e322f6d1bd2fcd3a5
 
 }

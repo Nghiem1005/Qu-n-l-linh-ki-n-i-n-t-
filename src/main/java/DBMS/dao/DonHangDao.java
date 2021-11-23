@@ -5,12 +5,10 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 import DBMS.connection.DBConnect;
 import DBMS.model.DonHangModel;
-import DBMS.model.NguoiDungModel;
 
 
 public class DonHangDao {
@@ -135,18 +133,18 @@ public class DonHangDao {
 		}
 		return 0;
 	}
-/*
-	public static void main(String[] args) {
-		System.out.println("danh sach don hang hien tai");
-		DonHangDao donhangdao = new DonHangDao();
-		
-		//DonHangModel kq = donhangdao.getIdDonHang("DH01");
-		Date date1 = java.sql.Date.valueOf("2021-11-11");
-		//int kq = donhangdao.insert(new DonHangModel("DH13",date1 , "KH01"));
-		//int kq=donhangdao.delete("DH13");
-		//System.out.println(kq);
-		
-		int kq= donhangdao.update(new DonHangModel("DH01",date1, "KH01"));
-		System.out.println(kq);
-	}*/
+	
+
+//	public static void main(String[] args) {
+//		System.out.println("danh sach don hang hien tai");
+//		DonHangDao donhangdao = new DonHangDao();
+//		//DonHangModel kq = donhangdao.getIdDonHang("DH01");
+////		Date date1 = java.sql.Date.valueOf("2021-11-11");
+//		//int kq = donhangdao.insert(new DonHangModel("DH13",date1 , "KH01"));
+//		//int kq=donhangdao.delete("DH13");
+//		//System.out.println(kq);
+//		
+////		int kq= donhangdao.update(new DonHangModel("DH01",date1, "KH01"));
+//		System.out.println(kq);
+//	}
 }
