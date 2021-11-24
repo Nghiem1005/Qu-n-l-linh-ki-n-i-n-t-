@@ -302,11 +302,7 @@ public class SanPhamDao {
 
 		return list;
 	}
-<<<<<<< HEAD
 
-=======
-	
->>>>>>> 3654d5ed756daa1fdb69afa39262397bc46633e6
 	public SanPhamModel getProductById(String id) {
 		SanPhamModel product = new SanPhamModel();
 
@@ -326,10 +322,6 @@ public class SanPhamDao {
 
 		return product;
 	}
-<<<<<<< HEAD
-
-=======
->>>>>>> 3654d5ed756daa1fdb69afa39262397bc46633e6
 
 }
 
