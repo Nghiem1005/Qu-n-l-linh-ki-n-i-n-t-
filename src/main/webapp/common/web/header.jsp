@@ -24,12 +24,6 @@
                     <a class="nav-link" href="${pageContext.request.contextPath}/sanpham?cid=0">Sản phẩm</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="product.html">Màn hình</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="contact.html">CPU</a>
-                </li>
-                <li class="nav-item">
                 	<c:choose>
 		                <c:when test="${sessionScope.acc == null}">
 			                <li class="nav-item"> 

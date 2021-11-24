@@ -44,7 +44,7 @@
 		<div class="col-12 col-md-3">
 			<div class="card">
 				<div class="card-header bg-success text-white text-uppercase">
-					<i class="fa fa-heart"></i> Mua cái này trước lè
+					<i class="fa fa-heart"></i> Thêm giỏ hàng
 				</div>
 				<img class="img-fluid border-0"
 					src="${best.linkAnh}"
@@ -58,7 +58,7 @@
 							<p class="btn btn-danger btn-block">${best.donGia} đ</p>
 						</div>
 						<div class="col">
-							<a href="product.html" class="btn btn-success btn-block">View</a>
+							<a href="${pageContext.request.contextPath}/sanpham/add_sanpham?pId=${p.getMaLinhKien()}&soluong=1" class="btn btn-success btn-block">Thêm giỏ hàng</a>
 						</div>
 					</div>
 				</div>
@@ -92,8 +92,7 @@
 												<p class="btn btn-danger btn-block">${t.donGia}đ</p>
 											</div>
 											<div class="col">
-												<a href="cart.html" class="btn btn-success btn-block">Thêm
-													em vào giỏ ii >.< </a>
+												<a href="${pageContext.request.contextPath}/sanpham/add_sanpham?pId=${p.getMaLinhKien()}&soluong=1" class="btn btn-success btn-block">Thêm giỏ hàng </a>
 											</div>
 										</div>
 									</div>
