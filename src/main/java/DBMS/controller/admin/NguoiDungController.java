@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import DBMS.dao.LoaiDao;
+
 import DBMS.dao.NguoiDungDao;
 import DBMS.model.NguoiDungModel;
 

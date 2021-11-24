@@ -190,6 +190,7 @@ public class SanPhamDao {
 			
 
 			ps = conn.prepareStatement(sql);
+
 			ps.setInt(1, (index - 1) * 9);
 
 			rs = ps.executeQuery();

@@ -55,6 +55,7 @@ public class SanPhamController extends HttpServlet{
 		}
 		
 		List<SanPhamModel> listsp = spdao.getPagingSanPham(index);
+		
 		List<SanPhamModel> listspbycid = spdao.getPagingProductByCid(cid, index);
 		
 		if(cid.equals("0")) {
@@ -64,9 +65,8 @@ public class SanPhamController extends HttpServlet{
 			
 			req.setAttribute("listallproduct", listspbycid);
 		}
-				
 		
-		req.setAttribute("endP", endPage);
+	
 		req.setAttribute("tag", index);
 		
 		req.setAttribute("targetactive", cid);

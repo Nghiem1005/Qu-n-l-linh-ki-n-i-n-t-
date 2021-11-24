@@ -13,8 +13,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import DBMS.dao.DonHangDao;
-import DBMS.dao.DonHangDetailDao;
 import DBMS.dao.ThongKeDao;
 import DBMS.model.thongke.BaoCaoDonHangModel;
 import DBMS.model.thongke.BaoCaoKhachHangModel;
