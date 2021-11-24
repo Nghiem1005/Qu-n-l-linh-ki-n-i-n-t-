@@ -202,12 +202,59 @@ public class SanPhamDao {
 
 		return list;
 	}
+	
+	public List<SanPhamModel> getPagingProductByCid(String cid, int index) {
+		// TODO Auto-generated method stub
+		List<SanPhamModel> list = new ArrayList<SanPhamModel>();
+		String sql = "select * from ap_get_linhkiensotrangtheoloai(?, ?)";
+		try {
 
-	/*public static void main(String[] args) {
-		SanPhamDao sanphamdao = new SanPhamDao();
-		List<SanPhamModel> listsanpham = sanphamdao.getAllLinhKien();
-		System.out.println(listsanpham);
-	}*/
+			conn = new DBConnect().getConnection();
+
+			ps = conn.prepareStatement(sql);
+			ps.setString(1, cid);
+			ps.setInt(2, (index - 1) * 9);
+
+			rs = ps.executeQuery();
+			while (rs.next()) {
+				list.add(new SanPhamModel(rs.getString(1), rs.getString(2), rs.getInt(3), rs.getInt(4), rs.getString(5),
+						rs.getString(6), rs.getString(7), rs.getString(8)));
+			}
+
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		return list;
+	}
+
+	public int CountAllByCid(String cid) {
+		// TODO Auto-generated method stub
+		int amount = 0;
+		String sql = "select dbo.ap_get_tongsolinhkientheoloai(?)";
+		try {
+
+			conn = new DBConnect().getConnection();
+
+			ps = conn.prepareStatement(sql);
+			ps.setString(1, cid);
+
+			rs = ps.executeQuery();
+			while (rs.next()) {
+
+				amount = rs.getInt(1);
+			}
+
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		return amount;
+	}
+
+	
 
 	public List<SanPhamModel> getTop4Product() {
 		// Khai báo List để lưu danh sách sản phẩm
@@ -255,7 +302,11 @@ public class SanPhamDao {
 
 		return list;
 	}
+<<<<<<< HEAD
 
+=======
+	
+>>>>>>> 3654d5ed756daa1fdb69afa39262397bc46633e6
 	public SanPhamModel getProductById(String id) {
 		SanPhamModel product = new SanPhamModel();
 
@@ -275,6 +326,11 @@ public class SanPhamDao {
 
 		return product;
 	}
+<<<<<<< HEAD
 
+=======
+>>>>>>> 3654d5ed756daa1fdb69afa39262397bc46633e6
 
 }
+
+

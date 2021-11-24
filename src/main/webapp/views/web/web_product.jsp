@@ -24,7 +24,9 @@
 				</div>
 				<ul class="list-group category_block">
 					<c:forEach items="${listloai }" var="l">
-						<li class="list-group-item"><a href="category.html">${l.tenLoai }</a></li>
+						<li class="list-group-item ${targetactive == l.maLoai ? "active" : ""}"><a
+							class="${targetactive == l.maLoai ? "
+							text-white" : ""}" href="${pageContext.request.contextPath}/sanpham?cid=${l.maLoai }">${l.tenLoai }</a></li>
 					</c:forEach>
 				</ul>
 			</div>
@@ -43,14 +45,16 @@
 		</div>
 		<div class="col">
 			<div class="row">
-				<c:forEach items="${listsp }" var="p">
+				<c:forEach items="${listallproduct }" var="p">
 					<div class="col-12 col-md-6 col-lg-4">
 						<div class="card">
 							<img class="card-img-top" src="${p.linkAnh }"
 								alt="Card image cap">
 							<div class="card-body">
 								<h4 class="card-title">
-									<a href="${pageContext.request.contextPath}/sanpham/chitiet?p=${p.getMaLinhKien()}" title="View Product">${p.tenLinhKien }</a>
+									<a
+										href="${pageContext.request.contextPath}/sanpham/chitiet?p=${p.getMaLinhKien()}"
+										title="View Product">${p.tenLinhKien }</a>
 								</h4>
 								<p class="card-text">${p.moTa }</p>
 								<div class="row">
@@ -94,14 +98,18 @@
 					<nav aria-label="...">
 						<ul class="pagination">
 							<c:if test="${tag>1 }">
-							<li class="page-item disabled"><a class="page-link" href="sanpham?<%-- cid=${targetactive }& --%>index=${tag-1 }">Previous</a></li>
-								</c:if>
+								<li class="page-item disabled"><a class="page-link"
+									href="sanpham?cid=${targetactive }&index=${tag-1 }">Previous</a></li>
+							</c:if>
 							<c:forEach begin="1" end="${endP }" var="i">
-							<li class="page-item ${tag == i ? "active" : "" }"><a class="page-link" href="sanpham?<%-- cid=${targetactive }& --%>index=${i }">${i }</a></li>
+								<li class="page-item ${tag == i ? "active" : "" }"><a
+									class="page-link"
+									href="sanpham?cid=${targetactive }&index=${i }">${i }</a></li>
 							</c:forEach>
 							<c:if test="${tag<endP }">
-							<li class="page-item"><a class="page-link" href="sanpham?<%-- cid=${targetactive }& --%>index=${tag+1 }">Next</a>
-							</li>
+								<li class="page-item"><a class="page-link"
+									href="sanpham?cid=${targetactive }&index=${tag+1 }">Next</a>
+								</li>
 							</c:if>
 						</ul>
 					</nav>

@@ -29,6 +29,7 @@ public class SanPhamController extends HttpServlet{
 		req.setCharacterEncoding("UTF-8");
 		
 		String indexPage = req.getParameter("index");
+		String cid = req.getParameter("cid");
 		if (indexPage == null) {
 			indexPage = "1";
 		}
@@ -36,7 +37,12 @@ public class SanPhamController extends HttpServlet{
 		
 		int amount = 0;
 		
-		amount = spdao.CountAll();
+		if (cid.equals("0")) {
+			amount = spdao.CountAll();
+		} else {
+			amount = spdao.CountAllByCid(cid);
+		}
+		
 		
 		int endPage = amount/9;
 		if (amount % 9 != 0) {
@@ -44,13 +50,21 @@ public class SanPhamController extends HttpServlet{
 		}
 		
 		List<SanPhamModel> listsp = spdao.getPagingSanPham(index);
-			
-		/*List<SanPhamModel> listsp = spdao.getAllLinhKien();*/
+		List<SanPhamModel> listspbycid = spdao.getPagingProductByCid(cid, index);
 		
-		req.setAttribute("listsp", listsp);
+		if(cid.equals("0")) {
+			
+			req.setAttribute("listallproduct", listsp);
+		} else {
+			
+			req.setAttribute("listallproduct", listspbycid);
+		}
+				
 		
 		req.setAttribute("endP", endPage);
 		req.setAttribute("tag", index);
+		
+		req.setAttribute("targetactive", cid);
 		
 		List<LoaiModel> listloai = loaidao.getAllLoai();
 		
