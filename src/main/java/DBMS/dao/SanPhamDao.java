@@ -49,7 +49,6 @@ public class SanPhamDao {
 		String sql="{ call TimKiemLinhKienbyTenLinhKien(?) }";
 		
 		try {
-			conn = new DBConnect().getConnection();
 			
 			cstm = conn.prepareCall(sql);
 			

@@ -15,12 +15,7 @@ public class AccountDao {
 	private Connection conn;
 	PreparedStatement ps = null;
 	ResultSet rs = null;
-<<<<<<< HEAD
-	CallableStatement cstm = null;
-=======
-	CallableStatement cstm=null;
->>>>>>> f7d9b359f54d1ca4b0d6d40bc558cbc5d96dd883
-	
+	CallableStatement cstm = null;	
 	
 	public AccountDao(Connection conn) {
 		super();
