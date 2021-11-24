@@ -15,7 +15,11 @@ public class AccountDao {
 	private Connection conn;
 	PreparedStatement ps = null;
 	ResultSet rs = null;
+<<<<<<< HEAD
 	CallableStatement cstm = null;
+=======
+	CallableStatement cstm=null;
+>>>>>>> f7d9b359f54d1ca4b0d6d40bc558cbc5d96dd883
 	
 	
 	public AccountDao(Connection conn) {
@@ -26,14 +30,14 @@ public class AccountDao {
 		// Khai báo List để lưu danh sách sản phẩm
 		List<AccountModel> list = new ArrayList<AccountModel>();
 		// khai báo chuỗi truy vấn
-		String sql = "select * from Taikhoan";
+		String sql = "{ call ap_DanhSachTaiKhoan}";
 		try {
 			// mở kết nối database
 			
 			// Ném câu query qua SQL
-			ps = conn.prepareStatement(sql);
+			cstm = conn.prepareCall(sql);
 			// chạy câu query và nhận kết quả
-			rs = ps.executeQuery();
+			rs = cstm.executeQuery();
 			// lấy ResultSet đổ vào list
 			while (rs.next()) {
 				list.add(new AccountModel(rs.getString(1),rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5)));

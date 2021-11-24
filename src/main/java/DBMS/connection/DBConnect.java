@@ -12,9 +12,7 @@ public class DBConnect {
 	private String userID;
 	private String password;
 
-	/*public DBConnect() {
-		super();
-	}*/
+	
 	public DBConnect(String userID, String password) {
 		super();
 		this.userID = userID;
@@ -27,12 +25,5 @@ public class DBConnect {
         Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
         return DriverManager.getConnection(url, userID, password); 
     }  
-	/*public static void main(String[] args) {
-		try {
-			System.out.println(new DBConnect("nghiem3", "1005").getConnection());
-		} catch (Exception e) {
-			System.out.println(e);
-			// TODO: handle exception
-		}	
-	}*/
+	
 }

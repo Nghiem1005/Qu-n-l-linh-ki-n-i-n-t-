@@ -54,11 +54,11 @@
                 </li>
             </ul>
 
-			<form class="form-inline my-2 my-lg-0">
+			<form class="form-inline my-2 my-lg-0" action="sanpham-search">
 				<div class="input-group input-group-sm">
-					<input type="text" class="form-control" placeholder="Search...">
+					<input type="text" class="form-control" value="${txtS}" placeholder="Search something..." name="txtsearch">
 					<div class="input-group-append">
-						<button type="button" class="btn btn-secondary btn-number">
+						<button type="submit" class="btn btn-secondary btn-number">
 							<i class="fa fa-search"></i>
 						</button>
 					</div>

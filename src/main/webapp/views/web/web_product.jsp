@@ -69,6 +69,31 @@
 						</div>
 					</div>
 				</c:forEach>
+				
+				<!-- SHOW LIST LINH KIỆN BY SEARCH THEO TÊN LINH KIỆN -->
+				<c:forEach items="${listlinhkiensearch }" var="p">
+					<div class="col-12 col-md-6 col-lg-4">
+						<div class="card">
+							<img class="card-img-top" src="${p.linkAnh }"
+								alt="Card image cap">
+							<div class="card-body">
+								<h4 class="card-title">
+									<a href="${pageContext.request.contextPath}/sanpham/chitiet?p=${p.getMaLinhKien()}" title="View Product">${p.tenLinhKien }</a>
+								</h4>
+								<p class="card-text">${p.moTa }</p>
+								<div class="row">
+									<div class="col">
+										<p class="btn btn-danger btn-block">${p.donGia }đ</p>
+									</div>
+									<div class="col">
+										<a href="#" class="btn btn-success btn-block">Add to cart</a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</c:forEach>
+				
 				<div class="col-12">
 					<nav aria-label="...">
 						<ul class="pagination">

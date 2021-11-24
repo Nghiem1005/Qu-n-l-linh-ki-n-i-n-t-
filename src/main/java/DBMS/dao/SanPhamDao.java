@@ -42,6 +42,31 @@ public class SanPhamDao {
 		return list;
 
 	}
+	public List<SanPhamModel> TimKiemLinhKienbyTenLinhKien(String txtsearch){
+		
+		List<SanPhamModel> listsearchlinhkien = new ArrayList<SanPhamModel>();
+		
+		String sql="{ call TimKiemLinhKienbyTenLinhKien(?) }";
+		
+		try {
+			conn = new DBConnect().getConnection();
+			
+			cstm = conn.prepareCall(sql);
+			
+			cstm.setString(1, txtsearch);
+			
+			rs = cstm.executeQuery();
+			
+			while(rs.next()) {
+				listsearchlinhkien.add(new SanPhamModel(rs.getString(1),rs.getString(2),rs.getInt(3),rs.getInt(4),rs.getString(5),rs.getString(6),rs.getString(7),rs.getString(8)));
+			}
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		return listsearchlinhkien;
+		
+	}
 	public int insert(SanPhamModel sanphammodel) {
 		String sql="{ call ap_Insert_SanPham(?,?,?,?,?,?,?,?,?) }";
 		try {
@@ -281,11 +306,11 @@ public class SanPhamDao {
 
 		return list;
 	}
-	
+
 	public SanPhamModel getProductById(String id) {
 		SanPhamModel product = new SanPhamModel();
 
-		String sql = "select * from LinhKien where MaLinhKien = ?";
+		String sql = "select * from ap_get_LinhKienbyMaLinhKien(?)";
 		try {
 			
 			ps = conn.prepareStatement(sql);
