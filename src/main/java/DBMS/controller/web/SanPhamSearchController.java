@@ -14,6 +14,7 @@ import javax.servlet.http.HttpSession;
 import DBMS.dao.SanPhamDao;
 import DBMS.model.SanPhamModel;
 
+@SuppressWarnings("serial")
 @WebServlet(urlPatterns = {"/sanpham-search"})
 public class SanPhamSearchController extends HttpServlet {
 	
