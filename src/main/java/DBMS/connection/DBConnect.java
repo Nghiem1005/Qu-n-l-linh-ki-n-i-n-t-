@@ -5,25 +5,21 @@ import java.sql.DriverManager;
 
 public class DBConnect {
 	private final String serverName = "localhost";
-<<<<<<< HEAD
-
-	private final String dbName = "QuanLyLinhKietMayTinh";
-	private final String portNumber = "1433";
-	private final String instance = "";
-	private final String userID = "sa";
-
-	private final String password = "123456";
-
-
-=======
 
 	private final String dbName = "HQT_tuan08";
 	private final String portNumber = "1433";
 	private final String instance = "";
-	private final String userID = "sa";
-	private final String password = "nghiem10052001";
+	private String userID;
+	private String password;
 
->>>>>>> 269d266b9e2e60a1b93dda7e322f6d1bd2fcd3a5
+	/*public DBConnect() {
+		super();
+	}*/
+	public DBConnect(String userID, String password) {
+		super();
+		this.userID = userID;
+		this.password = password;
+	}
 	public Connection getConnection()throws Exception {
         String url = "jdbc:sqlserver://"+serverName+":"+portNumber + "\\" + instance +";databaseName="+dbName;
         if(instance == null || instance.trim().isEmpty())
@@ -31,12 +27,12 @@ public class DBConnect {
         Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
         return DriverManager.getConnection(url, userID, password); 
     }  
-	public static void main(String[] args) {
+	/*public static void main(String[] args) {
 		try {
-			System.out.println(new DBConnect().getConnection());
+			System.out.println(new DBConnect("nghiem3", "1005").getConnection());
 		} catch (Exception e) {
 			System.out.println(e);
 			// TODO: handle exception
 		}	
-	}
+	}*/
 }

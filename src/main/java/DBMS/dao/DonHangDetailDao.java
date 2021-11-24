@@ -11,17 +11,22 @@ import DBMS.connection.DBConnect;
 import DBMS.model.DonHangDetailModel;
 
 public class DonHangDetailDao {
-	Connection conn=null;
+	private Connection conn;
 	PreparedStatement ps=null;
 	CallableStatement cstm=null;
 	ResultSet rs=null;
+	
+	public DonHangDetailDao(Connection conn) {
+		super();
+		this.conn = conn;
+	}
 	public List<DonHangDetailModel> ShowList(String madonhang)
 	{
 		
 		List<DonHangDetailModel> listdonhangdetail = new ArrayList<DonHangDetailModel>();
 		String sql="select * from up_getSanPhamByMaDonHang(?)";
 		try {
-			conn= new DBConnect().getConnection();
+			
 			
 			ps = conn.prepareStatement(sql);
 			
@@ -42,7 +47,7 @@ public class DonHangDetailDao {
 	public int insert(DonHangDetailModel donhangdetail) {
 		String sql = "{ call ap_Insert_ChiTietDonHang(?,?,?,?) }";
 		try {
-			conn = new DBConnect().getConnection();
+			
 			cstm = conn.prepareCall(sql);
 			
 			cstm.setString(1, donhangdetail.getMadonhang());
@@ -64,7 +69,7 @@ public class DonHangDetailDao {
 	public int update (DonHangDetailModel donhangdetail) {
 		String sql="{ call ap_Update_ChiTietDonHang(?,?,?,?) }";
 		try {
-			conn = new DBConnect().getConnection();
+			
 			cstm = conn.prepareCall(sql);
 
 			cstm.setString(1, donhangdetail.getMadonhang());
@@ -83,7 +88,7 @@ public class DonHangDetailDao {
 	public int delete (String madonhang, String malinhkien) {
 		String sql="{ call ap_delete_ChiTietDonHang(?,?,?) }";
 		try {
-			conn = new DBConnect().getConnection();
+			
 			cstm = conn.prepareCall(sql);
 			
 			cstm.setString(1, madonhang);
@@ -104,7 +109,7 @@ public class DonHangDetailDao {
 		DonHangDetailModel donhangdetail = new DonHangDetailModel();
 		String sql="select * from ap_get_linhkienBymagiohangmalinhkien(?,?)";
 		try {
-			conn = new DBConnect().getConnection();
+			
 			ps = conn.prepareStatement(sql);
 			
 			ps.setString(1, madonhang);

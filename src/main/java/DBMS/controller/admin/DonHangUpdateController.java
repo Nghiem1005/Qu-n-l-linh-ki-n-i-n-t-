@@ -1,6 +1,7 @@
 package DBMS.controller.admin;
 
 import java.io.IOException;
+import java.sql.Connection;
 import java.sql.Date;
 import java.util.List;
 
@@ -10,6 +11,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import DBMS.dao.DonHangDao;
 import DBMS.dao.DonHangDetailDao;
@@ -20,8 +22,6 @@ import DBMS.model.DonHangModel;
 @SuppressWarnings("serial")
 @WebServlet(urlPatterns= {"/admin/donhang-edit"})
 public class DonHangUpdateController extends HttpServlet {
-	DonHangDao donhangdao = new DonHangDao();
-	DonHangDetailDao donhangdetaildao = new DonHangDetailDao();
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -30,6 +30,11 @@ public class DonHangUpdateController extends HttpServlet {
 		req.setCharacterEncoding("UTF-8");
 		
 		String madonhang = req.getParameter("madonhang");
+		
+		HttpSession session  = req.getSession();
+		Connection conn = (Connection) session.getAttribute("connect");
+		DonHangDao donhangdao = new DonHangDao(conn);
+		DonHangDetailDao donhangdetaildao = new DonHangDetailDao(conn);
 		
 		DonHangModel donhang = donhangdao.getIdDonHang(madonhang);
 		
@@ -52,6 +57,11 @@ public class DonHangUpdateController extends HttpServlet {
 		String ngaytao = req.getParameter("ngaytao");
 		String manguoidung = req.getParameter("manguoidung");
 		Date date1 = Date.valueOf(ngaytao);
+		
+		HttpSession session  = req.getSession();
+		Connection conn = (Connection) session.getAttribute("connect");
+		DonHangDao donhangdao = new DonHangDao(conn);
+		DonHangDetailDao donhangdetaildao = new DonHangDetailDao(conn);
 		
 		DonHangModel donhangmodel = new DonHangModel(madonhang,date1,manguoidung);
 		

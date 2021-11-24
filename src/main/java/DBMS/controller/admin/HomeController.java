@@ -1,6 +1,7 @@
 package DBMS.controller.admin;
 
 import java.io.IOException;
+import java.sql.Connection;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -10,7 +11,10 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
+import DBMS.dao.DonHangDao;
+import DBMS.dao.DonHangDetailDao;
 import DBMS.dao.ThongKeDao;
 import DBMS.model.thongke.BaoCaoDonHangModel;
 import DBMS.model.thongke.BaoCaoKhachHangModel;
@@ -34,7 +38,10 @@ public class HomeController extends HttpServlet{
 		resp.setCharacterEncoding("UTF-8");
 		req.setCharacterEncoding("UTF-8");
 		
-		ThongKeDao thongkedao = new ThongKeDao();
+		HttpSession session  = req.getSession();
+		Connection conn = (Connection) session.getAttribute("connect");
+		ThongKeDao thongkedao = new ThongKeDao(conn);
+		
 		int tongDonHang = thongkedao.tongDonHang();
 		int tongDoanhThu = thongkedao.tongDoanhThu();
 		int tbDonHang = thongkedao.tbDonHang();

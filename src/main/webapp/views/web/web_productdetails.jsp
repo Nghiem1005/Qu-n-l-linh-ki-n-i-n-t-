@@ -33,7 +33,7 @@
                     <p class="price" style="margin-bottom: 40px; margin-top: 20px;">${product.getDonGia()} VND</p>
                     <form method="get" action="add_sanpham" style="margin-bottom: 35px;">
                         <div class="form-group" style="margin-bottom: 30px;">
-                            <label>${product.getSoLuong()}</label>
+                            <label>${product.tenLinhKien}</label>
                             <div class="input-group mb-3">
                                 <div class="input-group-prepend">
                                     <button id="giam" onclick="tanggiam(0)" type="button" class="quantity-left-minus btn btn-danger btn-number"  data-type="minus" data-field="">

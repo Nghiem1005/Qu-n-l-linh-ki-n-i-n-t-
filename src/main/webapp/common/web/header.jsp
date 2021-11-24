@@ -31,22 +31,22 @@
                 </li>
                 <li class="nav-item">
                 	<c:choose>
-		                <c:when test="${sessionScope.userInfo == null}">
+		                <c:when test="${sessionScope.acc == null}">
 			                <li class="nav-item"> 
 			                  <a class="nav-link" href="${pageContext.request.contextPath }/login">Đăng nhập</a>
 			                </li>
 		                </c:when>
 		                <c:otherwise>
 		                	<li class="nav-item"> 
-								<a class="nav-link" href="${pageContext.request.contextPath }/profile">${sessionScope.userInfo.getTentk()}</a>
+								<a class="nav-link" href="${pageContext.request.contextPath }/profile">${sessionScope.acc.getTentk()}</a>
 							</li>
-							<c:if test="${sessionScope.userInfo.getQuyen()== 'admin' }">
+							<c:if test="${sessionScope.acc.getQuyen()== 'admin' }">
 		                		<li class="nav-item"> 
 		                			<a class="nav-link" href="${pageContext.request.contextPath }/admin/home">Quản lý</a>
 		                		</li>
 		                	</c:if>
 		                	<li class="nav-item"> 
-								<a class="nav-link" href="${pageContext.request.contextPath }/logout">Đăng xuất</a>
+								<a class="nav-link" href="${pageContext.request.contextPath }/insert_chitietgiohang">Đăng xuất</a>
 		                	</li>
 		                </c:otherwise>
             		</c:choose>

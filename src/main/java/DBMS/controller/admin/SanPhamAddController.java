@@ -1,6 +1,7 @@
 package DBMS.controller.admin;
 
 import java.io.IOException;
+import java.sql.Connection;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -8,14 +9,16 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
+import DBMS.dao.NguoiDungDao;
 import DBMS.dao.SanPhamDao;
 import DBMS.model.SanPhamModel;
 
 @SuppressWarnings("serial")
 @WebServlet(urlPatterns= {"/admin/sanpham-add"})
 public class SanPhamAddController extends HttpServlet {
-	SanPhamDao sanphamdao = new SanPhamDao();
+	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		RequestDispatcher rq= req.getRequestDispatcher("/views/admin/product/add-product.jsp");
@@ -35,6 +38,10 @@ public class SanPhamAddController extends HttpServlet {
 		String linkanh = req.getParameter("linkanh");
 		String maloai = req.getParameter("maloai");
 		String mansx = req.getParameter("mansx");
+		
+		HttpSession session  = req.getSession();
+		Connection conn = (Connection) session.getAttribute("connect");
+		SanPhamDao sanphamdao = new SanPhamDao(conn);
 		
 		SanPhamModel sanphammodel = new SanPhamModel(malinhkien,tenlinhkien,Integer.parseInt(soluong),Integer.parseInt(dongia),mota,linkanh,maloai,mansx);
 	

@@ -54,10 +54,12 @@
         <div class="col mb-2">
             <div class="row d-flex justify-content-center">
                 <div class="col-sm-12  col-md-5">
-                    <button class="btn btn-block btn-light text-uppercase">Tiếp tục mua hàng</button>
+                    <a class="btn btn-lg btn-block btn-success text-uppercase"
+						href="${pageContext.request.contextPath }/sanpham?cid=0">Tiếp tục mua hàng</a>
                 </div>
                 <div class="col-sm-12 col-md-5 text-right">
-                    <button class="btn btn-lg btn-block btn-success text-uppercase">Thanh toán</button>
+                    <a class="btn btn-lg btn-block btn-success text-uppercase"
+						href="${pageContext.request.contextPath }/thanhtoan">Thanh toán</a>
                 </div>
             </div>
         </div>

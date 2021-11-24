@@ -11,18 +11,22 @@ import DBMS.connection.DBConnect;
 import DBMS.model.SanPhamModel;
 
 public class SanPhamDao {
-	Connection conn = null;
+	private Connection conn;
 	PreparedStatement ps = null;
 	CallableStatement cstm = null;
 	ResultSet rs = null;
 	
+	public SanPhamDao(Connection conn) {
+		super();
+		this.conn = conn;
+	}
 	public List<SanPhamModel> getAllLinhKien() {
 
 		List<SanPhamModel> list = new ArrayList<SanPhamModel>();
 
 		String sql = "{ call DSAllLinhKien }";
 		try {
-			conn = new DBConnect().getConnection();
+			
 
 			cstm = conn.prepareCall(sql);
 
@@ -41,7 +45,7 @@ public class SanPhamDao {
 	public int insert(SanPhamModel sanphammodel) {
 		String sql="{ call ap_Insert_SanPham(?,?,?,?,?,?,?,?,?) }";
 		try {
-			conn = new DBConnect().getConnection();
+			
 			cstm = conn.prepareCall(sql);
 			
 			cstm.setString(1, sanphammodel.getMaLinhKien());
@@ -67,7 +71,7 @@ public class SanPhamDao {
 	public int update (SanPhamModel sanphammodel) {
 		String sql="{ call ap_Update_LinhKien(?,?,?,?,?,?,?,?,?) }";
 		try {
-			conn = new DBConnect().getConnection();
+			
 			cstm = conn.prepareCall(sql);
 			
 			cstm.setString(1, sanphammodel.getMaLinhKien());
@@ -94,7 +98,7 @@ public class SanPhamDao {
 		String sql="{ call ap_Delete_LinhKien(?,?) }";
 		
 		try {
-			conn = new DBConnect().getConnection();
+			
 			cstm = conn.prepareCall(sql);
 			
 			cstm.setString(1, malinhkien);
@@ -114,7 +118,7 @@ public class SanPhamDao {
 		SanPhamModel sanphammodel = new SanPhamModel();
 		String sql="select * from ap_get_LinhKienbyMaLinhKien(?)";
 		try {
-			conn = new DBConnect().getConnection();
+			
 			ps = conn.prepareStatement(sql);
 			ps.setString(1, manlinhkien);
 			rs = ps.executeQuery();
@@ -135,7 +139,7 @@ public class SanPhamDao {
 		String sql = "select dbo.ap_get_tongsolinhkien()";
 		try {
 
-			conn = new DBConnect().getConnection();
+			
 
 			ps = conn.prepareStatement(sql);
 
@@ -159,7 +163,7 @@ public class SanPhamDao {
 		String sql = "select * from ap_get_linhkiensotrang(?) ";
 		try {
 
-			conn = new DBConnect().getConnection();
+			
 
 			ps = conn.prepareStatement(sql);
 			ps.setInt(1, (index - 1) * 9);
@@ -184,7 +188,7 @@ public class SanPhamDao {
 		String sql = "select * from ap_get_linhkiensotrangtheoloai(?, ?)";
 		try {
 
-			conn = new DBConnect().getConnection();
+			
 
 			ps = conn.prepareStatement(sql);
 			ps.setString(1, cid);
@@ -210,7 +214,7 @@ public class SanPhamDao {
 		String sql = "select dbo.ap_get_tongsolinhkientheoloai(?)";
 		try {
 
-			conn = new DBConnect().getConnection();
+			
 
 			ps = conn.prepareStatement(sql);
 			ps.setString(1, cid);
@@ -238,7 +242,7 @@ public class SanPhamDao {
 		String sql = "select * from newlinhkien";
 		try {
 			// mở kết nối database
-			conn = new DBConnect().getConnection();
+			
 			// Ném câu query qua SQL
 			ps = conn.prepareStatement(sql);
 			// chạy câu query và nhận kết quả
@@ -261,7 +265,7 @@ public class SanPhamDao {
 		String sql = "select * from bestlinhkien";
 		try {
 			// mở kết nối database
-			conn = new DBConnect().getConnection();
+			
 			// Ném câu query qua SQL
 			ps = conn.prepareStatement(sql);
 			// chạy câu query và nhận kết quả
@@ -283,7 +287,7 @@ public class SanPhamDao {
 
 		String sql = "select * from LinhKien where MaLinhKien = ?";
 		try {
-			conn = new DBConnect().getConnection();
+			
 			ps = conn.prepareStatement(sql);
 			ps.setString(1, id);
 			rs = ps.executeQuery();

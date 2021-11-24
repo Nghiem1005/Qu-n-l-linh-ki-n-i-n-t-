@@ -1,6 +1,7 @@
 package DBMS.controller.web;
 
 import java.io.IOException;
+import java.sql.Connection;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -10,7 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-
+import DBMS.connection.DBConnect;
 import DBMS.dao.AccountDao;
 import DBMS.model.AccountModel;
 
@@ -46,7 +47,7 @@ public class LoginController extends HttpServlet{
 		
         String tentk = req.getParameter("user");
         String matkhau = req.getParameter("pass");
-        AccountDao accDao = new  AccountDao();
+        
         
         String alertMsq = "";
 		if (tentk.isEmpty() || matkhau.isEmpty()) {
@@ -54,12 +55,23 @@ public class LoginController extends HttpServlet{
 			req.setAttribute("mess", alertMsq);
 			req.getRequestDispatcher("/decorators/login.jsp").forward(req, resp);
 		}
+		HttpSession session = req.getSession();  
+		Connection conn = null;
+		try {
+			conn = new DBConnect(tentk, matkhau).getConnection();
+			session.setAttribute("connect", conn);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
-		 AccountModel account = accDao.checkLogin(tentk, matkhau);
+		AccountDao accDao = new  AccountDao(conn);
+		AccountModel account = accDao.checkLogin(tentk, matkhau);
 		 
         if(account != null) {
-            HttpSession session = req.getSession();  
+            
             session.setAttribute("acc",account);
+            
             resp.sendRedirect(req.getContextPath() + "/waiting");
             
         } else {

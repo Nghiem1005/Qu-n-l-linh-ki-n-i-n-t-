@@ -1,6 +1,7 @@
 package DBMS.controller.admin;
 
 import java.io.IOException;
+import java.sql.Connection;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
@@ -9,6 +10,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import DBMS.dao.SanPhamDao;
 import DBMS.model.SanPhamModel;
@@ -18,13 +20,16 @@ public class SanPhamListController extends HttpServlet {
 
 	private static final long serialVersionUID = 5617703862679196693L;
 	
-	SanPhamDao sanphamdao = new SanPhamDao();
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// thiết lập tiếng việt
 		resp.setContentType("text/html");
 		resp.setCharacterEncoding("UTF-8");
 		req.setCharacterEncoding("UTF-8");
+		
+		HttpSession session  = req.getSession();
+		Connection conn = (Connection) session.getAttribute("connect");
+		SanPhamDao sanphamdao = new SanPhamDao(conn);
 		
 		// Su dung list chua danh sach SanPHamDao
 		List<SanPhamModel> listsanpham = sanphamdao.getAllLinhKien();

@@ -62,7 +62,7 @@
 										<p class="btn btn-danger btn-block">${p.donGia }đ</p>
 									</div>
 									<div class="col">
-										<a href="#" class="btn btn-success btn-block">Add to cart</a>
+										<a href="${pageContext.request.contextPath}/sanpham/add_sanpham?pId=${p.getMaLinhKien()}&soluong=1" class="btn btn-success btn-block">Thêm vào giỏ hàng</a>
 									</div>
 								</div>
 							</div>

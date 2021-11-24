@@ -14,16 +14,22 @@ import DBMS.model.DonHangModel;
 import DBMS.model.NSXModel;
 
 public class CartDao {
-	Connection conn = null;
+	private Connection conn;
 	PreparedStatement ps = null;
 	CallableStatement cstm = null;
 	ResultSet rs = null;
+	
+
+	public CartDao(Connection conn) {
+		super();
+		this.conn = conn;
+	}
 
 	public int insert(CartModel cart) {
 		String sql = "{ call ap_Insert_Cart (?, ?, ?) }";
 
 		try {
-			conn = new DBConnect().getConnection();
+			
 			cstm = conn.prepareCall(sql);
 
 			cstm.setString(1, cart.getMaGioHang());
@@ -46,7 +52,7 @@ public class CartDao {
 
 		String sql = "{ call DSGioHang }";
 		try {
-			conn = new DBConnect().getConnection();
+			
 
 			cstm = conn.prepareCall(sql);
 
@@ -67,7 +73,7 @@ public class CartDao {
 		String sql = "{ call ap_Update_GioHang (?, ?, ?) }";
 
 		try {
-			conn = new DBConnect().getConnection();
+			
 			cstm = conn.prepareCall(sql);
 
 			cstm.setString(1, cart.getMaGioHang());
@@ -88,7 +94,7 @@ public class CartDao {
 		String sql = "{ call ap_delete_GioHang (?, ?) }";
 
 		try {
-			conn = new DBConnect().getConnection();
+			
 			cstm = conn.prepareCall(sql);
 
 			cstm.setString(1, magiohang);
@@ -111,7 +117,7 @@ public class CartDao {
 
 		String sql = "select * from ap_get_giohangBymagiohang(?)";
 		try {
-			conn = new DBConnect().getConnection();
+			
 
 			ps = conn.prepareStatement(sql);
 			
@@ -129,13 +135,29 @@ public class CartDao {
 		return cart;
 	}
 	
-	
+	public CartModel getGioByMaNguoiDung(String id) {
 
-	public static void main(String[] args) {
-		CartDao dao = new CartDao();
-		/*List<CartItemModel> model = dao.getSanPhamByMaGioHang("GH01");*/
-		/*int a = dao.update(new CartModel("GH01", "N03"));*/
-		/*System.out.println(model);*/
+		CartModel cart = new CartModel();
+
+		String sql = "select * from ap_getGioHangbyMaNguoiDung(?)";
+		try {
+			
+
+			ps = conn.prepareStatement(sql);
+			
+			ps.setString(1, id);
+
+			rs = ps.executeQuery();
+
+			while (rs.next()) {
+				cart = new CartModel(rs.getString(1), rs.getString(2));
+			}
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+
+		return cart;
 	}
+	
 
 }

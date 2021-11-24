@@ -12,14 +12,13 @@ import javax.servlet.http.HttpServletResponse;
 public class LogoutController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    public LogoutController() {
-        super();
+    
 
-    }
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		req.getSession().invalidate();
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.getSession().removeAttribute("userInfo");
-        response.sendRedirect("home");
+		
+		resp.sendRedirect(req.getContextPath() + "/home");
 	}
 
 

@@ -12,10 +12,17 @@ import DBMS.connection.DBConnect;
 
 public class NSXDao {
 
-	Connection conn = null;
+	private Connection conn;
 	PreparedStatement ps = null;
 	ResultSet rs = null;
 	CallableStatement cstm = null;
+
+
+
+	public NSXDao(Connection conn) {
+		super();
+		this.conn = conn;
+	}
 
 	public List<NSXModel> getAllNSX() {
 		// Khai báo List để lưu danh sách sản phẩm
@@ -25,7 +32,7 @@ public class NSXDao {
 		String sql = "{call DSNSX }";
 		try {
 			// mở kết nối database
-			conn = new DBConnect().getConnection();
+			
 			// Ném câu query qua SQL
 			ps = conn.prepareStatement(sql);
 			// chạy câu query và nhận kết quả
@@ -47,7 +54,7 @@ public class NSXDao {
 		String sql1 = "{ call ap_Insert_NSX(?,?,?,?) }";
 		try {
 			// mở kết nối database
-			conn = new DBConnect().getConnection();
+			
 			// Ném câu query qua SQL
 			cstm = conn.prepareCall(sql1);
 			// gán giá trị cho ?
@@ -73,7 +80,7 @@ public class NSXDao {
 		String sql2 = "{ call ap_Modify_NSX(?,?,?,?) }";
 		try {
 			// mở kết nối database
-			conn = new DBConnect().getConnection();
+			
 			// Ném câu query qua SQL
 			cstm = conn.prepareCall(sql2);
 			// gán giá trị cho ?
@@ -99,7 +106,7 @@ public class NSXDao {
 		String sql3 = "{ call ap_Delete_NSX(?,?) }";
 		try {
 			// mở kết nối database
-			conn = new DBConnect().getConnection();
+			
 			// Ném câu query qua SQL
 			cstm = conn.prepareCall(sql3);
 			// gán giá trị cho ?
@@ -121,7 +128,7 @@ public class NSXDao {
 		String sql4 = "{ call timnsx(?) }";
 		NSXModel nsx = new NSXModel();
 		try {
-			conn = new DBConnect().getConnection();
+			
 			// Ném câu query qua SQL
 			ps = conn.prepareStatement(sql4);
 			// gán giá trị cho ?
@@ -141,8 +148,7 @@ public class NSXDao {
 		String sql = "Select * from getNSXbymamsx(?)";
 
 		try {
-			conn = new DBConnect().getConnection();
-
+			
 			ps = conn.prepareStatement(sql);
 
 			ps.setString(1, mansx);

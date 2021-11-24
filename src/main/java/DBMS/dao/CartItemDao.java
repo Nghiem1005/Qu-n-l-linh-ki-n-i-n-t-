@@ -12,18 +12,23 @@ import DBMS.model.CartItemModel;
 import DBMS.model.CartModel;
 
 public class CartItemDao {
-	Connection conn = null;
+	private Connection conn;
 	PreparedStatement ps = null;
 	CallableStatement cstm = null;
 	ResultSet rs = null;
 	
+	public CartItemDao(Connection conn) {
+		super();
+		this.conn = conn;
+	}
+
 	public List<CartItemModel> getSanPhamByMaGioHang(String id) {
 
 		List<CartItemModel> listcart = new ArrayList<CartItemModel>();
 
 		String sql = "select * from ap_getSanPhamByMaGioHang(?)";
 		try {
-			conn = new DBConnect().getConnection();
+			
 
 			ps = conn.prepareStatement(sql);
 			
@@ -46,7 +51,7 @@ public class CartItemDao {
 		String sql = "{ call ap_Insert_Chitietgiohang (?, ?, ?, ?) }";
 
 		try {
-			conn = new DBConnect().getConnection();
+			
 			cstm = conn.prepareCall(sql);
 
 			cstm.setString(1, cartitem.getMaGioHang());
@@ -68,7 +73,7 @@ public class CartItemDao {
 		String sql = "{ call ap_Update_ChiTietGioHang (?, ?, ?, ?) }";
 
 		try {
-			conn = new DBConnect().getConnection();
+			
 			cstm = conn.prepareCall(sql);
 
 			cstm.setString(1, cartitem.getMaGioHang());
@@ -92,7 +97,7 @@ public class CartItemDao {
 
 		String sql = "select * from ap_get_linhkienBymagiohangmalinhkien(?, ?)";
 		try {
-			conn = new DBConnect().getConnection();
+			
 
 			ps = conn.prepareStatement(sql);
 			
@@ -116,7 +121,7 @@ public class CartItemDao {
 		String sql = "{ call ap_delete_ChiTietGioHang (?, ?, ?) }";
 
 		try {
-			conn = new DBConnect().getConnection();
+			
 			cstm = conn.prepareCall(sql);
 
 			cstm.setString(1, magiohang);

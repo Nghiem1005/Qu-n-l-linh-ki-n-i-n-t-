@@ -1,6 +1,7 @@
 package DBMS.controller.web;
 
 import java.io.IOException;
+import java.sql.Connection;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -13,14 +14,17 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import DBMS.dao.CartDao;
+import DBMS.dao.LoaiDao;
 import DBMS.dao.SanPhamDao;
+import DBMS.model.AccountModel;
 import DBMS.model.CartItemModel;
+import DBMS.model.CartModel;
 import DBMS.model.SanPhamModel;
 
 @SuppressWarnings("serial")
 @WebServlet(urlPatterns = { "/sanpham/add_sanpham" })
-public class GioHangAddController extends HttpServlet{
-	SanPhamDao sanphamdao = new SanPhamDao();
+public class GioHangAddController extends HttpServlet{	
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -31,16 +35,24 @@ public class GioHangAddController extends HttpServlet{
 		String pId = req.getParameter("pId");
 		String soluong = req.getParameter("soluong");
 		
+		HttpSession session  = req.getSession();
+		Connection conn = (Connection) session.getAttribute("connect");
+		SanPhamDao sanphamdao = new SanPhamDao(conn);
+		AccountModel acc = (AccountModel) session.getAttribute("acc");
+		CartDao cartdao = new CartDao(conn);
+		
 		SanPhamModel sp = sanphamdao.getProductById(pId);
 		
+		CartModel cart = cartdao.getGioByMaNguoiDung(acc.getManguoidung());
+		
 		CartItemModel cartItem = new CartItemModel();
+		cartItem.setMaGioHang(cart.getMaGioHang());
 		cartItem.setMaLinhKien(pId);
 		cartItem.setSoLuong(Integer.parseInt(soluong));;
 		cartItem.setGia(Integer.parseInt(soluong) * sp.getDonGia());
 		
-		HttpSession httpSession = req.getSession();
-		Object obj = httpSession.getAttribute("giohang");
-		Object obj1 = httpSession.getAttribute("sanphamgiohang");
+		Object obj = session.getAttribute("giohang");
+		Object obj1 = session.getAttribute("sanphamgiohang");
 		
 		
 		if (obj == null) {
@@ -48,8 +60,8 @@ public class GioHangAddController extends HttpServlet{
 			List<SanPhamModel> listsp = new ArrayList<SanPhamModel>();
 			map.put(sp.getMaLinhKien(), cartItem);
 			listsp.add(sp);
-			httpSession.setAttribute("giohang", map);
-			httpSession.setAttribute("sanphamgiohang", listsp);
+			session.setAttribute("giohang", map);
+			session.setAttribute("sanphamgiohang", listsp);
 		} else {
 			Map<String, CartItemModel> map = extracted(obj);
 			List<SanPhamModel> listsp = extractList(obj1);
@@ -62,8 +74,8 @@ public class GioHangAddController extends HttpServlet{
 				existedCartItem.setGia(existedCartItem.getSoLuong() * sp.getDonGia());
 			}
 
-			httpSession.setAttribute("giohang", map);
-			httpSession.setAttribute("sanphamgiohang", listsp);
+			session.setAttribute("giohang", map);
+			session.setAttribute("sanphamgiohang", listsp);
 		}
 		
 		resp.sendRedirect(req.getContextPath() + "/giohang");

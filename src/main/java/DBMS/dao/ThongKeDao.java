@@ -15,15 +15,21 @@ import DBMS.model.thongke.LinhKienBanChayModel;
 import DBMS.model.thongke.LoaiBanChayModel;
 
 public class ThongKeDao {
-	Connection conn=null;
+	private Connection conn;
 	PreparedStatement ps=null;
 	CallableStatement cstm=null;
 	ResultSet rs=null;
+	
+	
+	public ThongKeDao(Connection conn) {
+		super();
+		this.conn = conn;
+	}
 	public int tongDonHang() {
 
 		String sql3="{ ? = call dbo.af_TongDonHang() }";
 		try {
-			conn = new DBConnect().getConnection();
+			
 			cstm = conn.prepareCall(sql3);
 			cstm.registerOutParameter(1, java.sql.Types.INTEGER);
 			cstm.execute();
@@ -38,7 +44,7 @@ public class ThongKeDao {
 
 		String sql3="{ ? = call dbo.af_TongDoanhThu() }";
 		try {
-			conn = new DBConnect().getConnection();
+			
 			cstm = conn.prepareCall(sql3);
 			cstm.registerOutParameter(1, java.sql.Types.INTEGER);
 			cstm.execute();
@@ -53,7 +59,7 @@ public class ThongKeDao {
 
 		String sql3="{ ? = call dbo.af_GTTBDonHang() }";
 		try {
-			conn = new DBConnect().getConnection();
+			
 			cstm = conn.prepareCall(sql3);
 			cstm.registerOutParameter(1, java.sql.Types.INTEGER);
 			cstm.execute();
@@ -69,7 +75,7 @@ public class ThongKeDao {
 		List<LinhKienBanChayModel> list = new ArrayList<LinhKienBanChayModel>();
 		String sql = "SELECT * from dbo.LinhKienBanChayNhat";
 		try {
-			conn = new DBConnect().getConnection();
+			
 
 			cstm = conn.prepareCall(sql);
 
@@ -94,7 +100,7 @@ public class ThongKeDao {
 		List<LoaiBanChayModel> list = new ArrayList<LoaiBanChayModel>();
 		String sql = "SELECT * from dbo.LoaiLinhKienBanChayNhat";
 		try {
-			conn = new DBConnect().getConnection();
+			
 
 			cstm = conn.prepareCall(sql);
 
@@ -102,11 +108,6 @@ public class ThongKeDao {
 
 			while (rs.next()) {
 				list.add(new LoaiBanChayModel(rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4), rs.getInt(5)));
-//				System.out.println(rs.getString(1));
-//				System.out.println(rs.getString(2));
-//				System.out.println(rs.getString(3));
-//				System.out.println(rs.getString(4));
-//				System.out.println(rs.getInt(5));
 			}
 		} catch (Exception e) {
 			// TODO: handle exception
@@ -117,8 +118,7 @@ public class ThongKeDao {
 
 		List<BaoCaoKhachHangModel> list = new ArrayList<BaoCaoKhachHangModel>();
 		String sql = "SELECT * from dbo.BaoCaoKhachHangCuaDonHang";
-		try {
-			conn = new DBConnect().getConnection();
+		try {			
 
 			cstm = conn.prepareCall(sql);
 
@@ -126,9 +126,6 @@ public class ThongKeDao {
 
 			while (rs.next()) {
 				list.add(new BaoCaoKhachHangModel(rs.getString(1),rs.getInt(2),rs.getInt(3)));
-//				System.out.println(rs.getString(1));
-//				System.out.println(rs.getInt(2));
-//				System.out.println(rs.getInt(3));
 			}
 		} catch (Exception e) {
 			// TODO: handle exception
@@ -141,7 +138,7 @@ public class ThongKeDao {
 		List<BaoCaoDonHangModel> list = new ArrayList<BaoCaoDonHangModel>();
 		String sql = "SELECT * from dbo.BaoCaoDonHangCuaKhachHang";
 		try {
-			conn = new DBConnect().getConnection();
+			
 
 			cstm = conn.prepareCall(sql);
 
@@ -149,9 +146,6 @@ public class ThongKeDao {
 
 			while (rs.next()) {
 				list.add(new BaoCaoDonHangModel(rs.getString(1),rs.getDate(2), rs.getInt(3)));
-//				System.out.println(rs.getString(1));
-//				System.out.println(rs.getDate(2));
-//				System.out.println(rs.getInt(3));
 			}
 		} catch (Exception e) {
 			// TODO: handle exception
