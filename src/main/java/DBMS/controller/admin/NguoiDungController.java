@@ -28,23 +28,8 @@ public class NguoiDungController extends HttpServlet {
 		req.setAttribute("listnguoidung", listnguoidung);
 		
 		RequestDispatcher rq=req.getRequestDispatcher("/views/admin/user/list-user.jsp");
-<<<<<<< HEAD
 
 		rq.forward(req, resp);
-
-=======
-<<<<<<< HEAD
-
-		rq.forward(req, resp);
-
-=======
-<<<<<<< HEAD
-		rq.forward(req, resp);
-=======
->>>>>>> f68c947c5e41d66d306244e0cb5e6c847994e097
-		rq.forward(req, resp);	
->>>>>>> 71ac8fec580124bfd3ff35c8b52fc43476bc3035
->>>>>>> 269d266b9e2e60a1b93dda7e322f6d1bd2fcd3a5
 
 
 	}

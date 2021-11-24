@@ -42,7 +42,7 @@ public class LoaiDao {
 	public LoaiModel getLoaiById(String maLoai) {
 
 		LoaiModel loai = new LoaiModel();
-		String sql = "select * from Loai where MaLoai = ?";
+		String sql = "select * from getLoaibyMaLoai(?)";
 		try {
 			conn = new DBConnect().getConnection();
 			ps = conn.prepareStatement(sql);

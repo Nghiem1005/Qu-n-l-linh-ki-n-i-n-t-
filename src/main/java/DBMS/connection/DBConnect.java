@@ -5,7 +5,6 @@ import java.sql.DriverManager;
 
 public class DBConnect {
 	private final String serverName = "localhost";
-<<<<<<< HEAD
 
 	private final String dbName = "QuanLyLinhKietMayTinh";
 	private final String portNumber = "1433";
@@ -14,16 +13,6 @@ public class DBConnect {
 
 	private final String password = "123456";
 
-
-=======
-
-	private final String dbName = "HQT_tuan08";
-	private final String portNumber = "1433";
-	private final String instance = "";
-	private final String userID = "sa";
-	private final String password = "nghiem10052001";
-
->>>>>>> 269d266b9e2e60a1b93dda7e322f6d1bd2fcd3a5
 	public Connection getConnection()throws Exception {
         String url = "jdbc:sqlserver://"+serverName+":"+portNumber + "\\" + instance +";databaseName="+dbName;
         if(instance == null || instance.trim().isEmpty())
