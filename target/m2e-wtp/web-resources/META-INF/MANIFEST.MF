@@ -1,18 +1,5 @@
-<<<<<<< HEAD
 Manifest-Version: 1.0
 Built-By: msang
 Build-Jdk: 16.0.2
 Created-By: Maven Integration for Eclipse
 
-=======
-Manifest-Version: 1.0
-<<<<<<< HEAD
-Built-By: ASUS
-Build-Jdk: 1.8.0_191
-=======
-Built-By: Admin
-Build-Jdk: 1.8.0_301
->>>>>>> 71ac8fec580124bfd3ff35c8b52fc43476bc3035
-Created-By: Maven Integration for Eclipse
-
->>>>>>> f68c947c5e41d66d306244e0cb5e6c847994e097
