@@ -157,17 +157,17 @@
 								<div class="col-md-9">
 									<div class="row">
 										<div class="col-md-8 profile-info">
-											<h1 >${listnguoidung.manguoidung}</h1>
-											<p >
+											<h1>${listnguoidung.manguoidung}</h1>
+											<p>
 												<i class="fa fa-child"></i> ${listnguoidung.hoten}
 											</p>
-											<p >
+											<p>
 												<i class="fa fa-mobile"></i> ${listnguoidung.email}
 											</p>
-											<p >
+											<p>
 												<i class="fa fa-envelope-o"></i> ${listnguoidung.sdt}
 											</p>
-											
+
 										</div>
 									</div>
 									<!--end row-->
@@ -191,30 +191,31 @@
 									<div class="tab-content">
 										<div id="tab_1-1" class="tab-pane active">
 											<form role="form" action="nguoidung-edit" method="post">
-											<!-- XXXXXXXXXXXXXXXXXXXXXXXXXXX begin form  XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXx -->
-											<div class="alert alert-danger ${alertmess != null ? "" : "display-hide" }">
-												<button class="close" data-close="alert"></button>
+												<!-- XXXXXXXXXXXXXXXXXXXXXXXXXXX begin form  XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXx -->
+												<div class="alert alert-danger ${alertmess != null ? "" : "display-hide" }">
+													<button class="close" data-close="alert"></button>
 													${alertmess}
-											</div>
+												</div>
 												<div class="form-group">
-												
+
 													<label class="control-label">Mã người dùng</label> <input
-														type="text"  class="form-control" value="${listnguoidung.manguoidung}" name="manguoidung"
+														type="text" class="form-control"
+														value="${nguoidung.manguoidung}" name="manguoidung"
 														readonly />
 												</div>
 												<div class="form-group">
 													<label class="control-label">Họ tên</label> <input
-														type="text" class="form-control" value="${listnguoidung.hoten}" name="hoten"
-														 />
+														type="text" class="form-control"
+														value="${nguoidung.hoten}" name="hoten" />
 												</div>
 												<div class="form-group">
 													<label class="control-label">Email</label> <input
-														type="text" value="${listnguoidung.email}" name="email"
+														type="text" value="${nguoidung.email}" name="email"
 														class="form-control" />
 												</div>
 												<div class="form-group">
 													<label class="control-label">Số điện thoại</label> <input
-														type="text" value="${listnguoidung.sdt}" name="sdt"
+														type="text" value="${nguoidung.sdt}" name="sdt"
 														class="form-control" />
 												</div>
 												<button type="submit" class="btn blue">Lưu</button>
@@ -222,22 +223,27 @@
 											</form>
 										</div>
 										<div id="tab_3-3" class="tab-pane">
-											<form action="#">
+											<form action="acc-edit" method="post">
+												<div class="form-group">
+													<label class="control-label">Mã người dùng</label> <input
+														type="text" name="manguoidung" class="form-control"
+														value="${nguoidung.manguoidung}" readonly="readonly" />
+												</div>
 												<div class="form-group">
 													<label class="control-label">Tài khoản</label> <input
-														type="password" class="form-control" />
+														type="text" name="tentk" class="form-control"
+														value="${account.tentk}" />
 												</div>
 												<div class="form-group">
 													<label class="control-label">Mật khẩu</label> <input
-														type="password" class="form-control" />
+														type="password" name="matkhau" class="form-control"
+														value="${account.matkhau}" />
 												</div>
-												<div class="form-group">
-													<label class="control-label">Quyền</label> <input
-														type="password" class="form-control" />
-												</div>
+
 												<button type="submit" class="btn blue">Gửi</button>
 												<button type="button" class="btn default">
-													<a href="${pageContext.request.contextPath }/admin/nguoidung">Thoát</a>
+													<a
+														href="${pageContext.request.contextPath }/admin/nguoidung">Thoát</a>
 												</button>
 											</form>
 										</div>

@@ -31,26 +31,27 @@
             <div class="card bg-light mb-3">
                 <div class="card-body">
                     <p class="price" style="margin-bottom: 40px; margin-top: 20px;">${product.getDonGia()} VND</p>
-                    <form method="get" action="cart.html" style="margin-bottom: 35px;">
+                    <form method="get" action="add_sanpham" style="margin-bottom: 35px;">
                         <div class="form-group" style="margin-bottom: 30px;">
-                            <label>${product.getSoLuong()}</label>
+                            <label>${product.tenLinhKien}</label>
                             <div class="input-group mb-3">
                                 <div class="input-group-prepend">
-                                    <button type="button" class="quantity-left-minus btn btn-danger btn-number"  data-type="minus" data-field="">
+                                    <button id="giam" onclick="tanggiam(0)" type="button" class="quantity-left-minus btn btn-danger btn-number"  data-type="minus" data-field="">
                                         <i class="fa fa-minus"></i>
                                     </button>
                                 </div>
-                                <input type="text" class="form-control"  id="quantity" name="quantity" min="1" max="100" value="1">
+                                <input type="text" class="form-control"  id="quantity" name="soluong" min="1" max="100" value="1">
                                 <div class="input-group-append">
-                                    <button type="button" class="quantity-right-plus btn btn-success btn-number" data-type="plus" data-field="">
+                                    <button id="tang" onclick="tanggiam(1)" type="button" class="quantity-right-plus btn btn-success btn-number" data-type="plus" data-field="">
                                         <i class="fa fa-plus"></i>
                                     </button>
                                 </div>
+                                <input type="text" class="form-control"  id="pID" name="pId" min="1" max="100" value="${product.maLinhKien }" hidden>
                             </div>
                         </div>
-                        <a href="cart.html" class="btn btn-success btn-lg btn-block text-uppercase">
-                            <i class="fa fa-shopping-cart"></i> Thêm vào giỏ hàng
-                        </a>
+                        <button type="submit" class="btn btn-success btn-lg btn-block text-uppercase">
+                            <i class="fa fa-shopping-cart"></i> Add to cart
+                        </button>
                     </form>
                     <div class="product_rassurance" style="margin-bottom: 20px;">
                         <ul class="list-inline">

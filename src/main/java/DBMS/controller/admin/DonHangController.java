@@ -1,6 +1,7 @@
 package DBMS.controller.admin;
 
 import java.io.IOException;
+import java.sql.Connection;
 import java.util.Date;
 import java.util.List;
 
@@ -10,6 +11,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import DBMS.dao.DonHangDao;
 import DBMS.model.DonHangModel;
@@ -18,8 +20,7 @@ import DBMS.model.DonHangModel;
 public class DonHangController extends HttpServlet {
 	
 	private static final long serialVersionUID = 1L;
-	// buoc 1: khởi tạo DAO
-	DonHangDao donhangdao= new DonHangDao();
+	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// thiết lập tiếng việt
@@ -27,7 +28,9 @@ public class DonHangController extends HttpServlet {
 		resp.setCharacterEncoding("UTF-8");
 		req.setCharacterEncoding("UTF-8");
 		
-		
+		HttpSession session  = req.getSession();
+		Connection conn = (Connection) session.getAttribute("connect");
+		DonHangDao donhangdao= new DonHangDao(conn);
 		
 		
 		// Buoc 2: Sử dụng List để chứa danh sách từ DonHangDao

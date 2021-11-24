@@ -20,7 +20,7 @@
     padding: 10px;
     font-size: 16px;
 }
-#logreg-forms .form-control:focus { z-index: 2; }
+#logreg-forms .form-control:focus { z-index: 0; }
 #logreg-forms .form-signin input[type="email"] {
     margin-bottom: -1px;
     border-bottom-right-radius: 0;

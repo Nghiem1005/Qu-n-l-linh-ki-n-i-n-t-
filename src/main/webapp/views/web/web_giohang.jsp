@@ -17,33 +17,35 @@
                         </tr>
                     </thead>
                     <tbody>
+                    <c:forEach items="${sessionScope.giohang}" var="map">
+                    <c:forEach items="${sanphamgiohang }" var="list">
                         <tr>
-                            <td><img src="https://dummyimage.com/50x50/55595c/fff" /> </td>
-                            <td>Product Name Dada</td>                           
-                            <td><input class="form-control" type="text" value="1" /></td>
-                            <td class="text-right">124,90 €</td>
+                        <c:if test="${map.value.maLinhKien == list.maLinhKien }"> 
+                            <td><img class="img-responsive" width="60px" height="60px" src="${list.linkAnh}" /> </td>
+                            <td>${list.tenLinhKien} </td>                           
+                            <td style="text-align: center;">${map.value.soLuong }</td>
+                            <td class="text-right">${map.value.gia }</td>
                             <td class="text-right"><button class="btn btn-sm btn-danger"><i class="fa fa-trash"></i> </button> </td>
                         </tr>
-                        <tr>
-                            <td><img src="https://dummyimage.com/50x50/55595c/fff" /> </td>
-                            <td>Product Name Toto</td>                          
-                            <td><input class="form-control" type="text" value="1" /></td>
-                            <td class="text-right">33,90 €</td>
-                            <td class="text-right"><button class="btn btn-sm btn-danger"><i class="fa fa-trash"></i> </button> </td>
-                        </tr>
-                        <tr>
-                            <td><img src="https://dummyimage.com/50x50/55595c/fff" /> </td>
-                            <td>Product Name Titi</td>                            
-                            <td><input class="form-control" type="text" value="1" /></td>
-                            <td class="text-right">70,00 €</td>
-                            <td class="text-right"><button class="btn btn-sm btn-danger"><i class="fa fa-trash"></i> </button> </td>
-                        </tr>
+                      </c:if>
+                      </c:forEach>
+                        </c:forEach>
                         <tr>
                             <td></td>
-                            <td></td>
-                            <td></td>                           
+                                                    
                             <td><strong>Tổng tiền</strong></td>
-                            <td class="text-right"><strong>346,90 €</strong></td>
+                            <td class="text-right"> 
+                            <c:forEach items="${sessionScope.giohang}"
+									var="map">
+									<c:set var="total"
+										value="${total + map.value.gia}" />
+								</c:forEach>
+								<div class="total-result-in">
+									<span>${total } VNĐ</span>
+								</div></td>
+                            <!-- <td class="text-right"><strong>346,90 €</strong></td> -->
+                            <td></td>
+                            <td></td>
                         </tr>
                     </tbody>
                 </table>
@@ -52,10 +54,12 @@
         <div class="col mb-2">
             <div class="row d-flex justify-content-center">
                 <div class="col-sm-12  col-md-5">
-                    <button class="btn btn-block btn-light text-uppercase">Tiếp tục mua hàng</button>
+                    <a class="btn btn-lg btn-block btn-success text-uppercase"
+						href="${pageContext.request.contextPath }/sanpham?cid=0">Tiếp tục mua hàng</a>
                 </div>
                 <div class="col-sm-12 col-md-5 text-right">
-                    <button class="btn btn-lg btn-block btn-success text-uppercase">Thanh toán</button>
+                    <a class="btn btn-lg btn-block btn-success text-uppercase"
+						href="${pageContext.request.contextPath }/thanhtoan">Thanh toán</a>
                 </div>
             </div>
         </div>

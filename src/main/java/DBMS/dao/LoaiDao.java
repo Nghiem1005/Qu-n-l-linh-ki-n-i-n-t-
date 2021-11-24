@@ -7,15 +7,21 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import DBMS.connection.DBConnect;
 import DBMS.model.LoaiModel;
 
 public class LoaiDao {
-	Connection conn = null;
+	private Connection conn;
 	PreparedStatement ps = null;
 	CallableStatement cstm = null;
 	ResultSet rs = null;
 
+	public LoaiDao(Connection conn) {
+		super();
+		this.conn = conn;
+	}
 	public List<LoaiModel> getAllLoai() {
 
 		List<LoaiModel> list = new ArrayList<LoaiModel>();
@@ -23,7 +29,6 @@ public class LoaiDao {
 
 		String sql = "{ call DSLoai }";
 		try {
-			conn = new DBConnect().getConnection();
 
 			cstm = conn.prepareCall(sql);
 
@@ -42,9 +47,9 @@ public class LoaiDao {
 	public LoaiModel getLoaiById(String maLoai) {
 
 		LoaiModel loai = new LoaiModel();
-		String sql = "select * from Loai where MaLoai = ?";
+		String sql = "select * from getLoaibyMaLoai(?)";
 		try {
-			conn = new DBConnect().getConnection();
+			
 			ps = conn.prepareStatement(sql);
 			ps.setString(1, maLoai);
 			rs = ps.executeQuery();
@@ -60,7 +65,7 @@ public class LoaiDao {
 		String sql = "{ call ap_Insert_Loai(?,?,?) }";
 		
 		try {
-			conn = new DBConnect().getConnection();
+			
 			cstm = conn.prepareCall(sql);
 
 			cstm.setString(1, loai.getMaLoai());
@@ -81,7 +86,7 @@ public class LoaiDao {
 		String sql = "{ call ap_Update_Loai(?,?, ?) }";
 
 		try {
-			conn = new DBConnect().getConnection();
+			
 			cstm = conn.prepareCall(sql);
 
 			cstm.setString(1, loai.getMaLoai());
@@ -101,7 +106,7 @@ public class LoaiDao {
 
 		String sql = "{ call ap_delete_Loai(?, ?) }";
 		try {
-			conn = new DBConnect().getConnection();
+			
 			cstm = conn.prepareCall(sql);
 
 			cstm.setString(1, maLoai);

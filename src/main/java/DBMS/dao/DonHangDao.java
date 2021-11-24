@@ -12,10 +12,15 @@ import DBMS.model.DonHangModel;
 
 
 public class DonHangDao {
-	Connection conn=null;
+	private Connection conn;
 	PreparedStatement ps=null;
 	CallableStatement cstm=null;
 	ResultSet rs=null;
+	
+	public DonHangDao(Connection conn) {
+		super();
+		this.conn = conn;
+	}
 	public List<DonHangModel> ShowList()
 	{
 		
@@ -25,7 +30,7 @@ public class DonHangDao {
 		String sql="{ call up_DanhSachDonHang }";
 		try {
 			// MỞ KẾT NỐI DATABASE
-			conn = new DBConnect().getConnection();
+			
 			// NÉM CÂU SQL
 			//ps = conn.prepareStatement(sql);
 			cstm = conn.prepareCall(sql);
@@ -49,7 +54,7 @@ public class DonHangDao {
 		
 		String sql = "select * from ap_get_donhangBymadonhang(?) ";
 		try {
-			conn = new DBConnect().getConnection();
+			
 			
 			
 			ps = conn.prepareStatement(sql);
@@ -74,7 +79,7 @@ public class DonHangDao {
 		
 		String sql1= "{ call ap_Insert_Donhang(?,?,?,?) }";
 		try {
-			conn = new DBConnect().getConnection();
+			
 			
 			cstm = conn.prepareCall(sql1);
 			
@@ -97,7 +102,7 @@ public class DonHangDao {
 			
 			String sql1= "{ call ap_Update_Donhang(?,?,?) }";
 			try {
-				conn = new DBConnect().getConnection();
+				
 				
 				cstm = conn.prepareCall(sql1);
 				
@@ -119,7 +124,7 @@ public class DonHangDao {
 	public int delete(String madonhang) {
 		String sql3="{ call ap_Delete_DonHang(?,?) }";
 		try {
-			conn = new DBConnect().getConnection();
+			
 			cstm = conn.prepareCall(sql3);
 			cstm.setString(1, madonhang);
 			cstm.registerOutParameter(2, java.sql.Types.INTEGER);
@@ -135,16 +140,5 @@ public class DonHangDao {
 	}
 	
 
-//	public static void main(String[] args) {
-//		System.out.println("danh sach don hang hien tai");
-//		DonHangDao donhangdao = new DonHangDao();
-//		//DonHangModel kq = donhangdao.getIdDonHang("DH01");
-////		Date date1 = java.sql.Date.valueOf("2021-11-11");
-//		//int kq = donhangdao.insert(new DonHangModel("DH13",date1 , "KH01"));
-//		//int kq=donhangdao.delete("DH13");
-//		//System.out.println(kq);
-//		
-////		int kq= donhangdao.update(new DonHangModel("DH01",date1, "KH01"));
-//		System.out.println(kq);
-//	}
+
 }

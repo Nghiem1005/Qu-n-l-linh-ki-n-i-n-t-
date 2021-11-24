@@ -1,6 +1,7 @@
 package DBMS.controller.admin;
 
 import java.io.IOException;
+import java.sql.Connection;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
@@ -9,14 +10,15 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import DBMS.dao.NSXDao;
+import DBMS.dao.SanPhamDao;
 import DBMS.model.NSXModel;
 
 @WebServlet(urlPatterns = { "/admin/nsx/update" })
 public class UpdateNSXController extends HttpServlet {
-	NSXDao nsxdao = new NSXDao();
-
+	
 	private static final long serialVersionUID = -3300719613875424518L;
 
 	@Override
@@ -24,6 +26,11 @@ public class UpdateNSXController extends HttpServlet {
 		NSXModel nsx = new NSXModel();
 
 		String mansx = req.getParameter("mansx");
+		
+		HttpSession session  = req.getSession();
+		Connection conn = (Connection) session.getAttribute("connect");
+		NSXDao nsxdao = new NSXDao(conn);
+		
 		nsx = nsxdao.get(mansx);
 		req.setAttribute("nsx", nsx);
 		RequestDispatcher rq = req.getRequestDispatcher("/views/admin/NSX/edit-nsx.jsp");
@@ -40,6 +47,10 @@ public class UpdateNSXController extends HttpServlet {
 		String mansx = req.getParameter("mansx");
 		String tennsx = req.getParameter("tennsx");
 		String sdt = req.getParameter("sdt");
+		
+		HttpSession session  = req.getSession();
+		Connection conn = (Connection) session.getAttribute("connect");
+		NSXDao nsxdao = new NSXDao(conn);
 
 		NSXModel nsx = new NSXModel(mansx, tennsx, sdt);
 		String alert = "";

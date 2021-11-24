@@ -167,21 +167,21 @@
 								</div>
 								
 								<div class="form-group">
-									<label for="exampleInputPassword1">Mã người dùng</label>
+									<label>Mã người dùng</label>
 									<div class="input-group">
-										<input type="text" class="form-control" name="manguoidung"
-											id="exampleInputPassword1" placeholder="Mã người dùng"> <span
-											class="input-group-addon"> <i class="fa fa-user"></i>
-										</span>
+										<span class="input-group-addon input-circle-left"> <i
+											class="fa fa-envelope"></i>
+										</span> <input type="text" class="form-control input-circle-right" name="manguoidung"
+											placeholder="Mã người dùng">
 									</div>
 								</div>
 								<div class="form-group">
-									<label for="exampleInputPassword1">Họ tên</label>
+									<label>Họ tên người dùng</label>
 									<div class="input-group">
-										<input type="text" class="form-control" name="hoten"
-											id="exampleInputPassword1" placeholder="Họ và tên"> <span
-											class="input-group-addon"> <i class="fa fa-user"></i>
-										</span>
+										<span class="input-group-addon input-circle-left"> <i
+											class="fa fa-phone"></i>
+										</span> <input type="text" class="form-control input-circle-right" name="hoten"
+											placeholder="Họ tên người dùng">
 									</div>
 								</div>
 								<div class="form-group">
@@ -202,7 +202,33 @@
 											placeholder="Số điện thoại">
 									</div>
 								</div>
-								
+								<div class="form-group">
+									<label for="exampleInputPassword1">Tên tài khoản</label>
+									<div class="input-group">
+										<input type="text" class="form-control" name="tentk"
+											id="exampleInputPassword1" placeholder="Tên tài khoản"> <span
+											class="input-group-addon"> <i class="fa fa-user"></i>
+										</span>
+									</div>
+								</div>
+								<div class="form-group">
+									<label for="exampleInputPassword1">Mật khẩu</label>
+									<div class="input-group">
+										<input type="password" class="form-control" name="matkhau"
+											id="exampleInputPassword1" placeholder="Mật khẩu"> <span
+											class="input-group-addon"> <i class="fa fa-user"></i>
+										</span>
+									</div>
+								</div>
+								<div class="form-group">
+									<label for="exampleInputPassword1">Quyền</label>
+									<div class="input-group">
+										<input type="text" class="form-control" name="quyen"
+											id="exampleInputPassword1" placeholder="Quyền"> <span
+											class="input-group-addon"> <i class="fa fa-user"></i>
+										</span>
+									</div>
+								</div>
 							</div>
 							<div class="form-actions">
 								<button type="submit" class="btn blue">Thêm người dùng</button>

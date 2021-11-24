@@ -11,21 +11,34 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import DBMS.dao.NguoiDungDao;
 import DBMS.dao.SanPhamDao;
 import DBMS.model.SanPhamModel;
 
 @SuppressWarnings("serial")
-@WebServlet(urlPatterns= {"/admin/sanpham-add"})
-public class SanPhamAddController extends HttpServlet {
+@WebServlet(urlPatterns= {"/admin/sanpham-edit"})
+public class SanPhamUpdateController extends HttpServlet {
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		RequestDispatcher rq= req.getRequestDispatcher("/views/admin/product/add-product.jsp");
+		resp.setContentType("text/html");
+		resp.setCharacterEncoding("UTF-8");
+		req.setCharacterEncoding("UTF-8");
+		
+		String malinhkien = req.getParameter("malinhkien");
+		
+		HttpSession session  = req.getSession();
+		Connection conn = (Connection) session.getAttribute("connect");
+		SanPhamDao sanphamdao = new SanPhamDao(conn);
+		
+		SanPhamModel sanphammodel = sanphamdao.getLinhKienbyMaLinhKien(malinhkien);
+		
+		req.setAttribute("listlinhkien", sanphammodel);
+		RequestDispatcher rq = req.getRequestDispatcher("/views/admin/product/edit-product.jsp");
 		rq.forward(req, resp);
 	}
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		
 		resp.setContentType("text/html");
 		resp.setCharacterEncoding("UTF-8");
 		req.setCharacterEncoding("UTF-8");
@@ -46,13 +59,13 @@ public class SanPhamAddController extends HttpServlet {
 		SanPhamModel sanphammodel = new SanPhamModel(malinhkien,tenlinhkien,Integer.parseInt(soluong),Integer.parseInt(dongia),mota,linkanh,maloai,mansx);
 	
 		String alert = "";
-		if (sanphamdao.insert(sanphammodel)==1) {
+		if (sanphamdao.update(sanphammodel)==1) {
 			resp.sendRedirect(req.getContextPath()+"/admin/sanpham");
 		}
 		else {
 			alert="Thất bại";
 			req.setAttribute("alertmess", alert);
-			req.getRequestDispatcher("/views/admin/product/add-product.jsp").forward(req, resp);
-		} 
+			req.getRequestDispatcher("/views/admin/product/edit-product.jsp").forward(req, resp);
+		}
 	}
 }

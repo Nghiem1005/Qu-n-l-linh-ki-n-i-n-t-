@@ -1,6 +1,7 @@
 package DBMS.controller.web;
 
 import java.io.IOException;
+import java.sql.Connection;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
@@ -9,6 +10,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import DBMS.dao.LoaiDao;
 import DBMS.dao.SanPhamDao;
@@ -18,8 +20,6 @@ import DBMS.model.SanPhamModel;
 @SuppressWarnings("serial")
 @WebServlet(urlPatterns = {"/sanpham"})
 public class SanPhamController extends HttpServlet{
-	SanPhamDao spdao = new SanPhamDao();
-	LoaiDao loaidao = new LoaiDao();
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -28,7 +28,13 @@ public class SanPhamController extends HttpServlet{
 		resp.setCharacterEncoding("UTF-8");
 		req.setCharacterEncoding("UTF-8");
 		
+		HttpSession session  = req.getSession();
+		Connection conn = (Connection) session.getAttribute("connect");
+		LoaiDao loaidao = new LoaiDao(conn);
+		SanPhamDao spdao = new SanPhamDao(conn);
+		
 		String indexPage = req.getParameter("index");
+		String cid = req.getParameter("cid");
 		if (indexPage == null) {
 			indexPage = "1";
 		}
@@ -36,7 +42,12 @@ public class SanPhamController extends HttpServlet{
 		
 		int amount = 0;
 		
-		amount = spdao.CountAll();
+		if (cid.equals("0")) {
+			amount = spdao.CountAll();
+		} else {
+			amount = spdao.CountAllByCid(cid);
+		}
+		
 		
 		int endPage = amount/9;
 		if (amount % 9 != 0) {
@@ -44,13 +55,21 @@ public class SanPhamController extends HttpServlet{
 		}
 		
 		List<SanPhamModel> listsp = spdao.getPagingSanPham(index);
+		
+		List<SanPhamModel> listspbycid = spdao.getPagingProductByCid(cid, index);
+		
+		if(cid.equals("0")) {
 			
-		/*List<SanPhamModel> listsp = spdao.getAllLinhKien();*/
+			req.setAttribute("listallproduct", listsp);
+		} else {
+			
+			req.setAttribute("listallproduct", listspbycid);
+		}
 		
-		req.setAttribute("listsp", listsp);
-		
-		req.setAttribute("endP", endPage);
+	
 		req.setAttribute("tag", index);
+		
+		req.setAttribute("targetactive", cid);
 		
 		List<LoaiModel> listloai = loaidao.getAllLoai();
 		
